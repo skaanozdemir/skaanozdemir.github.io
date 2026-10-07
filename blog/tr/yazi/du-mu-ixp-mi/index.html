@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Document Understanding mı, IXP mi? Belge tipine göre bir karar tablosu — Kaan Özdemir</title>
+<meta name="description" content="UiPath’in iki belge zekâsı yolu arasında seçim yaparken belge tipinden, üretken yapay zekâ politikasından ve kurulum modelinden başlayan pratik bir rehber. Dayanağı UiPath dokümantasyonu.">
+<link rel="canonical" href="https://skaanozdemir.github.io/blog/tr/yazi/du-mu-ixp-mi/">
+<link rel="alternate" hreflang="tr" href="https://skaanozdemir.github.io/blog/tr/yazi/du-mu-ixp-mi/"><link rel="alternate" hreflang="en" href="https://skaanozdemir.github.io/blog/en/post/du-mu-ixp-mi/"><link rel="alternate" hreflang="x-default" href="https://skaanozdemir.github.io/blog/tr/yazi/du-mu-ixp-mi/">
+<link rel="alternate" type="application/rss+xml" title="Kaan Özdemir (TR)" href="../../feed.xml">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kaan Özdemir">
+<meta property="og:title" content="Document Understanding mı, IXP mi? Belge tipine göre bir karar tablosu — Kaan Özdemir">
+<meta property="og:description" content="UiPath’in iki belge zekâsı yolu arasında seçim yaparken belge tipinden, üretken yapay zekâ politikasından ve kurulum modelinden başlayan pratik bir rehber. Dayanağı UiPath dokümantasyonu.">
+<meta property="og:url" content="https://skaanozdemir.github.io/blog/tr/yazi/du-mu-ixp-mi/">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:image" content="https://skaanozdemir.github.io/blog/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="S. Kaan Özdemir">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-SxQF8VQ9/nXLc4QrFOgMX9luAq+Nk5Cdl6opXW7LR+Q='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<link rel="preload" href="../../../assets/fonts/fraunces-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../../../assets/fonts/plex-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/blog.css?v=a078a93e2e">
+<script>try{var t=localStorage.getItem('ko-blog-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Document Understanding mı, IXP mi? Belge tipine göre bir karar tablosu","description":"UiPath’in iki belge zekâsı yolu arasında seçim yaparken belge tipinden, üretken yapay zekâ politikasından ve kurulum modelinden başlayan pratik bir rehber. Dayanağı UiPath dokümantasyonu.","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"tr","mainEntityOfPage":"https://skaanozdemir.github.io/blog/tr/yazi/du-mu-ixp-mi/","url":"https://skaanozdemir.github.io/blog/tr/yazi/du-mu-ixp-mi/","author":{"@type":"Person","name":"S. Kaan Özdemir","alternateName":"Servet Kaan Özdemir","jobTitle":"Yönetici Ortak ve Otomasyon & Yapay Zekâ Çözümleri Direktörü","url":"https://www.linkedin.com/in/servetkaanozdemir/","sameAs":["https://www.linkedin.com/in/servetkaanozdemir/"],"worksFor":{"@type":"Organization","name":"BOTTEQ Consulting"}},"keywords":"ixp, document-understanding, uipath, idp, karar-rehberi","articleSection":"Belge zekâsı","citation":["https://docs.uipath.com/ixp/automation-cloud/latest/overview/faq-capabilities-and-vision","https://docs.uipath.com/ixp/automation-cloud/latest/overview/capability-types","https://docs.uipath.com/document-understanding/automation-cloud/latest/user-guide/choosing-the-project-type","https://docs.uipath.com/ixp/automation-cloud/latest/release-notes/ucd-july-2026"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Yazılar","item":"https://skaanozdemir.github.io/blog/tr/yazilar/"},{"@type":"ListItem","position":2,"name":"Belge zekâsı","item":"https://skaanozdemir.github.io/blog/tr/konu/document-ai/"},{"@type":"ListItem","position":3,"name":"Document Understanding mı, IXP mi? Belge tipine göre bir karar tablosu","item":"https://skaanozdemir.github.io/blog/tr/yazi/du-mu-ixp-mi/"}]}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="mast">
+<div class="wrap">
+  <div class="mast__line">
+    <p class="mast__date">Son güncelleme 7 Ekim 2026 · İstanbul</p>
+    <div class="mast__tools">
+      <span class="lang"><a href="../../" hreflang="tr" lang="tr" data-lang-link="tr" aria-current="true">TR</a><a href="../../../en/post/du-mu-ixp-mi/" hreflang="en" lang="en" data-lang-link="en">EN</a></span>
+      <button class="tool" type="button" data-theme-toggle aria-label="Açık veya koyu temayı değiştir"><svg class="icon tool__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon tool__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <button class="tool" type="button" data-search-open aria-label="Ara"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+  </div>
+  <a class="mast__name" href="../../" aria-label="Kaan Özdemir">Kaan Özdemir</a>
+  <p class="mast__tag">Otomasyon, yapay zekâ ve operasyon üzerine notlar</p>
+  <nav class="mast__nav" aria-label="Ana gezinme">
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mast-links"><span>Menü</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="mast__links" id="mast-links"><li><a href="../../yazilar/" aria-current="page">Yazılar</a></li><li><a href="../../radar/">Radar</a></li><li><a href="../../senaryolar/">Senaryolar</a></li><li><a href="../../hakkinda/">Hakkında</a></li></ul>
+  </nav>
+  <hr class="rule-double" aria-hidden="true">
+</div>
+</header>
+<main id="main">
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+<article class="article" data-article>
+  <header class="article__head">
+    <p class="article__crumb"><a href="../../yazilar/">Yazılar</a> / <a href="../../konu/document-ai/">Belge zekâsı</a></p>
+    <h1 class="article__title">Document Understanding mı, IXP mi? Belge tipine göre bir karar tablosu</h1>
+    <p class="article__lede">UiPath’in iki belge zekâsı yolu arasında seçim yaparken belge tipinden, üretken yapay zekâ politikasından ve kurulum modelinden başlayan pratik bir rehber. Dayanağı UiPath dokümantasyonu.</p>
+    <div class="article__meta"><p class="meta"><span class="meta__kind">Rehber</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Belge zekâsı</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">7 Ekim 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">3 dk okuma</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><a href="../../../en/post/du-mu-ixp-mi/" hreflang="en" lang="en" data-lang-link="en">Read in English</a></span></p></div>
+  </header>
+  
+  <div class="article__grid">
+    <div class="prose"><p>UiPath’in belge tarafında artık iki yol var ve seçim çoğu zaman yanlış yerden başlıyor: “hangisi daha yeni?” sorusundan. Daha iyi başlangıç noktası belgenin kendisi. Ardından iki soru geliyor: kurumunuz üretken yapay zekâya ne kadar izin veriyor ve sistem nerede çalışacak?</p>
+<p>BOTTEQ’te belge işleme hatlarını Document Understanding ve Base64.ai’nin OCR/ICR motorlarını birleştirerek kuruyoruz. Aşağıdaki tablonun dayanağı ise UiPath’in kendi dokümantasyonu. Kaynaklar yazının sonunda. Yorumlar ise bana ait.</p>
+<h2 id="iki-yolun-kisa-tarifi">İki yolun kısa tarifi</h2>
+<p><strong>Document Understanding (DU)</strong>, yapılandırılmış ve yarı yapılandırılmış belgeler için: formlar, satın alma siparişleri, başvurular, faturalar. Düzeni aynı ya da birbirine çok yakın olan belgelerde önceden eğitilmiş makine öğrenmesi modelleriyle çalışıyor. Üretken yapay zekâ özellikleri kurumun AI Trust Layer politikalarıyla yönetilebiliyor. DU ayrı bir servis olarak devam ediyor ve Automation Suite ile Standalone kurulumlarda da sunuluyor.</p>
+<p><strong>IXP</strong>, UiPath’in DU ile Communications Mining’i bir araya getirdiği ve yanına istem (prompt) tabanlı yeni bir yetenek eklediği çatı: yapılandırılmamış ve karmaşık belgeler için üretken çıkarım. Bu yetenek faaliyet raporları, sözleşmeler, kira sözleşmeleri gibi belgeler için tarif ediliyor. Karmaşık tablolar, grafikler, onay kutuları, imza ve el yazısı içeren, değerin bağlamdan çıkarılması ya da bölümler arasında birleştirilmesi gereken durumlar bu yolun alanı. Burada üretken yapay zekâ zorunlu.</p>
+<h2 id="karar-tablosu">Karar tablosu</h2>
+<div class="tablewrap" tabindex="0" role="region" aria-label="table"><table><thead><tr><th scope="col">Durum</th><th scope="col">Önerim</th><th scope="col">Dayanak</th></tr></thead><tbody><tr><td>Form, sipariş, başvuru, fatura gibi düzeni büyük ölçüde sabit belgeler</td><td>Document Understanding</td><td>UiPath bu türleri DU’nun alanı olarak tanımlıyor</td></tr><tr><td>Sözleşme, kira sözleşmesi, faaliyet raporu; değer bağlamdan çıkarılıyor</td><td>IXP, üretken çıkarım</td><td>Karmaşık yapı, bağlamsal çıkarım ve bölümler arası birleştirme bu yolun tarif edilen alanı</td></tr><tr><td>E-posta, iş akışı talebi, kısa mesaj</td><td>IXP, Communications Mining</td><td>Kısa ve serbest metinli iletişim için</td></tr><tr><td>Kurum üretken yapay zekâyı kısıtlıyor</td><td>Document Understanding</td><td>Üretken özellikler bu yolda yönetilebilir; IXP’nin üretken çıkarımında zorunlu</td></tr><tr><td>Belge kurum dışına çıkamaz</td><td>Document Understanding</td><td>DU, Automation Suite ve Standalone kurulumlarda sürüyor; IXP için kendi ortamınızda kullanılabilirliği doğrulayın</td></tr><tr><td>Çok sayfalı dosyalar</td><td>Önce sayfa sınırlarına bakın</td><td>Üretken çıkarım için belgelenen sınır 50 sayfa, 150 sayfaya kadar önizleme; DU aktiviteleriyle 500 sayfaya kadar</td></tr></tbody></table></div>
+<h2 id="tabloya-sigmayan-uc-soru">Tabloya sığmayan üç soru</h2>
+<p><strong>Karışık belge yığınları.</strong> Kredi başvurusu dosyası gibi, kimlik, adres belgesi ve banka dökümünün tek dosyada geldiği durumlarda asıl iş çıkarımdan önce başlar: belgeleri ayırmak ve türlerini belirlemek. Hangi yolu seçerseniz seçin, bu ayırma işinin nerede ve nasıl yapılacağını pilotta netleştirin. Burada kural, model ve insan arasındaki iş bölümü çıkarımdan daha belirleyici olabiliyor.</p>
+<p><strong>Proje tipi.</strong> DU’nun kendi içinde de seçim var. Modern projeler daha hızlı ve rehberli bir model geliştirme deneyimi sunuyor. Classic projeler model ve veri setini dışa aktarmaya ve kiracılar arası kullanıma izin veriyor, yalnız Automation Cloud’da çalışıyor. AI Center tabanlı projeler en fazla kontrolü veriyor ve Standalone kurulumları da destekliyor, ama Cloud API desteği yok. Yerinde kurulum şartı varsa bu ayrım tek başına seçimi belirleyebilir.</p>
+<p><strong>Maliyet birimi.</strong> Temmuz 2026’dan bu yana IXP’de yapılandırılmamış ve karmaşık belgelerden çıkarım sayfa başına sabit ücretle değil, işlem başına ölçülüyor. IXP ve DU lisansları da ek sayfa maliyeti olmadan birlikte kullanılabiliyor. Sayfa sayısıyla kurulmuş eski bir iş vakası varsa, onu gerçek bir belge örneğiyle yeniden hesaplamak gerekir.</p>
+<h2 id="ixp-ye-gecerken-iki-tuzak">IXP’ye geçerken iki tuzak</h2>
+<p><strong>Onayladığınız etiket “doğru” sayılır.</strong> IXP’de modelin başarı skoru, sizin onayladığınız etiketlere göre hesaplanır. Etiketleme sırasında yanlış bir değeri onaylarsanız o değer referans olur ve skor yükselir. Yüksek bir skor, değerlerin gerçekten doğru olduğunu kanıtlamaz. Etiketlemeye kabul testi ciddiyetiyle yaklaşın.</p>
+<p><strong>Biçim farkını hata sanmayın.</strong> Tarih ve parasal tutar gibi hazır veri tipleri değeri normalize edilmiş biçimde döndürür. Sayfadaki “21-JUN-22” ile modelin döndüğü ISO tarih aynı değeri gösteriyorsa bu bir hata değil. Asıl dikkat etmeniz gereken, değerin anlamının değiştiği durumlar: ondalık ayırıcının yanlış okunması gibi.</p>
+<h2 id="benim-varsayilanim">Benim varsayılanım</h2>
+<p>Belge setinin çoğu fatura, form ya da sipariş gibi düzeni belli belgelerse Document Understanding ile başlarım. Doğrulamada en çok zaman alan, düzeni dağınık ya da değeri bağlamdan çıkan belgeleri ayrı bir kuyruğa toplarım ve IXP’yi önce o kuyrukta denerim. İki yol aynı hatta birlikte çalışabilir. Seçimi tek seferlik bir platform kararı gibi görmek yerine, belge tipi başına verilen bir karar olarak ele almak bence daha sağlıklı.</p></div>
+    <aside class="rail"><nav class="toc" aria-label="Bu yazıda"><p class="rail__title">Bu yazıda</p><ol><li><a href="#iki-yolun-kisa-tarifi">İki yolun kısa tarifi</a></li><li><a href="#karar-tablosu">Karar tablosu</a></li><li><a href="#tabloya-sigmayan-uc-soru">Tabloya sığmayan üç soru</a></li><li><a href="#ixp-ye-gecerken-iki-tuzak">IXP&#x27;ye geçerken iki tuzak</a></li><li><a href="#benim-varsayilanim">Benim varsayılanım</a></li></ol></nav><div class="share"><p class="rail__title">Paylaş</p>
+<button type="button" data-copy-link="https://skaanozdemir.github.io/blog/tr/yazi/du-mu-ixp-mi/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span data-label>Bağlantıyı kopyala</span></button>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Ftr%2Fyazi%2Fdu-mu-ixp-mi%2F" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg><span>LinkedIn&#x27;de paylaş</span></a>
+<a href="mailto:?subject=Document%20Understanding%20m%C4%B1%2C%20IXP%20mi%3F%20Belge%20tipine%20g%C3%B6re%20bir%20karar%20tablosu&amp;body=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Ftr%2Fyazi%2Fdu-mu-ixp-mi%2F"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>E-posta ile gönder</span></a></div></aside>
+  </div>
+  <section class="sources" aria-labelledby="src-h"><h2 class="sources__title" id="src-h">Kaynaklar</h2><ol><li><div><a href="https://docs.uipath.com/ixp/automation-cloud/latest/overview/faq-capabilities-and-vision" target="_blank" rel="noopener noreferrer">IXP — Capabilities and vision</a><br><span class="sources__pub">UiPath Documentation · Erişim 7 Ekim 2026</span></div></li><li><div><a href="https://docs.uipath.com/ixp/automation-cloud/latest/overview/capability-types" target="_blank" rel="noopener noreferrer">IXP — Capability types</a><br><span class="sources__pub">UiPath Documentation · Erişim 7 Ekim 2026</span></div></li><li><div><a href="https://docs.uipath.com/document-understanding/automation-cloud/latest/user-guide/choosing-the-project-type" target="_blank" rel="noopener noreferrer">Document Understanding — Choosing the project type</a><br><span class="sources__pub">UiPath Documentation · Erişim 7 Ekim 2026</span></div></li><li><div><a href="https://docs.uipath.com/ixp/automation-cloud/latest/release-notes/ucd-july-2026" target="_blank" rel="noopener noreferrer">IXP Release notes — Unstructured and Complex Documents, July 2026</a><br><span class="sources__pub">UiPath Documentation, 8 Temmuz 2026 · Erişim 7 Ekim 2026</span></div></li></ol></section>
+  <p class="note">Araştırma ve ilk taslak yapay zekâ destekli araçlarla hazırlanır; metni yayımdan önce ben okur, kaynakları kontrol eder ve sorumluluğunu üstlenirim. Bir hata görürseniz yazın, düzelteyim.</p>
+  <section class="related" aria-labelledby="rel-h"><h2 class="section__title" id="rel-h">Aynı konuda</h2><ul class="list"><li class="list__item"><a href="../havayolu-belge-isleme/"><p class="meta"><span class="meta__kind">Kullanım senaryosu</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Belge zekâsı</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">7 Ekim 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">4 dk okuma</span></span></p><span class="list__title">Faturayı okumak başka, anlamak başka: bir havayolunda yerinde belge işleme</span></a></li></ul></section>
+  <nav class="pager" aria-label="Önceki yazı / Sonraki yazı"><a class="pager__prev" href="../ajana-yetki-vermeden-once/"><span class="pager__dir">Önceki yazı</span><span class="pager__title">Bir ajana karar yetkisi vermeden önce yedi soru</span></a><a class="pager__next" href="../havayolu-belge-isleme/"><span class="pager__dir">Sonraki yazı</span><span class="pager__title">Faturayı okumak başka, anlamak başka: bir havayolunda yerinde belge işleme</span></a></nav>
+</article>
+</main>
+<footer class="foot">
+<div class="wrap">
+  <div class="foot__row">
+    <div>
+      <p class="foot__name">Kaan Özdemir</p>
+      <p class="foot__tag">Otomasyon, belge zekâsı ve ajan tabanlı yapay zekâ üzerine; kaynaklı, abartısız.</p>
+    </div>
+    <ul class="foot__links">
+      <li><a href="../../feed.xml">RSS</a></li>
+      <li><a href="https://www.linkedin.com/in/servetkaanozdemir/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="../../../../index.html">Portföy</a></li>
+      <li><a href="mailto:kaan.ozdemir@botteq.com.tr">E-posta</a></li>
+      <li><a href="../../hakkinda/">Hakkında</a></li>
+    </ul>
+  </div>
+  <p class="foot__legal">© 2026 S. Kaan Özdemir. Görüşler kişiseldir; BOTTEQ Consulting&#x27;in veya müşterilerinin resmî görüşü değildir. Müşteri bilgileri anonimleştirilir.</p>
+</div>
+</footer>
+<dialog class="search" id="search" aria-label="Ara" data-index="../../../search-tr.json" data-base="../../../">
+  <div class="search__bar">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="search__input" type="search" placeholder="Yazılarda ara" aria-label="Yazılarda ara" autocomplete="off" spellcheck="false">
+    <button class="search__close" type="button" aria-label="Kapat"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <ul class="search__results"><li class="search__hint">Başlık, konu veya etiket yazın.</li></ul>
+</dialog>
+<script src="../../../assets/blog.js?v=a078a93e2e" defer></script>
+</body>
+</html>

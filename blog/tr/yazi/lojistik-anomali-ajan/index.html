@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lojistikte anomali yakalamak: kural, model ve insan aynı akışta — Kaan Özdemir</title>
+<meta name="description" content="UiPath Maestro ve ajanlarla kurduğumuz lojistik anomali tespiti. Kural tabanlı kontroller, dil modeliyle sınıflandırma ve operasyon ekibine otomatik bildirim; bir de bu iş bölümünün mantığı.">
+<link rel="canonical" href="https://skaanozdemir.github.io/blog/tr/yazi/lojistik-anomali-ajan/">
+<link rel="alternate" hreflang="tr" href="https://skaanozdemir.github.io/blog/tr/yazi/lojistik-anomali-ajan/"><link rel="alternate" hreflang="en" href="https://skaanozdemir.github.io/blog/en/post/lojistik-anomali-ajan/"><link rel="alternate" hreflang="x-default" href="https://skaanozdemir.github.io/blog/tr/yazi/lojistik-anomali-ajan/">
+<link rel="alternate" type="application/rss+xml" title="Kaan Özdemir (TR)" href="../../feed.xml">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kaan Özdemir">
+<meta property="og:title" content="Lojistikte anomali yakalamak: kural, model ve insan aynı akışta — Kaan Özdemir">
+<meta property="og:description" content="UiPath Maestro ve ajanlarla kurduğumuz lojistik anomali tespiti. Kural tabanlı kontroller, dil modeliyle sınıflandırma ve operasyon ekibine otomatik bildirim; bir de bu iş bölümünün mantığı.">
+<meta property="og:url" content="https://skaanozdemir.github.io/blog/tr/yazi/lojistik-anomali-ajan/">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:image" content="https://skaanozdemir.github.io/blog/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="S. Kaan Özdemir">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-SxQF8VQ9/nXLc4QrFOgMX9luAq+Nk5Cdl6opXW7LR+Q='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<link rel="preload" href="../../../assets/fonts/fraunces-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../../../assets/fonts/plex-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/blog.css?v=a078a93e2e">
+<script>try{var t=localStorage.getItem('ko-blog-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Lojistikte anomali yakalamak: kural, model ve insan aynı akışta","description":"UiPath Maestro ve ajanlarla kurduğumuz lojistik anomali tespiti. Kural tabanlı kontroller, dil modeliyle sınıflandırma ve operasyon ekibine otomatik bildirim; bir de bu iş bölümünün mantığı.","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"tr","mainEntityOfPage":"https://skaanozdemir.github.io/blog/tr/yazi/lojistik-anomali-ajan/","url":"https://skaanozdemir.github.io/blog/tr/yazi/lojistik-anomali-ajan/","author":{"@type":"Person","name":"S. Kaan Özdemir","alternateName":"Servet Kaan Özdemir","jobTitle":"Yönetici Ortak ve Otomasyon & Yapay Zekâ Çözümleri Direktörü","url":"https://www.linkedin.com/in/servetkaanozdemir/","sameAs":["https://www.linkedin.com/in/servetkaanozdemir/"],"worksFor":{"@type":"Organization","name":"BOTTEQ Consulting"}},"keywords":"maestro, ajan, anomali, lojistik, llm","articleSection":"Ajan tabanlı yapay zekâ","citation":["https://www.uipath.com/blog/product-and-updates/biggest-product-announcements-fusion-2026"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Yazılar","item":"https://skaanozdemir.github.io/blog/tr/yazilar/"},{"@type":"ListItem","position":2,"name":"Ajan tabanlı yapay zekâ","item":"https://skaanozdemir.github.io/blog/tr/konu/agentic-ai/"},{"@type":"ListItem","position":3,"name":"Lojistikte anomali yakalamak: kural, model ve insan aynı akışta","item":"https://skaanozdemir.github.io/blog/tr/yazi/lojistik-anomali-ajan/"}]}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="mast">
+<div class="wrap">
+  <div class="mast__line">
+    <p class="mast__date">Son güncelleme 7 Ekim 2026 · İstanbul</p>
+    <div class="mast__tools">
+      <span class="lang"><a href="../../" hreflang="tr" lang="tr" data-lang-link="tr" aria-current="true">TR</a><a href="../../../en/post/lojistik-anomali-ajan/" hreflang="en" lang="en" data-lang-link="en">EN</a></span>
+      <button class="tool" type="button" data-theme-toggle aria-label="Açık veya koyu temayı değiştir"><svg class="icon tool__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon tool__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <button class="tool" type="button" data-search-open aria-label="Ara"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+  </div>
+  <a class="mast__name" href="../../" aria-label="Kaan Özdemir">Kaan Özdemir</a>
+  <p class="mast__tag">Otomasyon, yapay zekâ ve operasyon üzerine notlar</p>
+  <nav class="mast__nav" aria-label="Ana gezinme">
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mast-links"><span>Menü</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="mast__links" id="mast-links"><li><a href="../../yazilar/">Yazılar</a></li><li><a href="../../radar/">Radar</a></li><li><a href="../../senaryolar/" aria-current="page">Senaryolar</a></li><li><a href="../../hakkinda/">Hakkında</a></li></ul>
+  </nav>
+  <hr class="rule-double" aria-hidden="true">
+</div>
+</header>
+<main id="main">
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+<article class="article" data-article>
+  <header class="article__head">
+    <p class="article__crumb"><a href="../../yazilar/">Yazılar</a> / <a href="../../konu/agentic-ai/">Ajan tabanlı yapay zekâ</a></p>
+    <h1 class="article__title">Lojistikte anomali yakalamak: kural, model ve insan aynı akışta</h1>
+    <p class="article__lede">UiPath Maestro ve ajanlarla kurduğumuz lojistik anomali tespiti. Kural tabanlı kontroller, dil modeliyle sınıflandırma ve operasyon ekibine otomatik bildirim; bir de bu iş bölümünün mantığı.</p>
+    <div class="article__meta"><p class="meta"><span class="meta__kind">Kullanım senaryosu</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Ajan tabanlı yapay zekâ</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">7 Ekim 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">3 dk okuma</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><a href="../../../en/post/lojistik-anomali-ajan/" hreflang="en" lang="en" data-lang-link="en">Read in English</a></span></p></div>
+  </header>
+  
+  <div class="article__grid">
+    <div class="prose"><p>Lojistik verisinde anomali aramak, bir dil modeline “bu kayıtlarda tuhaf bir şey var mı?” diye sormak için çok cazip bir alan. Kayıtlar dağınık, açıklama alanları serbest metin, istisnalar sürekli değişiyor. Yine de bu soruyu doğrudan modele sorarsanız iki şeyi kaybedersiniz: tutarlılığı ve maliyet kontrolünü.</p>
+<p>UiPath Maestro ve ajanlarla kurduğumuz lojistik anomali akışı işi üçe bölüyor: kural tabanlı RPA kontrolleri, dil modeliyle sınıflandırma ve operasyon paydaşlarına otomatik istisna bildirimi. Bu yazıda bu iş bölümünün mantığını anlatıyorum.</p>
+<section class="walk" data-walk data-steps="6" aria-labelledby="walk1-t">
+<p class="walk__title" id="walk1-t">Bir sevkiyat kaydının akıştaki yolu</p>
+<p class="walk__lead">Kural, sınıflandırma ve bildirim teslim ettiğimiz akışın omurgası. Adımlardaki ayrıntılar ve insan inceleme kapısı ise benim bu tür akışlar için önerdiğim tasarım.</p>
+<ol class="walk__steps"><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">01</span><span class="walk__label">Veri çekme</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">02</span><span class="walk__label">Kural kontrolleri</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">03</span><span class="walk__label">Sınıflandırma</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">04</span><span class="walk__label">Yönlendirme</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">05</span><span class="walk__label">İnsan incelemesi</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">06</span><span class="walk__label">Bildirim ve iz</span></button></li></ol>
+<div class="walk__panel" id="walk1-panel" aria-live="polite"><div class="walk__detail"><p class="walk__kind" data-kind="system">Sistem</p><p class="walk__name">Veri çekme</p><p class="walk__text">Sevkiyat kayıtları belirli aralıklarla kaynak sistemlerden alınır ve tek bir biçime getirilir. Sonraki adımların hepsi bu ortak biçimle çalışır.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="rule">Kural</p><p class="walk__name">Kural kontrolleri</p><p class="walk__text">Belirlenimci kontroller önce çalışır: eksik alan, eşik aşımı, mükerrer kayıt gibi. Kuralın kesin söyleyebildiği bir şeyi modele sormanın anlamı yok.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="ai">Model</p><p class="walk__name">Sınıflandırma</p><p class="walk__text">Kuralın işaretlediği kayıtlar, açıklama ve not alanlarıyla birlikte bir dil modeline gider. Model anomalinin türünü ve kısa bir gerekçeyi önceden tanımlı bir şemaya göre döner.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="rule">Kural</p><p class="walk__name">Yönlendirme</p><p class="walk__text">Türe ve modelin güvenine göre yol ayrılır. Açık durumlar doğrudan bildirime, belirsiz olanlar insan incelemesine gider.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="human">İnsan</p><p class="walk__name">İnsan incelemesi</p><p class="walk__text">Belirsiz durumlarda kararı operasyon sorumlusu verir ve kararı gerekçesiyle kaydeder. Bu kayıtlar, modelin hangi türde zorlandığını gösteren en iyi veridir.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="system">Sistem</p><p class="walk__name">Bildirim ve iz</p><p class="walk__text">İlgili paydaşa otomatik bildirim gider; kayıt, karar ve gerekçe denetim izine yazılır. Aynı anomali için, durum değişmedikçe ikinci mesaj gitmemeli.</p></div></div>
+<div class="walk__controls">
+  <button type="button" class="walk__btn" data-walk-prev><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" x2="5" y1="19" y2="5"/></svg><span>Önceki</span></button>
+  <button type="button" class="walk__btn" data-walk-play aria-pressed="false"><span class="i-play"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"/></svg></span><span class="i-pause" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></svg></span><span data-label>Oynat</span></button>
+  <button type="button" class="walk__btn" data-walk-next><span>Sonraki</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" x2="19" y1="5" y2="19"/></svg></button>
+  <span class="walk__count num" aria-hidden="true">1 / 6</span>
+</div>
+</section>
+<h2 id="kuralin-kesin-bildigini-modele-sormayin">Kuralın kesin bildiğini modele sormayın</h2>
+<p>Bir sevkiyat kaydında zorunlu alan boşsa, bunu söylemek için dil modeline gerek yok. Tanımlı bir eşik aşıldıysa ya da aynı kayıt iki kez geldiyse de öyle. Bu kontroller ucuzdur, her seferinde aynı sonucu verir ve denetimde açıklaması kolaydır.</p>
+<p>Modeli, kuralın tek başına karar veremediği yerde devreye sokmak gerekir. Bence en net örnek serbest metin. Bir operasyon notunda geçen gecikmenin nedeni, açıklama alanında yazan bir ifade ya da iki alan arasındaki tutarsızlığın anlamı gibi şeyleri kural yazarak yakalamak zordur ve her yeni durumda kural sayısı artar. Sınıflandırma burada işe yarar.</p>
+<p>Bu sıralamanın bir yan faydası da var: model yalnızca kuralın işaretlediği kayıtları görür. Böylece maliyet, toplam kayıt sayısıyla değil, şüpheli kayıt sayısıyla büyür.</p>
+<h2 id="modelden-serbest-yazi-degil-form-isteyin">Modelden serbest yazı değil, form isteyin</h2>
+<p>Sınıflandırma adımında modelin çıktısını önceden tanımlı bir şemaya bağlamak, akışın geri kalanının sağlam çalışması için şart. Anomali türü sabit bir listeden seçilmeli, gerekçe kısa tutulmalı, model emin değilse bunu söyleyebileceği bir alan olmalı. Serbest metin dönen bir model, akışın sonraki adımlarını tahmin yürütmeye zorlar.</p>
+<p>Türler listesini operasyon ekibiyle birlikte yazmak da işin parçası. Listede olmayan bir tür ortaya çıktığında modelin bunu “diğer” diye işaretlemesi, yanlış bir türe zorla yerleştirmesinden iyidir.</p>
+<h2 id="bildirim-de-bir-tasarim-isi">Bildirim de bir tasarım işi</h2>
+<p>Otomatik bildirim, akışın en az konuşulan ama en çok şikâyet alan parçası olabilir. Herkes her şeyi alırsa kısa sürede kimse hiçbir şeyi okumaz. Benim bildirim tasarımında baktığım üç şey var:</p>
+<ul><li>Kim alıyor? Anomali türüne göre ilgili ekip ya da kişi.</li><li>Ne görüyor? Kayıt, anomali türü ve tek cümlelik gerekçe. Okuyanın sisteme girip aramasına gerek kalmamalı.</li><li>Ne zaman tekrar alıyor? Aynı anomali için ikinci bildirim gitmemeli, durum değişmedikçe.</li></ul>
+<h2 id="maestro-nun-yeri">Maestro’nun yeri</h2>
+<p>Bu akışta orkestrasyonun işi, adımları doğru sırayla çalıştırmak ve bir kaydın hangi aşamada beklediğini görünür kılmak. Kural, model ve insan adımları farklı hızlarda ilerler: kural milisaniyeler içinde biter, insan incelemesi saatler sürebilir. UiPath’in FUSION 2026’da Maestro’yu uzun soluklu süreçler için Orchestrate ve yüksek hacimli kısa işler için Automate diye ikiye ayırması bu farkı ürün düzeyinde tanıyor. Konuyu <a href="../radar-2026-w41/">ilk radarda</a> biraz daha açtım.</p>
+<h2 id="insan-kapisini-bastan-koyun">İnsan kapısını baştan koyun</h2>
+<p>Teslim ettiğimiz akışın çekirdeği kural, sınıflandırma ve bildirimden oluşuyor. Benzer bir akışı yeniden kursam, modelin emin olmadığı durumlar için en baştan bir insan inceleme adımı koyardım. Gerekçem basit: bu kayıtlar modelin hangi anomali türünde zorlandığını gösteren en değerli veri. İnsan kararı gerekçesiyle kaydedildiğinde, bir sonraki iyileştirmenin nereden başlayacağı da belli olur.</p>
+<h2 id="genisletmeden-once-olcun">Genişletmeden önce ölçün</h2>
+<p>Bir anomali akışını yeni bir bölgeye ya da yeni bir veri kaynağına yaymadan önce üç şeyi ölçerdim:</p>
+<ol><li>Etiketli küçük bir örnek setinde sınıflandırmanın doğruluğu. Bunu kabul testine yazın.</li><li>Yanlış alarm oranı. Operasyon ekibinin güveni ilk haftalarda kazanılır ya da kaybedilir.</li><li>Kayıt başına maliyet. Model çağrıları hacimle birlikte büyür, kural kontrolleri büyümez.</li></ol>
+<p>Üçü de ölçülmüyorsa elinizde umut verici bir demo var; o kadar.</p></div>
+    <aside class="rail"><nav class="toc" aria-label="Bu yazıda"><p class="rail__title">Bu yazıda</p><ol><li><a href="#kuralin-kesin-bildigini-modele-sormayin">Kuralın kesin bildiğini modele sormayın</a></li><li><a href="#modelden-serbest-yazi-degil-form-isteyin">Modelden serbest yazı değil, form isteyin</a></li><li><a href="#bildirim-de-bir-tasarim-isi">Bildirim de bir tasarım işi</a></li><li><a href="#maestro-nun-yeri">Maestro&#x27;nun yeri</a></li><li><a href="#insan-kapisini-bastan-koyun">İnsan kapısını baştan koyun</a></li><li><a href="#genisletmeden-once-olcun">Genişletmeden önce ölçün</a></li></ol></nav><div class="share"><p class="rail__title">Paylaş</p>
+<button type="button" data-copy-link="https://skaanozdemir.github.io/blog/tr/yazi/lojistik-anomali-ajan/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span data-label>Bağlantıyı kopyala</span></button>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Ftr%2Fyazi%2Flojistik-anomali-ajan%2F" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg><span>LinkedIn&#x27;de paylaş</span></a>
+<a href="mailto:?subject=Lojistikte%20anomali%20yakalamak%3A%20kural%2C%20model%20ve%20insan%20ayn%C4%B1%20ak%C4%B1%C5%9Fta&amp;body=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Ftr%2Fyazi%2Flojistik-anomali-ajan%2F"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>E-posta ile gönder</span></a></div></aside>
+  </div>
+  <section class="sources" aria-labelledby="src-h"><h2 class="sources__title" id="src-h">Kaynaklar</h2><ol><li><div><a href="https://www.uipath.com/blog/product-and-updates/biggest-product-announcements-fusion-2026" target="_blank" rel="noopener noreferrer">The biggest product announcements from UiPath FUSION 2026</a><br><span class="sources__pub">UiPath, 23 Eylül 2026 · Erişim 7 Ekim 2026</span></div></li></ol></section>
+  <p class="note">Araştırma ve ilk taslak yapay zekâ destekli araçlarla hazırlanır; metni yayımdan önce ben okur, kaynakları kontrol eder ve sorumluluğunu üstlenirim. Bir hata görürseniz yazın, düzelteyim.</p>
+  <section class="related" aria-labelledby="rel-h"><h2 class="section__title" id="rel-h">Aynı konuda</h2><ul class="list"><li class="list__item"><a href="../radar-2026-w41/"><p class="meta"><span class="meta__kind">Haftanın Radarı</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Ajan tabanlı yapay zekâ</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">7 Ekim 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">5 dk okuma</span></span></p><span class="list__title">Maestro ikiye ayrıldı, MCP durumsuzlaştı, e-Arşiv için son çeyrek</span></a></li></ul></section>
+  <nav class="pager" aria-label="Önceki yazı / Sonraki yazı"><a class="pager__prev" href="../havayolu-belge-isleme/"><span class="pager__dir">Önceki yazı</span><span class="pager__title">Faturayı okumak başka, anlamak başka: bir havayolunda yerinde belge işleme</span></a><a class="pager__next" href="../radar-2026-w41/"><span class="pager__dir">Sonraki yazı</span><span class="pager__title">Maestro ikiye ayrıldı, MCP durumsuzlaştı, e-Arşiv için son çeyrek</span></a></nav>
+</article>
+</main>
+<footer class="foot">
+<div class="wrap">
+  <div class="foot__row">
+    <div>
+      <p class="foot__name">Kaan Özdemir</p>
+      <p class="foot__tag">Otomasyon, belge zekâsı ve ajan tabanlı yapay zekâ üzerine; kaynaklı, abartısız.</p>
+    </div>
+    <ul class="foot__links">
+      <li><a href="../../feed.xml">RSS</a></li>
+      <li><a href="https://www.linkedin.com/in/servetkaanozdemir/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="../../../../index.html">Portföy</a></li>
+      <li><a href="mailto:kaan.ozdemir@botteq.com.tr">E-posta</a></li>
+      <li><a href="../../hakkinda/">Hakkında</a></li>
+    </ul>
+  </div>
+  <p class="foot__legal">© 2026 S. Kaan Özdemir. Görüşler kişiseldir; BOTTEQ Consulting&#x27;in veya müşterilerinin resmî görüşü değildir. Müşteri bilgileri anonimleştirilir.</p>
+</div>
+</footer>
+<dialog class="search" id="search" aria-label="Ara" data-index="../../../search-tr.json" data-base="../../../">
+  <div class="search__bar">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="search__input" type="search" placeholder="Yazılarda ara" aria-label="Yazılarda ara" autocomplete="off" spellcheck="false">
+    <button class="search__close" type="button" aria-label="Kapat"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <ul class="search__results"><li class="search__hint">Başlık, konu veya etiket yazın.</li></ul>
+</dialog>
+<script src="../../../assets/blog.js?v=a078a93e2e" defer></script>
+</body>
+</html>

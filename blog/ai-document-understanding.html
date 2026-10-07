@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Understanding: Where OCR Ends and AI Begins — S. Kaan Özdemir</title>
+  <meta name="description" content="A practical look at folding NLP and computer vision into RPA to handle the unstructured documents that break rule-based bots." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2338e1c4'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='%2307121b' text-anchor='middle'>K</text></svg>" />
+</head>
+<body data-lang="en">
+
+  <nav class="nav scrolled" id="nav">
+    <div class="wrap nav__inner">
+      <a href="../index.html#top" class="brand"><span class="brand__mark">KÖ</span><span>S. Kaan Özdemir</span></a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      <div class="nav__links" id="navLinks">
+        <a href="../index.html#about"><span data-en>About</span><span data-tr>Hakkımda</span></a>
+        <a href="../index.html#experience"><span data-en>Experience</span><span data-tr>Deneyim</span></a>
+        <a href="../index.html#blog">Blog</a>
+        <a href="../index.html#contact" class="nav__cta"><span data-en>Get in touch</span><span data-tr>İletişim</span></a>
+        <span class="lang-switch"><button data-set-lang="en">EN</button><button data-set-lang="tr">TR</button></span>
+      </div>
+    </div>
+  </nav>
+
+  <article class="article">
+    <div class="article__wrap">
+      <a href="../index.html#blog" class="back-link"><span data-en>← Back to blog</span><span data-tr>← Blog'a dön</span></a>
+      <div class="article__meta"><span class="chip"><span data-en>AI / ML</span><span data-tr>Yapay Zekâ</span></span><span>09.04.2026</span><span>· 8 <span data-en>min read</span><span data-tr>dk okuma</span></span></div>
+      <h1><span data-en>Document Understanding: Where OCR Ends and AI Begins</span><span data-tr>Belge Anlama: OCR'ın Bittiği, Yapay Zekânın Başladığı Yer</span></h1>
+      <div class="article__cover cover-3">📄</div>
+
+      <div class="article__body">
+        <p>
+          <span data-en>Documents are where most automation programs go to suffer. An invoice, a contract, a shipping manifest, a KYC pack — they carry the data the business runs on, and they arrive in every layout imaginable. For years the standard answer was OCR: convert the image to text and parse it. OCR is necessary, but on its own it is nowhere near sufficient. Understanding <em>what the text means</em> is a different problem, and it's where AI earns its place in the stack.</span>
+          <span data-tr>Çoğu otomasyon programının zorlandığı yer belgelerdir. Bir fatura, bir sözleşme, bir sevkiyat irsaliyesi, bir KYC paketi — bunlar işin üzerinde döndüğü veriyi taşır ve akla gelebilecek her düzende gelir. Yıllarca standart yanıt OCR'dı: görüntüyü metne çevir ve ayrıştır. OCR gereklidir ama tek başına yeterli olmaktan çok uzaktır. <em>Metnin ne anlama geldiğini</em> anlamak farklı bir problemdir ve yapay zekânın yığındaki yerini hak ettiği yer burasıdır.</span>
+        </p>
+
+        <h2><span data-en>OCR gives you characters, not meaning</span><span data-tr>OCR size karakter verir, anlam değil</span></h2>
+        <p>
+          <span data-en>Optical character recognition answers one question: "what characters are on this page?" That's genuinely hard and modern engines do it well. But OCR hands you a flat blob of text with no notion of structure. It doesn't know that <code>$4,210.00</code> is the invoice total rather than a line item, or that "Acme Ltd." is the vendor rather than the customer. The moment vendors send invoices in fifty different layouts — and they always do — a rule that says "the total is in the bottom-right" breaks on the fifty-first.</span>
+          <span data-tr>Optik karakter tanıma tek bir soruyu yanıtlar: "bu sayfada hangi karakterler var?" Bu gerçekten zordur ve modern motorlar bunu iyi yapar. Ancak OCR size, yapı kavramından yoksun, düz bir metin yığını verir. <code>4.210,00 ₺</code> değerinin bir satır kalemi değil fatura toplamı olduğunu ya da "Acme Ltd."nin müşteri değil tedarikçi olduğunu bilmez. Tedarikçiler faturaları elli farklı düzende gönderdiği anda — ki her zaman gönderirler — "toplam sağ alttadır" diyen bir kural elli birincide bozulur.</span>
+        </p>
+
+        <blockquote>
+          <span data-en>OCR tells you what the page says. Document understanding tells you what the page means.</span>
+          <span data-tr>OCR size sayfanın ne dediğini söyler. Belge anlama ise sayfanın ne anlama geldiğini söyler.</span>
+        </blockquote>
+
+        <h2><span data-en>The cognitive layer</span><span data-tr>Bilişsel katman</span></h2>
+        <p>
+          <span data-en>Document understanding sits on top of OCR and adds the interpretation. In practice it blends a few techniques:</span>
+          <span data-tr>Belge anlama, OCR'ın üzerine oturur ve yorumlamayı ekler. Pratikte birkaç tekniği harmanlar:</span>
+        </p>
+        <ul>
+          <li><span data-en><strong>Layout-aware models</strong> that combine the text <em>and</em> its position on the page, so the model learns that totals tend to live near the word "Total" regardless of exact coordinates.</span><span data-tr>Metni <em>ve</em> sayfadaki konumunu birleştiren <strong>düzen-farkında modeller</strong>; böylece model, toplamların tam koordinattan bağımsız olarak "Toplam" kelimesinin yakınında bulunma eğiliminde olduğunu öğrenir.</span></li>
+          <li><span data-en><strong>Named entity recognition (NLP)</strong> to pull out vendors, dates, amounts, and reference numbers by what they are, not where they sit.</span><span data-tr>Tedarikçileri, tarihleri, tutarları ve referans numaralarını nerede durduklarına göre değil ne olduklarına göre çıkaran <strong>adlandırılmış varlık tanıma (NLP)</strong>.</span></li>
+          <li><span data-en><strong>Computer vision</strong> to handle stamps, signatures, checkboxes, and table structures that pure text extraction flattens into noise.</span><span data-tr>Saf metin çıkarımının gürültüye dönüştürdüğü kaşeleri, imzaları, onay kutularını ve tablo yapılarını ele alan <strong>bilgisayarlı görü</strong>.</span></li>
+          <li><span data-en><strong>Classification</strong> to first answer "what kind of document is this?" before trying to extract anything — because you can't parse an invoice and a contract with the same logic.</span><span data-tr>Herhangi bir şey çıkarmaya çalışmadan önce "bu ne tür bir belge?" sorusunu yanıtlayan <strong>sınıflandırma</strong> — çünkü bir faturayı ve bir sözleşmeyi aynı mantıkla ayrıştıramazsınız.</span></li>
+        </ul>
+
+        <h2><span data-en>A realistic pipeline</span><span data-tr>Gerçekçi bir akış hattı</span></h2>
+        <p><span data-en>The architecture I deploy for document-heavy processes usually has five stages:</span><span data-tr>Belge yoğun süreçler için kurduğum mimari genellikle beş aşamadan oluşur:</span></p>
+        <ol>
+          <li><span data-en><strong>Ingest</strong> — the RPA bot collects documents from email, a shared drive, or a portal.</span><span data-tr><strong>Toplama</strong> — RPA botu belgeleri e-postadan, ortak bir sürücüden veya bir portaldan toplar.</span></li>
+          <li><span data-en><strong>Classify</strong> — a model tags each document by type and routes it accordingly.</span><span data-tr><strong>Sınıflandırma</strong> — bir model her belgeyi türüne göre etiketler ve buna göre yönlendirir.</span></li>
+          <li><span data-en><strong>Extract</strong> — the document-understanding model pulls the fields that type requires.</span><span data-tr><strong>Çıkarım</strong> — belge anlama modeli, o türün gerektirdiği alanları çeker.</span></li>
+          <li><span data-en><strong>Validate</strong> — business rules and confidence thresholds check the result. High-confidence extractions flow straight through.</span><span data-tr><strong>Doğrulama</strong> — iş kuralları ve güven eşikleri sonucu kontrol eder. Yüksek güvenli çıkarımlar doğrudan akar.</span></li>
+          <li><span data-en><strong>Human-in-the-loop</strong> — anything below threshold goes to a person, whose correction becomes training data for the next model version.</span><span data-tr><strong>İnsan onayı döngüsü</strong> — eşiğin altındaki her şey bir kişiye gider; bu kişinin düzeltmesi bir sonraki model sürümü için eğitim verisine dönüşür.</span></li>
+        </ol>
+        <p>
+          <span data-en>That last step is the one teams skip and regret. The human-in-the-loop isn't a fallback you're ashamed of — it's the mechanism that makes the model get <em>better</em> at exactly the documents your business sees. Straight-through processing rates climb month over month because every correction teaches the system.</span>
+          <span data-tr>Ekiplerin atlayıp pişman olduğu adım bu sonuncusudur. İnsan onayı döngüsü utanılacak bir yedek değildir — modelin tam olarak işinizin gördüğü belgelerde <em>daha iyi</em> hâle gelmesini sağlayan mekanizmadır. Dokunmasız işleme oranları aydan aya yükselir, çünkü her düzeltme sisteme bir şey öğretir.</span>
+        </p>
+
+        <h2><span data-en>Where it pays off</span><span data-tr>Nerede değer katar</span></h2>
+        <p>
+          <span data-en>The processes that transform under document understanding are the exception-heavy ones: accounts payable drowning in non-standard invoices, onboarding teams keying data off identity documents, claims handlers reading unstructured correspondence. These are precisely the workloads where pure rule-based RPA stalls at partial coverage. Add the cognitive layer and the bot stops escalating every irregular document and starts handling the long tail.</span>
+          <span data-tr>Belge anlama ile dönüşen süreçler istisna yoğun olanlardır: standart dışı faturalara boğulan borç hesapları, kimlik belgelerinden veri giren müşteri kabul ekipleri, yapısız yazışmaları okuyan hasar uzmanları. Bunlar tam olarak saf kural tabanlı RPA'nın kısmi kapsamada tıkandığı iş yükleridir. Bilişsel katmanı ekleyin; bot her düzensiz belgeyi yönlendirmeyi bırakır ve uzun kuyruğu ele almaya başlar.</span>
+        </p>
+
+        <h2><span data-en>Practical cautions</span><span data-tr>Pratik uyarılar</span></h2>
+        <p><span data-en>A few hard-won lessons before you build:</span><span data-tr>İnşa etmeden önce zor kazanılmış birkaç ders:</span></p>
+        <ul>
+          <li><span data-en><strong>Confidence scores are your friend.</strong> Don't chase 100% automation. Tune the threshold so the model only acts when it's sure, and let humans own the rest. Trust is built by being right, not by being autonomous.</span><span data-tr><strong>Güven skorları dostunuzdur.</strong> %100 otomasyonun peşinden koşmayın. Eşiği, model yalnızca emin olduğunda harekete geçecek şekilde ayarlayın ve gerisini insanlara bırakın. Güven, otonom olmakla değil, haklı olmakla inşa edilir.</span></li>
+          <li><span data-en><strong>Garbage in, garbage out still applies.</strong> A scan at 150 DPI with coffee stains will defeat the best model. Sometimes the highest-ROI fix is upstream, at the point of capture.</span><span data-tr><strong>Çöp girerse çöp çıkar, hâlâ geçerli.</strong> Kahve lekeli, 150 DPI'lık bir tarama en iyi modeli bile yener. Bazen en yüksek getirili düzeltme, yukarı akışta, yani yakalama noktasındadır.</span></li>
+          <li><span data-en><strong>Measure straight-through rate, not accuracy alone.</strong> The business metric that matters is "what fraction flowed through with zero human touch?" Track it, and watch it climb as the model learns.</span><span data-tr><strong>Yalnızca doğruluğu değil, dokunmasız işleme oranını ölçün.</strong> Önemli olan iş metriği "hangi oran sıfır insan dokunuşuyla aktı?" sorusudur. Bunu takip edin ve model öğrendikçe yükselişini izleyin.</span></li>
+          <li><span data-en><strong>Governance doesn't stop at the model.</strong> Versioning, monitoring, and audit trails matter even more once a model — not a deterministic rule — is making the call.</span><span data-tr><strong>Yönetişim modelde bitmez.</strong> Kararı belirlenimci bir kural değil bir model verdiğinde; sürümleme, izleme ve denetim izleri daha da önemli hâle gelir.</span></li>
+        </ul>
+
+        <h2><span data-en>The bigger picture</span><span data-tr>Büyük resim</span></h2>
+        <p>
+          <span data-en>Document understanding is the clearest, most bankable example of why intelligent automation beats plain RPA on the work that actually matters. OCR was the bridge; AI is what's on the other side of it. If your automation program is still treating every non-standard document as an exception to be handed back to a human, you're leaving the largest prize on the table — and it's the one your competitors are already collecting.</span>
+          <span data-tr>Belge anlama, akıllı otomasyonun gerçekten önemli olan işte saf RPA'yı neden geçtiğinin en net, en güvenilir örneğidir. OCR köprüydü; yapay zekâ ise köprünün öbür ucundakidir. Otomasyon programınız hâlâ her standart dışı belgeyi bir insana geri verilecek bir istisna olarak ele alıyorsa, masadaki en büyük ödülü bırakıyorsunuz demektir — ve bu, rakiplerinizin çoktan topladığı ödüldür.</span>
+        </p>
+      </div>
+
+      <div class="article__tags">
+        <span class="tag"><span data-en>Document Understanding</span><span data-tr>Belge Anlama</span></span><span class="tag">OCR</span><span class="tag">NLP</span><span class="tag"><span data-en>Computer Vision</span><span data-tr>Bilgisayarlı Görü</span></span><span class="tag"><span data-en>Intelligent Automation</span><span data-tr>Akıllı Otomasyon</span></span>
+      </div>
+
+      <div class="article__author">
+        <div class="av">KÖ</div>
+        <div>
+          <h4>S. Kaan Özdemir</h4>
+          <p><span data-en>Managing Partner & Director of Automation & AI. 7+ years scaling RPA and intelligent automation across banking, finance, and technology.</span><span data-tr>Yönetici Ortak & Otomasyon ve YZ Direktörü. Bankacılık, finans ve teknolojide 7+ yıl RPA ve akıllı otomasyon ölçeklendirme deneyimi.</span></p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>© <span id="year"></span> S. Kaan Özdemir · Automation &amp; AI · İstanbul</p>
+      <a href="../index.html#blog" class="post-card__more"><span data-en>More articles →</span><span data-tr>Diğer yazılar →</span></a>
+    </div>
+  </footer>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>

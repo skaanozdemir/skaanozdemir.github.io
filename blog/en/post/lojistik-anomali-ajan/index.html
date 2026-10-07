@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catching anomalies in logistics: rules, a model and a person in one flow — Kaan Özdemir</title>
+<meta name="description" content="The logistics anomaly detection we built with UiPath Maestro and agents: rule-based checks, classification with a language model and automatic notification to operations, plus the reasoning behind that division of labour.">
+<link rel="canonical" href="https://skaanozdemir.github.io/blog/en/post/lojistik-anomali-ajan/">
+<link rel="alternate" hreflang="en" href="https://skaanozdemir.github.io/blog/en/post/lojistik-anomali-ajan/"><link rel="alternate" hreflang="tr" href="https://skaanozdemir.github.io/blog/tr/yazi/lojistik-anomali-ajan/"><link rel="alternate" hreflang="x-default" href="https://skaanozdemir.github.io/blog/tr/yazi/lojistik-anomali-ajan/">
+<link rel="alternate" type="application/rss+xml" title="Kaan Özdemir (EN)" href="../../feed.xml">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kaan Özdemir">
+<meta property="og:title" content="Catching anomalies in logistics: rules, a model and a person in one flow — Kaan Özdemir">
+<meta property="og:description" content="The logistics anomaly detection we built with UiPath Maestro and agents: rule-based checks, classification with a language model and automatic notification to operations, plus the reasoning behind that division of labour.">
+<meta property="og:url" content="https://skaanozdemir.github.io/blog/en/post/lojistik-anomali-ajan/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://skaanozdemir.github.io/blog/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="S. Kaan Özdemir">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-SxQF8VQ9/nXLc4QrFOgMX9luAq+Nk5Cdl6opXW7LR+Q='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<link rel="preload" href="../../../assets/fonts/fraunces-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../../../assets/fonts/plex-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/blog.css?v=a078a93e2e">
+<script>try{var t=localStorage.getItem('ko-blog-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Catching anomalies in logistics: rules, a model and a person in one flow","description":"The logistics anomaly detection we built with UiPath Maestro and agents: rule-based checks, classification with a language model and automatic notification to operations, plus the reasoning behind that division of labour.","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"en","mainEntityOfPage":"https://skaanozdemir.github.io/blog/en/post/lojistik-anomali-ajan/","url":"https://skaanozdemir.github.io/blog/en/post/lojistik-anomali-ajan/","author":{"@type":"Person","name":"S. Kaan Özdemir","alternateName":"Servet Kaan Özdemir","jobTitle":"Managing Partner & Director of Automation & AI","url":"https://www.linkedin.com/in/servetkaanozdemir/","sameAs":["https://www.linkedin.com/in/servetkaanozdemir/"],"worksFor":{"@type":"Organization","name":"BOTTEQ Consulting"}},"keywords":"maestro, agents, anomaly-detection, logistics, llm","articleSection":"Agentic AI","citation":["https://www.uipath.com/blog/product-and-updates/biggest-product-announcements-fusion-2026"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Writing","item":"https://skaanozdemir.github.io/blog/en/writing/"},{"@type":"ListItem","position":2,"name":"Agentic AI","item":"https://skaanozdemir.github.io/blog/en/topic/agentic-ai/"},{"@type":"ListItem","position":3,"name":"Catching anomalies in logistics: rules, a model and a person in one flow","item":"https://skaanozdemir.github.io/blog/en/post/lojistik-anomali-ajan/"}]}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+<div class="wrap">
+  <div class="mast__line">
+    <p class="mast__date">Last updated October 7, 2026 · Istanbul</p>
+    <div class="mast__tools">
+      <span class="lang"><a href="../../../tr/yazi/lojistik-anomali-ajan/" hreflang="tr" lang="tr" data-lang-link="tr">TR</a><a href="../../" hreflang="en" lang="en" data-lang-link="en" aria-current="true">EN</a></span>
+      <button class="tool" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg class="icon tool__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon tool__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <button class="tool" type="button" data-search-open aria-label="Search"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+  </div>
+  <a class="mast__name" href="../../" aria-label="Kaan Özdemir">Kaan Özdemir</a>
+  <p class="mast__tag">Notes on automation, AI and operations</p>
+  <nav class="mast__nav" aria-label="Main navigation">
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mast-links"><span>Menu</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="mast__links" id="mast-links"><li><a href="../../writing/">Writing</a></li><li><a href="../../radar/">Radar</a></li><li><a href="../../use-cases/" aria-current="page">Use cases</a></li><li><a href="../../about/">About</a></li></ul>
+  </nav>
+  <hr class="rule-double" aria-hidden="true">
+</div>
+</header>
+<main id="main">
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+<article class="article" data-article>
+  <header class="article__head">
+    <p class="article__crumb"><a href="../../writing/">Writing</a> / <a href="../../topic/agentic-ai/">Agentic AI</a></p>
+    <h1 class="article__title">Catching anomalies in logistics: rules, a model and a person in one flow</h1>
+    <p class="article__lede">The logistics anomaly detection we built with UiPath Maestro and agents: rule-based checks, classification with a language model and automatic notification to operations, plus the reasoning behind that division of labour.</p>
+    <div class="article__meta"><p class="meta"><span class="meta__kind">Use case</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Agentic AI</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">October 7, 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">4 min read</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><a href="../../../tr/yazi/lojistik-anomali-ajan/" hreflang="tr" lang="tr" data-lang-link="tr">Türkçesini okuyun</a></span></p></div>
+  </header>
+  
+  <div class="article__grid">
+    <div class="prose"><p>Logistics data is a tempting place to ask a language model, “anything odd in these records?” The records are messy, description fields are free text, and the exceptions keep changing. Ask the model that question directly, though, and you lose two things: consistency and control over cost.</p>
+<p>The logistics anomaly flow we built with UiPath Maestro and agents splits the work three ways: rule-based RPA checks, classification with a language model, and automatic exception notification to operations stakeholders. This piece is about the reasoning behind that split.</p>
+<section class="walk" data-walk data-steps="6" aria-labelledby="walk1-t">
+<p class="walk__title" id="walk1-t">How a shipment record moves through the flow</p>
+<p class="walk__lead">Rules, classification and notification are the backbone of the flow we delivered. The detail inside each step, and the human review gate, are the design I recommend for flows like this.</p>
+<ol class="walk__steps"><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">01</span><span class="walk__label">Data pull</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">02</span><span class="walk__label">Rule checks</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">03</span><span class="walk__label">Classification</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">04</span><span class="walk__label">Routing</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">05</span><span class="walk__label">Human review</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">06</span><span class="walk__label">Notify and audit</span></button></li></ol>
+<div class="walk__panel" id="walk1-panel" aria-live="polite"><div class="walk__detail"><p class="walk__kind" data-kind="system">System</p><p class="walk__name">Data pull</p><p class="walk__text">Shipment records are pulled from the source systems at set intervals and brought into one format. Every later step works on that shared shape.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="rule">Rule</p><p class="walk__name">Rule checks</p><p class="walk__text">Deterministic checks run first: missing fields, thresholds exceeded, duplicate records and the like. There’s no point asking a model something a rule can answer with certainty.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="ai">Model</p><p class="walk__name">Classification</p><p class="walk__text">Records the rules flagged go to a language model together with their description and note fields. The model returns an anomaly type and a short rationale against a predefined schema.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="rule">Rule</p><p class="walk__name">Routing</p><p class="walk__text">The path splits on type and on the model’s confidence. Clear cases go straight to notification; uncertain ones go to human review.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="human">Human</p><p class="walk__name">Human review</p><p class="walk__text">For uncertain cases an operations owner makes the call and records it with a reason. Those records are the best data you’ll get on where the model struggles.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="system">System</p><p class="walk__name">Notify and audit</p><p class="walk__text">The right stakeholder is notified automatically, and the record, decision and rationale go to the audit trail. The same anomaly shouldn’t trigger a second message unless its status changes.</p></div></div>
+<div class="walk__controls">
+  <button type="button" class="walk__btn" data-walk-prev><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" x2="5" y1="19" y2="5"/></svg><span>Previous</span></button>
+  <button type="button" class="walk__btn" data-walk-play aria-pressed="false"><span class="i-play"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"/></svg></span><span class="i-pause" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></svg></span><span data-label>Play</span></button>
+  <button type="button" class="walk__btn" data-walk-next><span>Next</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" x2="19" y1="5" y2="19"/></svg></button>
+  <span class="walk__count num" aria-hidden="true">1 / 6</span>
+</div>
+</section>
+<h2 id="don-t-ask-the-model-what-a-rule-already-knows">Don’t ask the model what a rule already knows</h2>
+<p>If a mandatory field on a shipment record is empty, you don’t need a language model to say so. Same if a defined threshold is exceeded or the same record arrives twice. These checks are cheap, give the same answer every time, and are easy to explain in an audit.</p>
+<p>The model belongs where a rule can’t decide on its own. Free text is the clearest case, I think. The reason for a delay buried in an operations note, a phrase in a description field, what an inconsistency between two fields actually means: these are hard to capture with rules, and every new situation adds another rule. That’s where classification earns its place.</p>
+<p>The ordering has a side benefit. The model only sees records the rules flagged, so cost grows with the number of suspicious records rather than the total.</p>
+<h2 id="ask-the-model-for-a-form-not-an-essay">Ask the model for a form, not an essay</h2>
+<p>Binding the model’s output to a predefined schema is what keeps the rest of the flow solid. The anomaly type should come from a fixed list, the rationale should be short, and there should be a field where the model can say it isn’t sure. A model that returns free text forces every later step to guess.</p>
+<p>Writing the list of types with the operations team is part of the job. When something new shows up that isn’t on the list, a model that marks it as “other” is better than one that forces it into the wrong bucket.</p>
+<h2 id="notification-is-design-work-too">Notification is design work too</h2>
+<p>Automatic notification can be the least discussed and most complained-about part of a flow. If everyone gets everything, soon nobody reads anything. When I design notifications I look at three things:</p>
+<ul><li>Who receives it? The team or person responsible for that anomaly type.</li><li>What do they see? The record, the anomaly type and a one-line rationale. Nobody should have to log in and search.</li><li>When do they hear about it again? Not for the same anomaly, unless its status changes.</li></ul>
+<h2 id="where-maestro-fits">Where Maestro fits</h2>
+<p>Orchestration here means running the steps in the right order and making visible which stage a record is waiting in. Rule, model and human steps move at very different speeds: a rule finishes in milliseconds, a human review can take hours. UiPath splitting Maestro at FUSION 2026 into Orchestrate for long-running processes and Automate for short high-volume work recognises that difference at the product level. I went into it a little more in <a href="../radar-2026-w41/">the first radar</a>.</p>
+<h2 id="put-the-human-gate-in-from-the-start">Put the human gate in from the start</h2>
+<p>The core of the flow we delivered is rules, classification and notification. If I built a similar flow again, I’d add a human review step for cases where the model isn’t sure from day one. My reason is simple: those records are the most valuable data you’ll get on which anomaly types trip the model up. When the human decision is recorded with a reason, the next improvement knows where to start.</p>
+<h2 id="measure-before-you-scale">Measure before you scale</h2>
+<p>Before rolling an anomaly flow out to a new region or a new data source, I’d measure three things:</p>
+<ol><li>Classification accuracy on a small labelled sample. Write it into acceptance testing.</li><li>The false-alarm rate. The operations team’s trust is won or lost in the first few weeks.</li><li>Cost per record. Model calls grow with volume; rule checks don’t.</li></ol>
+<p>If none of the three is measured, you have a promising demo. That’s all.</p></div>
+    <aside class="rail"><nav class="toc" aria-label="In this piece"><p class="rail__title">In this piece</p><ol><li><a href="#don-t-ask-the-model-what-a-rule-already-knows">Don&#x27;t ask the model what a rule already knows</a></li><li><a href="#ask-the-model-for-a-form-not-an-essay">Ask the model for a form, not an essay</a></li><li><a href="#notification-is-design-work-too">Notification is design work too</a></li><li><a href="#where-maestro-fits">Where Maestro fits</a></li><li><a href="#put-the-human-gate-in-from-the-start">Put the human gate in from the start</a></li><li><a href="#measure-before-you-scale">Measure before you scale</a></li></ol></nav><div class="share"><p class="rail__title">Share</p>
+<button type="button" data-copy-link="https://skaanozdemir.github.io/blog/en/post/lojistik-anomali-ajan/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span data-label>Copy link</span></button>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Flojistik-anomali-ajan%2F" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg><span>Share on LinkedIn</span></a>
+<a href="mailto:?subject=Catching%20anomalies%20in%20logistics%3A%20rules%2C%20a%20model%20and%20a%20person%20in%20one%20flow&amp;body=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Flojistik-anomali-ajan%2F"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Send by email</span></a></div></aside>
+  </div>
+  <section class="sources" aria-labelledby="src-h"><h2 class="sources__title" id="src-h">Sources</h2><ol><li><div><a href="https://www.uipath.com/blog/product-and-updates/biggest-product-announcements-fusion-2026" target="_blank" rel="noopener noreferrer">The biggest product announcements from UiPath FUSION 2026</a><br><span class="sources__pub">UiPath, September 23, 2026 · Accessed October 7, 2026</span></div></li></ol></section>
+  <p class="note">Research and the first draft are prepared with AI-assisted tools; I read the text before it goes out, check the sources and take responsibility for it. If you spot a mistake, write to me and I will fix it.</p>
+  <section class="related" aria-labelledby="rel-h"><h2 class="section__title" id="rel-h">More on this topic</h2><ul class="list"><li class="list__item"><a href="../radar-2026-w41/"><p class="meta"><span class="meta__kind">Weekly Radar</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Agentic AI</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">October 7, 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">5 min read</span></span></p><span class="list__title">Maestro splits in two, MCP goes stateless, and an e-invoice deadline lands</span></a></li></ul></section>
+  <nav class="pager" aria-label="Previous / Next"><a class="pager__prev" href="../havayolu-belge-isleme/"><span class="pager__dir">Previous</span><span class="pager__title">Reading an invoice is not understanding it: on-prem document processing at an airline</span></a><a class="pager__next" href="../radar-2026-w41/"><span class="pager__dir">Next</span><span class="pager__title">Maestro splits in two, MCP goes stateless, and an e-invoice deadline lands</span></a></nav>
+</article>
+</main>
+<footer class="foot">
+<div class="wrap">
+  <div class="foot__row">
+    <div>
+      <p class="foot__name">Kaan Özdemir</p>
+      <p class="foot__tag">On automation, document AI and agentic AI. Sourced, without hype.</p>
+    </div>
+    <ul class="foot__links">
+      <li><a href="../../feed.xml">RSS</a></li>
+      <li><a href="https://www.linkedin.com/in/servetkaanozdemir/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="../../../../index.html">Portfolio</a></li>
+      <li><a href="mailto:kaan.ozdemir@botteq.com.tr">Email</a></li>
+      <li><a href="../../about/">About</a></li>
+    </ul>
+  </div>
+  <p class="foot__legal">© 2026 S. Kaan Özdemir. Views are personal and are not those of BOTTEQ Consulting or its clients. Client details are anonymised.</p>
+</div>
+</footer>
+<dialog class="search" id="search" aria-label="Search" data-index="../../../search-en.json" data-base="../../../">
+  <div class="search__bar">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="search__input" type="search" placeholder="Search the writing" aria-label="Search the writing" autocomplete="off" spellcheck="false">
+    <button class="search__close" type="button" aria-label="Close"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <ul class="search__results"><li class="search__hint">Type a title, topic or tag.</li></ul>
+</dialog>
+<script src="../../../assets/blog.js?v=a078a93e2e" defer></script>
+</body>
+</html>

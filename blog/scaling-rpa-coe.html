@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scaling an RPA Center of Excellence — S. Kaan Özdemir</title>
+  <meta name="description" content="Most automation programs stall at 20 bots. The governance, architecture, and team structure that get you past the wall." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2338e1c4'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='%2307121b' text-anchor='middle'>K</text></svg>" />
+</head>
+<body data-lang="en">
+
+  <nav class="nav scrolled" id="nav">
+    <div class="wrap nav__inner">
+      <a href="../index.html#top" class="brand"><span class="brand__mark">KÖ</span><span>S. Kaan Özdemir</span></a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      <div class="nav__links" id="navLinks">
+        <a href="../index.html#about"><span data-en>About</span><span data-tr>Hakkımda</span></a>
+        <a href="../index.html#experience"><span data-en>Experience</span><span data-tr>Deneyim</span></a>
+        <a href="../index.html#blog">Blog</a>
+        <a href="../index.html#contact" class="nav__cta"><span data-en>Get in touch</span><span data-tr>İletişim</span></a>
+        <span class="lang-switch"><button data-set-lang="en">EN</button><button data-set-lang="tr">TR</button></span>
+      </div>
+    </div>
+  </nav>
+
+  <article class="article">
+    <div class="article__wrap">
+      <a href="../index.html#blog" class="back-link"><span data-en>← Back to blog</span><span data-tr>← Blog'a dön</span></a>
+      <div class="article__meta"><span class="chip"><span data-en>Operations</span><span data-tr>Operasyon</span></span><span>28.04.2026</span><span>· 9 <span data-en>min read</span><span data-tr>dk okuma</span></span></div>
+      <h1><span data-en>Scaling an RPA Center of Excellence Without Drowning in Bots</span><span data-tr>Botlara Boğulmadan Bir RPA Mükemmeliyet Merkezini Ölçeklendirmek</span></h1>
+      <div class="article__cover cover-2">🏛️</div>
+
+      <div class="article__body">
+        <p>
+          <span data-en>There's a wall almost every automation program hits, and it's remarkably consistent: somewhere around 20 to 30 bots in production, velocity collapses. New automations slow to a crawl, the existing fleet starts breaking in ways nobody can explain, and the team that was celebrated last year is now firefighting full-time. The cause is rarely the technology. It's the absence of a real <strong>Center of Excellence (CoE)</strong>.</span>
+          <span data-tr>Neredeyse her otomasyon programının çarptığı bir duvar vardır ve bu şaşırtıcı derecede tutarlıdır: üretimde yaklaşık 20 ila 30 bot civarında hız çöker. Yeni otomasyonlar sürünme hızına iner, mevcut filo kimsenin açıklayamadığı şekillerde bozulmaya başlar ve geçen yıl övülen ekip artık tam zamanlı yangın söndürür hâle gelir. Sebep nadiren teknolojidir. Asıl sebep gerçek bir <strong>Mükemmeliyet Merkezi'nin (CoE)</strong> yokluğudur.</span>
+        </p>
+
+        <h2><span data-en>Why programs stall</span><span data-tr>Programlar neden tıkanır</span></h2>
+        <p>
+          <span data-en>Early RPA wins are easy and seductive. A small team builds a handful of bots, each one a craft object, hand-tuned to its process. It works — until it doesn't scale. Every bot is built differently, so every bot fails differently. There's no shared library, so the same logic gets rewritten five times. No one owns the production environment, so a Windows update on a Tuesday takes down half the fleet. The program didn't fail technically; it failed <em>operationally.</em></span>
+          <span data-tr>Erken RPA başarıları kolay ve baştan çıkarıcıdır. Küçük bir ekip, her biri kendi sürecine elle ayarlanmış birer el işi olan bir avuç bot geliştirir. İşe yarar — ta ki ölçeklenemeyene kadar. Her bot farklı geliştirildiğinden, her bot farklı şekilde başarısız olur. Ortak bir kütüphane yoktur, dolayısıyla aynı mantık beş kez yeniden yazılır. Üretim ortamının sahibi kimse yoktur, bu yüzden bir Salı günü gelen bir Windows güncellemesi filonun yarısını çökertir. Program teknik olarak başarısız olmadı; <em>operasyonel olarak</em> başarısız oldu.</span>
+        </p>
+
+        <blockquote>
+          <span data-en>A bot in a demo is a project. A hundred bots in production is an operation. They require completely different disciplines.</span>
+          <span data-tr>Bir demodaki bot bir projedir. Üretimdeki yüz bot ise bir operasyondur. Bunlar tamamen farklı disiplinler gerektirir.</span>
+        </blockquote>
+
+        <h2><span data-en>The three pillars of a CoE that scales</span><span data-tr>Ölçeklenen bir CoE'nin üç temel direği</span></h2>
+
+        <h3><span data-en>1. Governance — the rules of the road</span><span data-tr>1. Yönetişim — yolun kuralları</span></h3>
+        <p>
+          <span data-en>Governance is what turns a collection of bots into a managed estate. The frameworks I insist on from day one:</span>
+          <span data-tr>Yönetişim, bir bot yığınını yönetilen bir varlık portföyüne dönüştüren şeydir. İlk günden itibaren ısrarcı olduğum çerçeveler:</span>
+        </p>
+        <ul>
+          <li><span data-en><strong>Change management</strong> — no code reaches production without review, versioning, and a rollback path. Bots are software; treat them like software.</span><span data-tr><strong>Değişiklik yönetimi</strong> — hiçbir kod inceleme, sürümleme ve geri alma yolu olmadan üretime ulaşmaz. Botlar yazılımdır; onlara yazılım gibi davranın.</span></li>
+          <li><span data-en><strong>Bot monitoring</strong> — every bot emits health and business metrics. You should know a bot failed before the business does.</span><span data-tr><strong>Bot izleme</strong> — her bot, sağlık ve iş metrikleri yayar. Bir botun başarısız olduğunu işten önce siz bilmelisiniz.</span></li>
+          <li><span data-en><strong>Incident response</strong> — a defined severity scale, on-call ownership, and a runbook. When a bot breaks at 2 a.m., the response can't be "wake up the one person who understands it."</span><span data-tr><strong>Olay müdahalesi</strong> — tanımlı bir ciddiyet ölçeği, nöbet sahipliği ve bir runbook. Bir bot gece 02:00'de bozulduğunda, müdahale "onu anlayan tek kişiyi uyandır" olamaz.</span></li>
+          <li><span data-en><strong>Version control standards</strong> — a single source of truth, naming conventions, and reusable components that are actually reused.</span><span data-tr><strong>Sürüm kontrolü standartları</strong> — tek bir doğruluk kaynağı, adlandırma kuralları ve gerçekten yeniden kullanılan yeniden kullanılabilir bileşenler.</span></li>
+        </ul>
+
+        <h3><span data-en>2. Architecture — design for the fleet, not the bot</span><span data-tr>2. Mimari — bot için değil, filo için tasarlayın</span></h3>
+        <p>
+          <span data-en>The single biggest leverage point is treating infrastructure as a first-class concern. As a solution architect, the things I design before writing a single workflow:</span>
+          <span data-tr>En büyük kaldıraç noktası, altyapıyı birinci sınıf bir mesele olarak ele almaktır. Bir çözüm mimarı olarak, tek bir iş akışı yazmadan önce tasarladığım şeyler:</span>
+        </p>
+        <ul>
+          <li><span data-en><strong>Orchestration</strong> — centralized scheduling, queue management, and work distribution so bots share capacity instead of competing for it.</span><span data-tr><strong>Orkestrasyon</strong> — merkezi zamanlama, kuyruk yönetimi ve iş dağıtımı; böylece botlar kapasite için yarışmak yerine onu paylaşır.</span></li>
+          <li><span data-en><strong>Environment design</strong> — clean separation of dev, test, and production, with promotion gates between them.</span><span data-tr><strong>Ortam tasarımı</strong> — geliştirme, test ve üretimin temiz biçimde ayrılması ve aralarında terfi (promotion) kapıları.</span></li>
+          <li><span data-en><strong>Credential management</strong> — secrets in a vault, never in code. This is non-negotiable and it's where most audits find the program's worst sins.</span><span data-tr><strong>Kimlik bilgisi yönetimi</strong> — sırlar bir kasada, asla kod içinde değil. Bu pazarlık konusu değildir ve çoğu denetimin programın en büyük günahlarını bulduğu yer burasıdır.</span></li>
+          <li><span data-en><strong>High availability</strong> — redundancy so a single machine failure degrades capacity instead of stopping the business.</span><span data-tr><strong>Yüksek erişilebilirlik</strong> — yedeklilik; böylece tek bir makine arızası işi durdurmak yerine yalnızca kapasiteyi azaltır.</span></li>
+        </ul>
+        <p>
+          <span data-en>Reusable components deserve special mention. A well-maintained library of shared assets — login flows, error handlers, notification utilities — is the difference between a new bot taking two weeks and taking two days.</span>
+          <span data-tr>Yeniden kullanılabilir bileşenler özel olarak anılmayı hak eder. İyi sürdürülen bir ortak varlık kütüphanesi — giriş akışları, hata yöneticileri, bildirim yardımcıları — yeni bir botun iki hafta yerine iki günde tamamlanması arasındaki farktır.</span>
+        </p>
+
+        <h3><span data-en>3. People — the part everyone underestimates</span><span data-tr>3. İnsanlar — herkesin hafife aldığı kısım</span></h3>
+        <p>
+          <span data-en>Tools don't run a CoE; teams do. A mature practice needs distinct roles working in concert: <strong>RPA developers</strong> who build, <strong>business analysts</strong> who translate process into precise PDDs and SDDs, and <strong>trainers</strong> who make the rest of the organization self-sufficient. When I build a team, recruitment, structured onboarding, and performance management aren't afterthoughts — they're the system that keeps quality consistent as headcount grows.</span>
+          <span data-tr>Bir CoE'yi araçlar değil, ekipler yürütür. Olgun bir pratik, uyum içinde çalışan farklı rollere ihtiyaç duyar: inşa eden <strong>RPA geliştiricileri</strong>, süreci kesin PDD ve SDD'lere çeviren <strong>iş analistleri</strong> ve organizasyonun geri kalanını kendi kendine yeter hâle getiren <strong>eğitmenler</strong>. Bir ekip kurarken işe alım, yapılandırılmış oryantasyon ve performans yönetimi sonradan akla gelen şeyler değildir — bunlar, kadro büyürken kaliteyi tutarlı tutan sistemdir.</span>
+        </p>
+        <p>
+          <span data-en>Training is the multiplier. The structured UiPath and Blue Prism curricula I've designed — beginner to advanced — exist so clients and internal teams can operate and maintain their own automations. A CoE that creates dependency on its consultants has failed at its actual job.</span>
+          <span data-tr>Eğitim çarpan etkisi yaratır. Tasarladığım yapılandırılmış UiPath ve Blue Prism müfredatları — başlangıçtan ileri seviyeye — müşterilerin ve iç ekiplerin kendi otomasyonlarını işletip sürdürebilmesi için vardır. Danışmanlarına bağımlılık yaratan bir CoE, asıl işinde başarısız olmuştur.</span>
+        </p>
+
+        <h2><span data-en>Picking the right work</span><span data-tr>Doğru işi seçmek</span></h2>
+        <p>
+          <span data-en>Scaling isn't only about delivery capacity; it's about pointing that capacity at the right processes. Disciplined <strong>process discovery and feasibility assessment</strong> — including process mining where the data supports it — keeps the pipeline full of high-ROI candidates instead of pet projects. The best-run bot automating the wrong process is still waste.</span>
+          <span data-tr>Ölçeklenme yalnızca teslimat kapasitesiyle ilgili değildir; o kapasiteyi doğru süreçlere yöneltmekle ilgilidir. Disiplinli <strong>süreç keşfi ve fizibilite değerlendirmesi</strong> — verinin desteklediği yerlerde süreç madenciliği dâhil — proje hattını gözde projeler yerine yüksek getirili adaylarla dolu tutar. Yanlış süreci otomatikleştiren en iyi işletilen bot bile israftır.</span>
+        </p>
+
+        <h2><span data-en>What "past the wall" looks like</span><span data-tr>"Duvarın ötesi" neye benzer</span></h2>
+        <p>
+          <span data-en>When the three pillars are in place, the program stops feeling fragile. New bots ship on a predictable cadence because developers stand on a shared foundation. Failures are detected, triaged, and resolved against a runbook instead of through heroics. Leadership sees real KPIs — productivity, pipeline status, delivery quality — rather than anecdotes. And critically, the program survives the departure of any single person, because the knowledge lives in standards and documentation, not in heads.</span>
+          <span data-tr>Üç temel direk yerine oturduğunda, program kırılgan hissettirmeyi bırakır. Geliştiriciler ortak bir temele dayandığı için yeni botlar öngörülebilir bir tempoda çıkar. Arızalar; kahramanlıklarla değil, bir runbook'a göre tespit edilir, sınıflandırılır ve çözülür. Liderlik, anekdotlar yerine gerçek KPI'lar görür — üretkenlik, proje hattı durumu, teslimat kalitesi. Ve en önemlisi, program herhangi bir tek kişinin ayrılmasından sonra ayakta kalır; çünkü bilgi kafalarda değil, standartlarda ve dokümantasyonda yaşar.</span>
+        </p>
+        <p>
+          <span data-en>That's the whole point of a Center of Excellence: not to build more bots, but to make building and running them <em>boring.</em> Boring is what scale feels like when it's done right.</span>
+          <span data-tr>Bir Mükemmeliyet Merkezi'nin bütün amacı budur: daha fazla bot yapmak değil, onları yapmayı ve işletmeyi <em>sıkıcı</em> hâle getirmek. Doğru yapıldığında ölçeğin hissi, sıkıcılıktır.</span>
+        </p>
+      </div>
+
+      <div class="article__tags">
+        <span class="tag">RPA</span><span class="tag"><span data-en>Center of Excellence</span><span data-tr>Mükemmeliyet Merkezi</span></span><span class="tag"><span data-en>Governance</span><span data-tr>Yönetişim</span></span><span class="tag"><span data-en>Team Leadership</span><span data-tr>Ekip Liderliği</span></span>
+      </div>
+
+      <div class="article__author">
+        <div class="av">KÖ</div>
+        <div>
+          <h4>S. Kaan Özdemir</h4>
+          <p><span data-en>Managing Partner & Director of Automation & AI. 7+ years scaling RPA and intelligent automation across banking, finance, and technology.</span><span data-tr>Yönetici Ortak & Otomasyon ve YZ Direktörü. Bankacılık, finans ve teknolojide 7+ yıl RPA ve akıllı otomasyon ölçeklendirme deneyimi.</span></p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>© <span id="year"></span> S. Kaan Özdemir · Automation &amp; AI · İstanbul</p>
+      <a href="../index.html#blog" class="post-card__more"><span data-en>More articles →</span><span data-tr>Diğer yazılar →</span></a>
+    </div>
+  </footer>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>

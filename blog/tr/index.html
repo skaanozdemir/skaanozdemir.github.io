@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kaan Özdemir — Otomasyon, yapay zekâ ve operasyon üzerine notlar</title>
+<meta name="description" content="RPA, belge zekâsı ve ajan tabanlı yapay zekâ üzerine notlar. Gündemi izliyorum, kaynağını gösteriyorum, sahada işe yarayanı ayırmaya çalışıyorum.">
+<link rel="canonical" href="https://skaanozdemir.github.io/blog/tr/">
+<link rel="alternate" hreflang="tr" href="https://skaanozdemir.github.io/blog/tr/"><link rel="alternate" hreflang="en" href="https://skaanozdemir.github.io/blog/en/"><link rel="alternate" hreflang="x-default" href="https://skaanozdemir.github.io/blog/tr/">
+<link rel="alternate" type="application/rss+xml" title="Kaan Özdemir (TR)" href="feed.xml">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaan Özdemir">
+<meta property="og:title" content="Kaan Özdemir — Otomasyon, yapay zekâ ve operasyon üzerine notlar">
+<meta property="og:description" content="RPA, belge zekâsı ve ajan tabanlı yapay zekâ üzerine notlar. Gündemi izliyorum, kaynağını gösteriyorum, sahada işe yarayanı ayırmaya çalışıyorum.">
+<meta property="og:url" content="https://skaanozdemir.github.io/blog/tr/">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:image" content="https://skaanozdemir.github.io/blog/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="S. Kaan Özdemir">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-SxQF8VQ9/nXLc4QrFOgMX9luAq+Nk5Cdl6opXW7LR+Q='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fraunces-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../assets/fonts/plex-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/blog.css?v=a078a93e2e">
+<script>try{var t=localStorage.getItem('ko-blog-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Kaan Özdemir — Otomasyon, yapay zekâ ve operasyon üzerine notlar","url":"https://skaanozdemir.github.io/blog/tr/","inLanguage":"tr","author":{"@type":"Person","name":"S. Kaan Özdemir","alternateName":"Servet Kaan Özdemir","jobTitle":"Yönetici Ortak ve Otomasyon & Yapay Zekâ Çözümleri Direktörü","url":"https://www.linkedin.com/in/servetkaanozdemir/","sameAs":["https://www.linkedin.com/in/servetkaanozdemir/"],"worksFor":{"@type":"Organization","name":"BOTTEQ Consulting"}}}</script>
+</head>
+<body class="page-home enter">
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="mast">
+<div class="wrap">
+  <div class="mast__line">
+    <p class="mast__date">Son güncelleme 7 Ekim 2026 · İstanbul</p>
+    <div class="mast__tools">
+      <span class="lang"><a href="./" hreflang="tr" lang="tr" data-lang-link="tr" aria-current="true">TR</a><a href="../en/" hreflang="en" lang="en" data-lang-link="en">EN</a></span>
+      <button class="tool" type="button" data-theme-toggle aria-label="Açık veya koyu temayı değiştir"><svg class="icon tool__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon tool__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <button class="tool" type="button" data-search-open aria-label="Ara"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+  </div>
+  <a class="mast__name" href="./" aria-label="Kaan Özdemir">Kaan Özdemir</a>
+  <p class="mast__tag">Otomasyon, yapay zekâ ve operasyon üzerine notlar</p>
+  <nav class="mast__nav" aria-label="Ana gezinme">
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mast-links"><span>Menü</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="mast__links" id="mast-links"><li><a href="yazilar/">Yazılar</a></li><li><a href="radar/">Radar</a></li><li><a href="senaryolar/">Senaryolar</a></li><li><a href="hakkinda/">Hakkında</a></li></ul>
+  </nav>
+  <hr class="rule-double" aria-hidden="true">
+</div>
+</header>
+<main id="main">
+<section class="lead">
+<div class="wrap">
+  <p class="lead__intro">RPA, belge zekâsı ve ajan tabanlı yapay zekâ üzerine notlar. Gündemi izliyorum, kaynağını gösteriyorum, sahada işe yarayanı ayırmaya çalışıyorum.</p>
+  <div class="lead__grid"><article class="feature">
+  <p class="meta"><span class="meta__kind">Kullanım senaryosu</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Belge zekâsı</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">7 Ekim 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">4 dk okuma</span></span></p>
+  <h2 class="feature__title"><a href="yazi/havayolu-belge-isleme/">Faturayı okumak başka, anlamak başka: bir havayolunda yerinde belge işleme</a></h2>
+  <p class="feature__sum">Ulusal bayrak taşıyıcı bir havayolunun finans ekibi için kurduğumuz, kurumun kendi veri merkezinde çalışan belge işleme hattı. Çok dilli ve çok para birimli faturalar, insan doğrulaması ve tasarımı belirleyen kararlar.</p>
+  <p><a class="link-arrow" href="yazi/havayolu-belge-isleme/">Yazıyı oku<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
+  <a class="cover feature__cover" href="yazi/havayolu-belge-isleme/" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" role="presentation" aria-hidden="true" focusable="false"><rect class="cv-fill" x="196" y="78" width="190" height="250"/><rect class="cv-fill" x="218" y="66" width="190" height="250"/><rect class="cv-fill" x="240" y="54" width="190" height="250"/><line class="cv-line" x1="254" y1="82" x2="343" y2="82"/><line class="cv-line" x1="254" y1="103" x2="356" y2="103"/><line class="cv-line" x1="254" y1="124" x2="367" y2="124"/><line class="cv-line" x1="254" y1="145" x2="400" y2="145"/><line class="cv-line" x1="254" y1="166" x2="346" y2="166"/><line class="cv-line" x1="254" y1="187" x2="345" y2="187"/><rect class="cv-gold" x="254" y="200" width="120" height="14" opacity="0.18"/><path class="cv-gold-line" d="M250 198 h-6 v18 h6 M378 198 h6 v18 h-6"/><line class="cv-line" x1="254" y1="208" x2="374" y2="208"/><line class="cv-line" x1="254" y1="229" x2="359" y2="229"/><line class="cv-line" x1="254" y1="250" x2="360" y2="250"/><line class="cv-line" x1="254" y1="271" x2="346" y2="271"/><path class="cv-soft" d="M470 120 H580 M470 184 H560 M470 248 H590"/><circle class="cv-fill" cx="470" cy="120" r="5"/><circle class="cv-fill" cx="470" cy="184" r="5"/><circle class="cv-fill" cx="470" cy="248" r="5"/></svg></a>
+</article><aside class="latest" aria-labelledby="latest-h">
+  <h2 class="latest__title" id="latest-h">Son yazılar</h2>
+  <ul class="list"><li class="list__item"><a href="yazi/lojistik-anomali-ajan/"><p class="meta"><span class="meta__kind">Kullanım senaryosu</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Ajan tabanlı yapay zekâ</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">7 Ekim 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">3 dk okuma</span></span></p><span class="list__title">Lojistikte anomali yakalamak: kural, model ve insan aynı akışta</span><span class="list__sum">UiPath Maestro ve ajanlarla kurduğumuz lojistik anomali tespiti. Kural tabanlı kontroller, dil modeliyle sınıflandırma ve operasyon ekibine otomatik bildirim; bir de bu iş bölümünün mantığı.</span></a></li><li class="list__item"><a href="yazi/du-mu-ixp-mi/"><p class="meta"><span class="meta__kind">Rehber</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Belge zekâsı</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">7 Ekim 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">3 dk okuma</span></span></p><span class="list__title">Document Understanding mı, IXP mi? Belge tipine göre bir karar tablosu</span><span class="list__sum">UiPath’in iki belge zekâsı yolu arasında seçim yaparken belge tipinden, üretken yapay zekâ politikasından ve kurulum modelinden başlayan pratik bir rehber. Dayanağı UiPath dokümantasyonu.</span></a></li><li class="list__item"><a href="yazi/ajana-yetki-vermeden-once/"><p class="meta"><span class="meta__kind">Analiz</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Yönetişim ve operasyon</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">7 Ekim 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">3 dk okuma</span></span></p><span class="list__title">Bir ajana karar yetkisi vermeden önce yedi soru</span><span class="list__sum">Ajan tabanlı projelerin çoğu teknik nedenle değil, sahiplik, maliyet ve risk kontrolü yüzünden duruyor. Canlıya almadan önce sorduğum yedi soru; KVKK’nın etken yapay zekâ rehberi ve AB kuralları da hesaba katılarak.</span></a></li></ul>
+  <p class="latest__more"><a class="link-arrow" href="yazilar/">Tüm yazılar<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
+</aside></div>
+</div>
+</section><section class="band" aria-labelledby="radar-h">
+<div class="wrap band__grid">
+  <div>
+    <p class="meta"><span class="meta__kind">Haftanın Radarı</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">7 Ekim 2026</time></span></p>
+    <h2 class="band__title" id="radar-h">Bu haftanın radarı</h2>
+    <p class="band__lede">Haftanın gündeminden, birincil kaynağına bağlanan 6 madde. Her biri neden önemli olduğuyla birlikte.</p>
+    <p class="band__cta"><a class="link-arrow link-arrow--band" href="yazi/radar-2026-w41/">Radar&#x27;ı oku<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
+  </div>
+  <ol class="radar-list"><li><div><a href="yazi/radar-2026-w41/#uipath-fusion-2026-maestro-artik-iki-urun">UiPath FUSION 2026: Maestro artık iki ürün</a><span class="radar-list__src">uipath.com</span></div></li><li><div><a href="yazi/radar-2026-w41/#gartner-saticinin-kurdugu-ajanlarin-cogu-birakilacak">Gartner: satıcının kurduğu ajanların çoğu bırakılacak</a><span class="radar-list__src">gartner.com</span></div></li><li><div><a href="yazi/radar-2026-w41/#model-context-protocol-2026-07-28-protokol-artik-durumsuz">Model Context Protocol 2026-07-28: protokol artık durumsuz</a><span class="radar-list__src">blog.modelcontextprotocol.io</span></div></li><li><div><a href="yazi/radar-2026-w41/#ab-yapay-zeka-yasasi-yuksek-risk-ertelendi-seffaflik-ertelenmedi">AB Yapay Zekâ Yasası: yüksek risk ertelendi, şeffaflık ertelenmedi</a><span class="radar-list__src">eur-lex.europa.eu</span></div></li><li><div><a href="yazi/radar-2026-w41/#e-arsiv-basit-usul-ve-isletme-hesabinda-son-ceyrek">e-Arşiv: basit usul ve işletme hesabında son çeyrek</a><span class="radar-list__src">turmob.org.tr</span></div></li><li><div><a href="yazi/radar-2026-w41/#ixp-sayfa-basina-degil-islem-basina-ucret">IXP: sayfa başına değil, işlem başına ücret</a><span class="radar-list__src">docs.uipath.com</span></div></li></ol>
+</div>
+</section><section class="section wrap" aria-labelledby="topics-h">
+  <div class="section__head"><h2 class="section__title" id="topics-h">Konular</h2></div>
+  <ul class="topics"><li class="topic"><h3 class="topic__name"><a href="konu/agentic-ai/">Ajan tabanlı yapay zekâ</a></h3><div><p class="topic__desc">Ajanlar, Maestro, MCP ve karar yetkisinin nerede durması gerektiği.</p><p class="topic__latest">Son yazı: <a href="yazi/radar-2026-w41/">Maestro ikiye ayrıldı, MCP durumsuzlaştı, e-Arşiv için son çeyrek</a></p></div><p class="topic__count num">2 yazı</p></li><li class="topic"><h3 class="topic__name"><a href="konu/document-ai/">Belge zekâsı</a></h3><div><p class="topic__desc">Document Understanding, IXP ve insan doğrulamalı akışlar.</p><p class="topic__latest">Son yazı: <a href="yazi/havayolu-belge-isleme/">Faturayı okumak başka, anlamak başka: bir havayolunda yerinde belge işleme</a></p></div><p class="topic__count num">2 yazı</p></li><li class="topic"><h3 class="topic__name"><a href="konu/governance/">Yönetişim ve operasyon</a></h3><div><p class="topic__desc">Değişiklik yönetimi, izleme, denetlenebilirlik ve mevzuat.</p><p class="topic__latest">Son yazı: <a href="yazi/ajana-yetki-vermeden-once/">Bir ajana karar yetkisi vermeden önce yedi soru</a></p></div><p class="topic__count num">1 yazı</p></li></ul>
+</section><section class="section wrap" aria-labelledby="uc-h">
+  <div class="section__head"><h2 class="section__title" id="uc-h">Kullanım senaryoları</h2>
+  <a class="link-arrow" href="senaryolar/">Tüm senaryolar<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+  <ul class="ucs"><li class="uc"><a href="yazi/lojistik-anomali-ajan/"><div class="cover"><svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" role="presentation" aria-hidden="true" focusable="false"><line class="cv-soft" x1="78" y1="83" x2="196" y2="56"/><line class="cv-soft" x1="78" y1="83" x2="187" y2="148"/><line class="cv-soft" x1="45" y1="286" x2="187" y2="148"/><line class="cv-soft" x1="45" y1="286" x2="78" y2="83"/><line class="cv-soft" x1="187" y1="148" x2="196" y2="56"/><line class="cv-soft" x1="196" y1="56" x2="315" y2="41"/><line class="cv-soft" x1="315" y1="41" x2="345" y2="150"/><line class="cv-soft" x1="345" y1="150" x2="450" y2="168"/><line class="cv-soft" x1="450" y1="168" x2="461" y2="81"/><line class="cv-soft" x1="461" y1="81" x2="594" y2="74"/><line class="cv-soft" x1="466" y1="293" x2="584" y2="272"/><line class="cv-soft" x1="450" y1="168" x2="466" y2="293"/><line class="cv-soft" x1="450" y1="168" x2="594" y2="74"/><line class="cv-soft" x1="450" y1="168" x2="584" y2="272"/><circle class="cv-fill" cx="78" cy="83" r="9"/><circle class="cv-fill" cx="45" cy="286" r="9"/><circle class="cv-fill" cx="196" cy="56" r="9"/><circle class="cv-fill" cx="315" cy="41" r="9"/><circle class="cv-fill" cx="345" cy="150" r="9"/><circle class="cv-fill" cx="461" cy="81" r="9"/><circle class="cv-fill" cx="450" cy="168" r="9"/><circle class="cv-fill" cx="466" cy="293" r="9"/><circle class="cv-fill" cx="594" cy="74" r="9"/><circle class="cv-fill" cx="584" cy="272" r="9"/><path class="cv-gold" d="M187 132 L203 148 L187 164 L171 148 Z"/></svg></div><p class="meta"><span class="meta__kind">Kullanım senaryosu</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Ajan tabanlı yapay zekâ</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">7 Ekim 2026</time></span></p><h3 class="uc__title">Lojistikte anomali yakalamak: kural, model ve insan aynı akışta</h3><p class="uc__sum">UiPath Maestro ve ajanlarla kurduğumuz lojistik anomali tespiti. Kural tabanlı kontroller, dil modeliyle sınıflandırma ve operasyon ekibine otomatik bildirim; bir de bu iş bölümünün mantığı.</p><span class="uc__badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>Canlı akış</span></a></li><li class="uc"><a href="yazi/havayolu-belge-isleme/"><div class="cover"><svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" role="presentation" aria-hidden="true" focusable="false"><rect class="cv-fill" x="196" y="78" width="190" height="250"/><rect class="cv-fill" x="218" y="66" width="190" height="250"/><rect class="cv-fill" x="240" y="54" width="190" height="250"/><line class="cv-line" x1="254" y1="82" x2="343" y2="82"/><line class="cv-line" x1="254" y1="103" x2="356" y2="103"/><line class="cv-line" x1="254" y1="124" x2="367" y2="124"/><line class="cv-line" x1="254" y1="145" x2="400" y2="145"/><line class="cv-line" x1="254" y1="166" x2="346" y2="166"/><line class="cv-line" x1="254" y1="187" x2="345" y2="187"/><rect class="cv-gold" x="254" y="200" width="120" height="14" opacity="0.18"/><path class="cv-gold-line" d="M250 198 h-6 v18 h6 M378 198 h6 v18 h-6"/><line class="cv-line" x1="254" y1="208" x2="374" y2="208"/><line class="cv-line" x1="254" y1="229" x2="359" y2="229"/><line class="cv-line" x1="254" y1="250" x2="360" y2="250"/><line class="cv-line" x1="254" y1="271" x2="346" y2="271"/><path class="cv-soft" d="M470 120 H580 M470 184 H560 M470 248 H590"/><circle class="cv-fill" cx="470" cy="120" r="5"/><circle class="cv-fill" cx="470" cy="184" r="5"/><circle class="cv-fill" cx="470" cy="248" r="5"/></svg></div><p class="meta"><span class="meta__kind">Kullanım senaryosu</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Belge zekâsı</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">7 Ekim 2026</time></span></p><h3 class="uc__title">Faturayı okumak başka, anlamak başka: bir havayolunda yerinde belge işleme</h3><p class="uc__sum">Ulusal bayrak taşıyıcı bir havayolunun finans ekibi için kurduğumuz, kurumun kendi veri merkezinde çalışan belge işleme hattı. Çok dilli ve çok para birimli faturalar, insan doğrulaması ve tasarımı belirleyen kararlar.</p><span class="uc__badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>Canlı akış</span></a></li></ul>
+</section><section class="wrap" aria-labelledby="author-h">
+<div class="author">
+  <div><h2 class="author__name" id="author-h">S. Kaan Özdemir</h2><p class="author__role">Yönetici Ortak ve Otomasyon &amp; Yapay Zekâ Çözümleri Direktörü, BOTTEQ Consulting</p></div>
+  <div>
+    <p class="author__bio">2010&#x27;dan beri yazılım, 2017&#x27;den beri RPA ve akıllı otomasyon alanında çalışıyorum. BOTTEQ Consulting&#x27;i kurdum; bankacılık, sigorta, finans, perakende ve lojistikte otomasyon programları tasarlıyorum. UiPath Solution Architect ve Advanced Developer dahil birçok platform sertifikam var. Bu sayfada gündemi izliyor, sahada işe yarayanı not ediyorum.</p>
+    <div class="author__links">
+      <a class="link-arrow" href="hakkinda/">Hakkında ve yayın ilkeleri<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      <a class="link-arrow" href="https://www.linkedin.com/in/servetkaanozdemir/" target="_blank" rel="noopener noreferrer">LinkedIn<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+      <a class="link-arrow" href="../../index.html">Portföy<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+<footer class="foot">
+<div class="wrap">
+  <div class="foot__row">
+    <div>
+      <p class="foot__name">Kaan Özdemir</p>
+      <p class="foot__tag">Otomasyon, belge zekâsı ve ajan tabanlı yapay zekâ üzerine; kaynaklı, abartısız.</p>
+    </div>
+    <ul class="foot__links">
+      <li><a href="feed.xml">RSS</a></li>
+      <li><a href="https://www.linkedin.com/in/servetkaanozdemir/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="../../index.html">Portföy</a></li>
+      <li><a href="mailto:kaan.ozdemir@botteq.com.tr">E-posta</a></li>
+      <li><a href="hakkinda/">Hakkında</a></li>
+    </ul>
+  </div>
+  <p class="foot__legal">© 2026 S. Kaan Özdemir. Görüşler kişiseldir; BOTTEQ Consulting&#x27;in veya müşterilerinin resmî görüşü değildir. Müşteri bilgileri anonimleştirilir.</p>
+</div>
+</footer>
+<dialog class="search" id="search" aria-label="Ara" data-index="../search-tr.json" data-base="../">
+  <div class="search__bar">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="search__input" type="search" placeholder="Yazılarda ara" aria-label="Yazılarda ara" autocomplete="off" spellcheck="false">
+    <button class="search__close" type="button" aria-label="Kapat"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <ul class="search__results"><li class="search__hint">Başlık, konu veya etiket yazın.</li></ul>
+</dialog>
+<script src="../assets/blog.js?v=a078a93e2e" defer></script>
+</body>
+</html>

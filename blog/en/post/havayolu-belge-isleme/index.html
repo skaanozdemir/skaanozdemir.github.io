@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reading an invoice is not understanding it: on-prem document processing at an airline — Kaan Özdemir</title>
+<meta name="description" content="The document-processing line we built for the finance team of a national flag carrier, running in the airline’s own data centre. Multi-language, multi-currency invoices, human validation and the decisions that shaped the design.">
+<link rel="canonical" href="https://skaanozdemir.github.io/blog/en/post/havayolu-belge-isleme/">
+<link rel="alternate" hreflang="en" href="https://skaanozdemir.github.io/blog/en/post/havayolu-belge-isleme/"><link rel="alternate" hreflang="tr" href="https://skaanozdemir.github.io/blog/tr/yazi/havayolu-belge-isleme/"><link rel="alternate" hreflang="x-default" href="https://skaanozdemir.github.io/blog/tr/yazi/havayolu-belge-isleme/">
+<link rel="alternate" type="application/rss+xml" title="Kaan Özdemir (EN)" href="../../feed.xml">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kaan Özdemir">
+<meta property="og:title" content="Reading an invoice is not understanding it: on-prem document processing at an airline — Kaan Özdemir">
+<meta property="og:description" content="The document-processing line we built for the finance team of a national flag carrier, running in the airline’s own data centre. Multi-language, multi-currency invoices, human validation and the decisions that shaped the design.">
+<meta property="og:url" content="https://skaanozdemir.github.io/blog/en/post/havayolu-belge-isleme/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://skaanozdemir.github.io/blog/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="S. Kaan Özdemir">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-SxQF8VQ9/nXLc4QrFOgMX9luAq+Nk5Cdl6opXW7LR+Q='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<link rel="preload" href="../../../assets/fonts/fraunces-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../../../assets/fonts/plex-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/blog.css?v=a078a93e2e">
+<script>try{var t=localStorage.getItem('ko-blog-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Reading an invoice is not understanding it: on-prem document processing at an airline","description":"The document-processing line we built for the finance team of a national flag carrier, running in the airline’s own data centre. Multi-language, multi-currency invoices, human validation and the decisions that shaped the design.","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"en","mainEntityOfPage":"https://skaanozdemir.github.io/blog/en/post/havayolu-belge-isleme/","url":"https://skaanozdemir.github.io/blog/en/post/havayolu-belge-isleme/","author":{"@type":"Person","name":"S. Kaan Özdemir","alternateName":"Servet Kaan Özdemir","jobTitle":"Managing Partner & Director of Automation & AI","url":"https://www.linkedin.com/in/servetkaanozdemir/","sameAs":["https://www.linkedin.com/in/servetkaanozdemir/"],"worksFor":{"@type":"Organization","name":"BOTTEQ Consulting"}},"keywords":"idp, document-understanding, validation-station, on-prem, finance","articleSection":"Document AI","citation":["https://docs.uipath.com/ixp/automation-cloud/latest/overview/faq-capabilities-and-vision"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Writing","item":"https://skaanozdemir.github.io/blog/en/writing/"},{"@type":"ListItem","position":2,"name":"Document AI","item":"https://skaanozdemir.github.io/blog/en/topic/document-ai/"},{"@type":"ListItem","position":3,"name":"Reading an invoice is not understanding it: on-prem document processing at an airline","item":"https://skaanozdemir.github.io/blog/en/post/havayolu-belge-isleme/"}]}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+<div class="wrap">
+  <div class="mast__line">
+    <p class="mast__date">Last updated October 7, 2026 · Istanbul</p>
+    <div class="mast__tools">
+      <span class="lang"><a href="../../../tr/yazi/havayolu-belge-isleme/" hreflang="tr" lang="tr" data-lang-link="tr">TR</a><a href="../../" hreflang="en" lang="en" data-lang-link="en" aria-current="true">EN</a></span>
+      <button class="tool" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg class="icon tool__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon tool__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <button class="tool" type="button" data-search-open aria-label="Search"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+  </div>
+  <a class="mast__name" href="../../" aria-label="Kaan Özdemir">Kaan Özdemir</a>
+  <p class="mast__tag">Notes on automation, AI and operations</p>
+  <nav class="mast__nav" aria-label="Main navigation">
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mast-links"><span>Menu</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="mast__links" id="mast-links"><li><a href="../../writing/">Writing</a></li><li><a href="../../radar/">Radar</a></li><li><a href="../../use-cases/" aria-current="page">Use cases</a></li><li><a href="../../about/">About</a></li></ul>
+  </nav>
+  <hr class="rule-double" aria-hidden="true">
+</div>
+</header>
+<main id="main">
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+<article class="article" data-article>
+  <header class="article__head">
+    <p class="article__crumb"><a href="../../writing/">Writing</a> / <a href="../../topic/document-ai/">Document AI</a></p>
+    <h1 class="article__title">Reading an invoice is not understanding it: on-prem document processing at an airline</h1>
+    <p class="article__lede">The document-processing line we built for the finance team of a national flag carrier, running in the airline’s own data centre. Multi-language, multi-currency invoices, human validation and the decisions that shaped the design.</p>
+    <div class="article__meta"><p class="meta"><span class="meta__kind">Use case</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Document AI</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">October 7, 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">5 min read</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><a href="../../../tr/yazi/havayolu-belge-isleme/" hreflang="tr" lang="tr" data-lang-link="tr">Türkçesini okuyun</a></span></p></div>
+  </header>
+  
+  <div class="article__grid">
+    <div class="prose"><p>Reading the text on an invoice is no longer hard. OCR engines have done it well for years. The hard part is understanding what was read. Which amount is the total and which is a line? Which date is the invoice date and which is the due date? Is the table on page two a continuation of page one, or a separate breakdown?</p>
+<p>The document-processing programme we built for the Finance and Accounting function of a national flag carrier is built on that second question. It runs in the airline’s own data centre, processes supplier invoices end to end, and is live. Without going into the airline’s internal details, this piece walks through the decisions that shaped the design.</p>
+<section class="walk" data-walk data-steps="7" aria-labelledby="walk1-t">
+<p class="walk__title" id="walk1-t">How a supplier invoice moves through the line</p>
+<p class="walk__lead">The skeleton of the flow. I’m not sharing the airline’s internal details or volumes; the steps show how a programme like this is put together. Click a step, or press play.</p>
+<ol class="walk__steps"><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">01</span><span class="walk__label">Intake</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">02</span><span class="walk__label">Digitisation</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">03</span><span class="walk__label">Classification</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">04</span><span class="walk__label">Extraction</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">05</span><span class="walk__label">Rule checks</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">06</span><span class="walk__label">Human validation</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">07</span><span class="walk__label">Posting and audit</span></button></li></ol>
+<div class="walk__panel" id="walk1-panel" aria-live="polite"><div class="walk__detail"><p class="walk__kind" data-kind="system">System</p><p class="walk__name">Intake</p><p class="walk__text">Whatever channel an invoice arrives through (email, scan, portal), it lands in a single intake queue. Each document gets a traceable ID, and a second copy of the same invoice is caught here.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="ai">Model</p><p class="walk__name">Digitisation</p><p class="walk__text">OCR/ICR turns the page into text with positions. The installation runs in the airline’s own data centre, so the document never leaves the building at any stage.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="ai">Model</p><p class="walk__name">Classification</p><p class="walk__text">The document type and language are identified. An invoice, a delivery note and attachments can arrive in one file; extraction only means something once the type is right.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="ai">Model</p><p class="walk__name">Extraction</p><p class="walk__text">Header fields (supplier, date, due date, currency) and line-item tables are extracted. Several tables, tables split across pages and country-specific decimal formats are handled here.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="rule">Rule</p><p class="walk__name">Rule checks</p><p class="walk__text">Do the lines add up to the invoice total? Does the currency fit the supplier? Is the supplier in master data? Each field’s confidence score is compared with the threshold set for that field.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="human">Human</p><p class="walk__name">Human validation</p><p class="walk__text">A document below threshold, or one that fails a rule, goes to the validation screen. The reviewer doesn’t reread the whole invoice; they see the field that stopped and why.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="system">System</p><p class="walk__name">Posting and audit</p><p class="walk__text">Approved data is posted to the ERP. Who corrected what is written to the audit trail, and corrected fields become input for the next model improvement.</p></div></div>
+<div class="walk__controls">
+  <button type="button" class="walk__btn" data-walk-prev><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" x2="5" y1="19" y2="5"/></svg><span>Previous</span></button>
+  <button type="button" class="walk__btn" data-walk-play aria-pressed="false"><span class="i-play"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"/></svg></span><span class="i-pause" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></svg></span><span data-label>Play</span></button>
+  <button type="button" class="walk__btn" data-walk-next><span>Next</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" x2="19" y1="5" y2="19"/></svg></button>
+  <span class="walk__count num" aria-hidden="true">1 / 7</span>
+</div>
+</section>
+<h2 id="the-first-constraint-documents-don-t-leave-the-building">The first constraint: documents don’t leave the building</h2>
+<p>The first decision that shaped the architecture wasn’t technical. It was institutional: documents would not be sent outside the organisation. That’s a common requirement for finance documents and, I think, a fair one. A supplier invoice carries bank details, contract prices and payment terms.</p>
+<p>The consequence is that much of what you switch on with a few settings in the cloud becomes infrastructure work on-premises. Digitisation and extraction components have to run inside. Model versions, updates and capacity planning become part of the project. UiPath’s own documentation states that Document Understanding remains available for Automation Suite and Standalone deployments, which narrows the choice of product for any organisation with an on-premises requirement.</p>
+<p>The lesson here, as I see it, is simple: plan the on-premises installation as its own work item, not a deployment detail. If it isn’t in the schedule from day one, it will squeeze something later.</p>
+<h2 id="three-gaps-between-reading-and-understanding">Three gaps between reading and understanding</h2>
+<p>The scope of this programme fits in three phrases: multi-currency, multi-language, multi-table. Each is its own problem.</p>
+<p><strong>Multiple currencies.</strong> The currency isn’t always printed next to the amount. Decimal separators change from country to country, and the same supplier can change format over time. After extraction every amount has to be normalised and its currency checked against what the supplier usually invoices in. I’d leave that check to a rule, not the model. The model can be wrong; the fact that a supplier always bills in euros is already sitting in master data.</p>
+<p><strong>Multiple languages.</strong> The same field arrives under different labels in different languages, and non-Latin scripts are a challenge of their own. On another project we built a separate extraction pipeline for documents in Chinese characters, and it raised accuracy by 55%. That result points at something: instead of forcing every language through one model, splitting the troublesome language into its own pipeline is worth trying.</p>
+<p><strong>Multiple tables.</strong> Line items can be spread across several tables, tables break at the end of a page, and subtotals can look like lines. The best insurance is, again, a rule: if the lines don’t add up to the invoice total, the document doesn’t pass automatically.</p>
+<h2 id="human-validation-is-the-design-not-the-fallback">Human validation is the design, not the fallback</h2>
+<p>Two parts of this programme set it apart: the design of the validation screen, and structured human-in-the-loop escalation. The second sounds abstract, so let me unpack it.</p>
+<p>In unstructured escalation, a document goes to a person with a note that says “please check”. They reread it, find the problem themselves and repeat the same work every time. In structured escalation the document arrives with the reason it stopped: which field, which rule, which confidence score. Documents that stop for different reasons can go to different people. An unreadable field is work for the validation team; a supplier missing from master data is work for procurement.</p>
+<p>There are two benefits. The reviewer’s time goes to the suspicious field, not the whole document. And because corrections are recorded with their reasons, you can measure which document types and which fields cause trouble. Those records decide where model improvement starts.</p>
+<p>I set confidence thresholds per field, not per document. A small misread in the supplier name gets caught by master-data matching; a misread amount can turn into a payment before anyone notices. Applying the same threshold to both makes little sense.</p>
+<h2 id="before-you-copy-this">Before you copy this</h2>
+<p>If a team were starting a similar programme, this is the list I’d hand them:</p>
+<ol><li>Collect a real month of documents. Don’t estimate anything before you’ve seen the spread of suppliers, languages, currencies and page counts.</li><li>Write down who will work the validation screen and how much time they have each week. A human step without capacity becomes a queue that slows everything down.</li><li>Decide with the business which field passes at which threshold, and name the owner of that decision.</li><li>Define the final consistency checks before posting to the ERP as rules. However good the model is, don’t leave those to it.</li><li>If you’re on-premises, put hardware, OCR engine licensing and the model-update procedure in the plan as separate lines.</li><li>Have a rollback plan for model version changes. A new version can improve one field and get worse on another.</li></ol>
+<p>None of these items is about AI. Most of the decisions that decide a document-processing project aren’t.</p></div>
+    <aside class="rail"><nav class="toc" aria-label="In this piece"><p class="rail__title">In this piece</p><ol><li><a href="#the-first-constraint-documents-don-t-leave-the-building">The first constraint: documents don&#x27;t leave the building</a></li><li><a href="#three-gaps-between-reading-and-understanding">Three gaps between reading and understanding</a></li><li><a href="#human-validation-is-the-design-not-the-fallback">Human validation is the design, not the fallback</a></li><li><a href="#before-you-copy-this">Before you copy this</a></li></ol></nav><div class="share"><p class="rail__title">Share</p>
+<button type="button" data-copy-link="https://skaanozdemir.github.io/blog/en/post/havayolu-belge-isleme/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span data-label>Copy link</span></button>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Fhavayolu-belge-isleme%2F" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg><span>Share on LinkedIn</span></a>
+<a href="mailto:?subject=Reading%20an%20invoice%20is%20not%20understanding%20it%3A%20on-prem%20document%20processing%20at%20an%20airline&amp;body=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Fhavayolu-belge-isleme%2F"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Send by email</span></a></div></aside>
+  </div>
+  <section class="sources" aria-labelledby="src-h"><h2 class="sources__title" id="src-h">Sources</h2><ol><li><div><a href="https://docs.uipath.com/ixp/automation-cloud/latest/overview/faq-capabilities-and-vision" target="_blank" rel="noopener noreferrer">IXP — Capabilities and vision</a><br><span class="sources__pub">UiPath Documentation · Accessed October 7, 2026</span></div></li></ol></section>
+  <p class="note">Research and the first draft are prepared with AI-assisted tools; I read the text before it goes out, check the sources and take responsibility for it. If you spot a mistake, write to me and I will fix it.</p>
+  <section class="related" aria-labelledby="rel-h"><h2 class="section__title" id="rel-h">More on this topic</h2><ul class="list"><li class="list__item"><a href="../du-mu-ixp-mi/"><p class="meta"><span class="meta__kind">Playbook</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Document AI</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">October 7, 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">4 min read</span></span></p><span class="list__title">Document Understanding or IXP? A decision table by document type</span></a></li></ul></section>
+  <nav class="pager" aria-label="Previous / Next"><a class="pager__prev" href="../du-mu-ixp-mi/"><span class="pager__dir">Previous</span><span class="pager__title">Document Understanding or IXP? A decision table by document type</span></a><a class="pager__next" href="../lojistik-anomali-ajan/"><span class="pager__dir">Next</span><span class="pager__title">Catching anomalies in logistics: rules, a model and a person in one flow</span></a></nav>
+</article>
+</main>
+<footer class="foot">
+<div class="wrap">
+  <div class="foot__row">
+    <div>
+      <p class="foot__name">Kaan Özdemir</p>
+      <p class="foot__tag">On automation, document AI and agentic AI. Sourced, without hype.</p>
+    </div>
+    <ul class="foot__links">
+      <li><a href="../../feed.xml">RSS</a></li>
+      <li><a href="https://www.linkedin.com/in/servetkaanozdemir/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="../../../../index.html">Portfolio</a></li>
+      <li><a href="mailto:kaan.ozdemir@botteq.com.tr">Email</a></li>
+      <li><a href="../../about/">About</a></li>
+    </ul>
+  </div>
+  <p class="foot__legal">© 2026 S. Kaan Özdemir. Views are personal and are not those of BOTTEQ Consulting or its clients. Client details are anonymised.</p>
+</div>
+</footer>
+<dialog class="search" id="search" aria-label="Search" data-index="../../../search-en.json" data-base="../../../">
+  <div class="search__bar">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="search__input" type="search" placeholder="Search the writing" aria-label="Search the writing" autocomplete="off" spellcheck="false">
+    <button class="search__close" type="button" aria-label="Close"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <ul class="search__results"><li class="search__hint">Type a title, topic or tag.</li></ul>
+</dialog>
+<script src="../../../assets/blog.js?v=a078a93e2e" defer></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maestro splits in two, MCP goes stateless, and an e-invoice deadline lands — Kaan Özdemir</title>
+<meta name="description" content="Issue one: the architectural split behind UiPath FUSION, Gartner’s warning on vendor-built agents, the new MCP spec, the EU AI Act calendar, Türkiye’s 1 January 2027 e-Arşiv rule and IXP’s new pricing unit.">
+<link rel="canonical" href="https://skaanozdemir.github.io/blog/en/post/radar-2026-w41/">
+<link rel="alternate" hreflang="en" href="https://skaanozdemir.github.io/blog/en/post/radar-2026-w41/"><link rel="alternate" hreflang="tr" href="https://skaanozdemir.github.io/blog/tr/yazi/radar-2026-w41/"><link rel="alternate" hreflang="x-default" href="https://skaanozdemir.github.io/blog/tr/yazi/radar-2026-w41/">
+<link rel="alternate" type="application/rss+xml" title="Kaan Özdemir (EN)" href="../../feed.xml">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kaan Özdemir">
+<meta property="og:title" content="Maestro splits in two, MCP goes stateless, and an e-invoice deadline lands — Kaan Özdemir">
+<meta property="og:description" content="Issue one: the architectural split behind UiPath FUSION, Gartner’s warning on vendor-built agents, the new MCP spec, the EU AI Act calendar, Türkiye’s 1 January 2027 e-Arşiv rule and IXP’s new pricing unit.">
+<meta property="og:url" content="https://skaanozdemir.github.io/blog/en/post/radar-2026-w41/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://skaanozdemir.github.io/blog/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="S. Kaan Özdemir">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-SxQF8VQ9/nXLc4QrFOgMX9luAq+Nk5Cdl6opXW7LR+Q='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<link rel="preload" href="../../../assets/fonts/fraunces-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../../../assets/fonts/plex-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/blog.css?v=a078a93e2e">
+<script>try{var t=localStorage.getItem('ko-blog-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Maestro splits in two, MCP goes stateless, and an e-invoice deadline lands","description":"Issue one: the architectural split behind UiPath FUSION, Gartner’s warning on vendor-built agents, the new MCP spec, the EU AI Act calendar, Türkiye’s 1 January 2027 e-Arşiv rule and IXP’s new pricing unit.","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"en","mainEntityOfPage":"https://skaanozdemir.github.io/blog/en/post/radar-2026-w41/","url":"https://skaanozdemir.github.io/blog/en/post/radar-2026-w41/","author":{"@type":"Person","name":"S. Kaan Özdemir","alternateName":"Servet Kaan Özdemir","jobTitle":"Managing Partner & Director of Automation & AI","url":"https://www.linkedin.com/in/servetkaanozdemir/","sameAs":["https://www.linkedin.com/in/servetkaanozdemir/"],"worksFor":{"@type":"Organization","name":"BOTTEQ Consulting"}},"keywords":"uipath, maestro, mcp, ai-act, e-invoice, ixp, gartner","articleSection":"Agentic AI","citation":["https://www.uipath.com/blog/product-and-updates/biggest-product-announcements-fusion-2026","https://www.gartner.com/en/newsroom/press-releases/2026-09-29-gartner-predicts-70-percent-of-enterprises-will-abandon-agentic-ai-built-by-vendor-forward-deployed-engineering-by-2028","https://blog.modelcontextprotocol.io/posts/2026-07-28/","https://eur-lex.europa.eu/eli/reg/2026/1744/oj","https://www.joneswalker.com/en/insights/blogs/ai-law-blog/yes-august-2-still-matters-the-eu-approved-a-high-risk-ai-delay-but-most-trans.html?id=102nbon","https://www.turmob.org.tr/ekutuphane/Read/9208c1d3-f311-468d-9dd7-0d50a202bd6c","https://docs.uipath.com/ixp/automation-cloud/latest/release-notes/ucd-july-2026","https://docs.uipath.com/ixp/automation-cloud/latest/release-notes/ucd-september-2026"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Writing","item":"https://skaanozdemir.github.io/blog/en/writing/"},{"@type":"ListItem","position":2,"name":"Agentic AI","item":"https://skaanozdemir.github.io/blog/en/topic/agentic-ai/"},{"@type":"ListItem","position":3,"name":"Maestro splits in two, MCP goes stateless, and an e-invoice deadline lands","item":"https://skaanozdemir.github.io/blog/en/post/radar-2026-w41/"}]}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+<div class="wrap">
+  <div class="mast__line">
+    <p class="mast__date">Last updated October 7, 2026 · Istanbul</p>
+    <div class="mast__tools">
+      <span class="lang"><a href="../../../tr/yazi/radar-2026-w41/" hreflang="tr" lang="tr" data-lang-link="tr">TR</a><a href="../../" hreflang="en" lang="en" data-lang-link="en" aria-current="true">EN</a></span>
+      <button class="tool" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg class="icon tool__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon tool__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <button class="tool" type="button" data-search-open aria-label="Search"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+  </div>
+  <a class="mast__name" href="../../" aria-label="Kaan Özdemir">Kaan Özdemir</a>
+  <p class="mast__tag">Notes on automation, AI and operations</p>
+  <nav class="mast__nav" aria-label="Main navigation">
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mast-links"><span>Menu</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="mast__links" id="mast-links"><li><a href="../../writing/">Writing</a></li><li><a href="../../radar/" aria-current="page">Radar</a></li><li><a href="../../use-cases/">Use cases</a></li><li><a href="../../about/">About</a></li></ul>
+  </nav>
+  <hr class="rule-double" aria-hidden="true">
+</div>
+</header>
+<main id="main">
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+<article class="article" data-article>
+  <header class="article__head">
+    <p class="article__crumb"><a href="../../writing/">Writing</a> / <a href="../../topic/agentic-ai/">Agentic AI</a></p>
+    <h1 class="article__title">Maestro splits in two, MCP goes stateless, and an e-invoice deadline lands</h1>
+    <p class="article__lede">Issue one: the architectural split behind UiPath FUSION, Gartner’s warning on vendor-built agents, the new MCP spec, the EU AI Act calendar, Türkiye’s 1 January 2027 e-Arşiv rule and IXP’s new pricing unit.</p>
+    <div class="article__meta"><p class="meta"><span class="meta__kind">Weekly Radar</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Agentic AI</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">October 7, 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">5 min read</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><a href="../../../tr/yazi/radar-2026-w41/" hreflang="tr" lang="tr" data-lang-link="tr">Türkçesini okuyun</a></span></p></div>
+  </header>
+  
+  <div class="article__grid">
+    <div class="prose prose--radar"><p>As this is the first issue, the window is wider than a week. Six items from recent weeks that could change the budget, the architecture or the calendar of an automation programme. They share a thread: as the tools mature, the question moves from “can it do this?” to “who will own it, and what will it cost?”</p>
+<h3 id="uipath-fusion-2026-maestro-is-now-two-products"><a href="https://www.uipath.com/blog/product-and-updates/biggest-product-announcements-fusion-2026" target="_blank" rel="noopener noreferrer">UiPath FUSION 2026: Maestro is now two products</a></h3>
+<p class="item__meta"><em>UiPath · 23 September 2026</em></p>
+<p>At FUSION 2026 UiPath split Maestro in two. Maestro Orchestrate is for long-running processes that cross teams and systems; Maestro Automate is for small, fast, high-volume tasks. Several things went generally available in the same announcement: Cartographer, which drafts and maintains a “Map of Work” from documents, systems and people; UiPath for Coding Agents, which lets developers build with the coding agent they already use; and Delegate, a desktop agent. Dark Testing Factory is in preview and the Map of Work itself is on the roadmap.</p>
+<p><strong>Why it matters.</strong> The split turns a decision teams already make into a product boundary. A case that stays open for weeks waiting on human approval and a queue item that finishes in seconds shouldn’t be governed by the same rules. Make that distinction in your architecture documents now: which processes hold state, and which only carry volume? I’d treat Cartographer as a way to keep the PDD current, not as a replacement for writing one. My first test would be a small process that already has documentation, comparing the output against what’s on file.</p>
+<h3 id="gartner-most-vendor-built-agents-will-be-abandoned"><a href="https://www.gartner.com/en/newsroom/press-releases/2026-09-29-gartner-predicts-70-percent-of-enterprises-will-abandon-agentic-ai-built-by-vendor-forward-deployed-engineering-by-2028" target="_blank" rel="noopener noreferrer">Gartner: most vendor-built agents will be abandoned</a></h3>
+<p class="item__meta"><em>Gartner · 29 September 2026</em></p>
+<p>Gartner’s 29 September release predicts that 70% of enterprises will abandon agentic AI built by a vendor’s forward-deployed engineers by 2028. The published summary points to rising costs and to organisations being unable to evolve these systems on their own. Gartner’s page blocks automated access, so this item rests on the release title and its published summary.</p>
+<p><strong>Why it matters.</strong> Outsourcing an agent build isn’t the problem. Being unable to maintain what you received is. I would put three things in the contract: versioned prompts and tool definitions, the evaluation sets used in acceptance testing, and at least one change made by the internal team alone after go-live. If the third can’t happen, what you have is a dependency, not a product.</p>
+<h3 id="model-context-protocol-2026-07-28-the-protocol-is-now-stateless"><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank" rel="noopener noreferrer">Model Context Protocol 2026-07-28: the protocol is now stateless</a></h3>
+<p class="item__meta"><em>Model Context Protocol Blog · 28 July 2026</em></p>
+<p>The 28 July release moves MCP’s core to a stateless request-response model. The initialisation handshake and session IDs are gone; each request carries its own version and capability information. When a server needs input mid-call it now uses Multi Round-Trip Requests, and method and tool names travel in HTTP headers (<code>Mcp-Method</code>, <code>Mcp-Name</code>). Authorisation was tightened, and Tasks, MCP Apps and Enterprise Managed Authorization became official extensions. Roots, Sampling and Logging are deprecated, with at least twelve months to migrate.</p>
+<p><strong>Why it matters.</strong> If you run MCP servers in-house there is good news on two fronts. Servers scale horizontally without sticky sessions, and a gateway can see which tool is being called and apply policy without opening the request body. That gives you something concrete to discuss with the security team. The work is clear too: list which of your servers use the deprecated features now. Twelve months is short if you don’t have an inventory.</p>
+<h3 id="eu-ai-act-high-risk-delayed-transparency-not"><a href="https://eur-lex.europa.eu/eli/reg/2026/1744/oj" target="_blank" rel="noopener noreferrer">EU AI Act: high-risk delayed, transparency not</a></h3>
+<p class="item__meta"><em>Official Journal of the European Union · 24 July 2026</em></p>
+<p>Regulation (EU) 2026/1744, the Digital Omnibus on AI, entered into force on 27 July, three days after publication. Obligations for high-risk systems under Annex III move to 2 December 2027, and those for systems embedded in products under Annex I to 2 August 2028. The Article 50 transparency duties did not move; telling people they are dealing with an AI system has applied since 2 August 2026. Providers whose generative systems were on the market before that date get a four-month transition for machine-readable marking of outputs, which ends on 2 December 2026.</p>
+<p><strong>Why it matters.</strong> For Turkish companies serving the EU, or with EU customers, the order of work has changed. There’s breathing room on high-risk classification, but if a chatbot talks to customers or a flow generates text for them, the disclosure duty is current. I’d start with an inventory: in which flows is a person corresponding with a model without knowing it?</p>
+<h3 id="turkiye-e-arsiv-the-last-quarter-for-small-taxpayers"><a href="https://www.turmob.org.tr/ekutuphane/Read/9208c1d3-f311-468d-9dd7-0d50a202bd6c" target="_blank" rel="noopener noreferrer">Türkiye e-Arşiv: the last quarter for small taxpayers</a></h3>
+<p class="item__meta"><em>TÜRMOB · 2 January 2026 (Official Gazette, 31 December 2025)</em></p>
+<p>General Communiqué No. 589 on the Tax Procedure Law gave taxpayers on the simplified method or business-account basis, who are outside e-Fatura and e-Arşiv, one extra year. Until 31 December 2026 they may issue invoices up to 3,000 TL including taxes on paper; anything above must be issued as e-Arşiv through the GİB portal. From 1 January 2027 every invoice they issue, whatever the amount, must be e-Arşiv. For other taxpayers the same rule has applied since 1 January 2026.</p>
+<p><strong>Why it matters.</strong> Companies that buy from many small suppliers still see paper or scanned invoices in accounts payable. Expect that channel to shrink in 2027. If you run an OCR flow for paper invoices, redo next year’s volume forecast with this change in mind. I’d move the freed capacity to integrations that take e-document data straight into the ERP.</p>
+<h3 id="ixp-priced-per-operation-not-per-page"><a href="https://docs.uipath.com/ixp/automation-cloud/latest/release-notes/ucd-july-2026" target="_blank" rel="noopener noreferrer">IXP: priced per operation, not per page</a></h3>
+<p class="item__meta"><em>UiPath Documentation · 8 July and 14 September 2026</em></p>
+<p>Since 8 July, UiPath meters IXP extraction from unstructured and complex documents per operation rather than at a flat rate per page, and IXP and Document Understanding licences can be used together without extra per-page cost. On 23 July an option to deploy a model version straight to an Orchestrator folder entered preview. On 14 September <a href="https://docs.uipath.com/ixp/automation-cloud/latest/release-notes/ucd-september-2026" target="_blank" rel="noopener noreferrer">Bring Your Own Subscription</a> opened in preview: IXP can run on an organisation’s own Gemini or GPT subscription, eligible projects get discounted consumption, and AI Trust Layer policies still apply.</p>
+<p><strong>Why it matters.</strong> Document-processing business cases are usually built on page counts. Change the unit and the maths changes, and only your own sample will show which document types it helps and which it hurts. Re-run the business case on a real month of documents. For organisations that already hold a model subscription, BYOS adds an option in conversations about data residency and price. It’s still a preview, though.</p>
+<hr>
+<p>Over the coming weeks I’ll be watching two things: availability dates for Maestro Orchestrate and Automate, and what model providers publish as the 2 December marking date approaches.</p></div>
+    <aside class="rail"><div class="share"><p class="rail__title">Share</p>
+<button type="button" data-copy-link="https://skaanozdemir.github.io/blog/en/post/radar-2026-w41/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span data-label>Copy link</span></button>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Fradar-2026-w41%2F" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg><span>Share on LinkedIn</span></a>
+<a href="mailto:?subject=Maestro%20splits%20in%20two%2C%20MCP%20goes%20stateless%2C%20and%20an%20e-invoice%20deadline%20lands&amp;body=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Fradar-2026-w41%2F"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Send by email</span></a></div></aside>
+  </div>
+  <section class="sources" aria-labelledby="src-h"><h2 class="sources__title" id="src-h">Sources</h2><ol><li><div><a href="https://www.uipath.com/blog/product-and-updates/biggest-product-announcements-fusion-2026" target="_blank" rel="noopener noreferrer">The biggest product announcements from UiPath FUSION 2026</a><br><span class="sources__pub">UiPath, September 23, 2026 · Accessed October 7, 2026</span></div></li><li><div><a href="https://www.gartner.com/en/newsroom/press-releases/2026-09-29-gartner-predicts-70-percent-of-enterprises-will-abandon-agentic-ai-built-by-vendor-forward-deployed-engineering-by-2028" target="_blank" rel="noopener noreferrer">Gartner Predicts 70% of Enterprises Will Abandon Agentic AI Built by Vendor Forward-Deployed Engineering by 2028</a><br><span class="sources__pub">Gartner, September 29, 2026 · Accessed October 7, 2026</span></div></li><li><div><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank" rel="noopener noreferrer">The 2026-07-28 Specification</a><br><span class="sources__pub">Model Context Protocol Blog, July 28, 2026 · Accessed October 7, 2026</span></div></li><li><div><a href="https://eur-lex.europa.eu/eli/reg/2026/1744/oj" target="_blank" rel="noopener noreferrer">Regulation (EU) 2026/1744 (Digital Omnibus on AI)</a><br><span class="sources__pub">EUR-Lex, Official Journal of the European Union, July 24, 2026 · Accessed October 7, 2026</span></div></li><li><div><a href="https://www.joneswalker.com/en/insights/blogs/ai-law-blog/yes-august-2-still-matters-the-eu-approved-a-high-risk-ai-delay-but-most-trans.html?id=102nbon" target="_blank" rel="noopener noreferrer">Yes, August 2 Still Matters: The EU Approved a High-Risk AI Delay, but Most Transparency Obligations Remain</a><br><span class="sources__pub">Jones Walker LLP, July 16, 2026 · Accessed October 7, 2026</span></div></li><li><div><a href="https://www.turmob.org.tr/ekutuphane/Read/9208c1d3-f311-468d-9dd7-0d50a202bd6c" target="_blank" rel="noopener noreferrer">E-Arşiv invoicing obligation for taxpayers outside e-Fatura and e-Arşiv, revised for simplified-method and business-account taxpayers (Legislation Circular 02.01.2026/16, in Turkish)</a><br><span class="sources__pub">TÜRMOB, January 2, 2026 · Accessed October 7, 2026</span></div></li><li><div><a href="https://docs.uipath.com/ixp/automation-cloud/latest/release-notes/ucd-july-2026" target="_blank" rel="noopener noreferrer">IXP Release notes — Unstructured and Complex Documents, July 2026</a><br><span class="sources__pub">UiPath Documentation, July 8, 2026 · Accessed October 7, 2026</span></div></li><li><div><a href="https://docs.uipath.com/ixp/automation-cloud/latest/release-notes/ucd-september-2026" target="_blank" rel="noopener noreferrer">IXP Release notes — Unstructured and Complex Documents, September 2026</a><br><span class="sources__pub">UiPath Documentation, September 14, 2026 · Accessed October 7, 2026</span></div></li></ol></section>
+  <p class="note">This radar is compiled by an AI-assisted research pipeline in which every item links to its primary source. The commentary is mine. If you spot a mistake, write to me and I will fix it.</p>
+  <section class="related" aria-labelledby="rel-h"><h2 class="section__title" id="rel-h">More on this topic</h2><ul class="list"><li class="list__item"><a href="../lojistik-anomali-ajan/"><p class="meta"><span class="meta__kind">Use case</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Agentic AI</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">October 7, 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">4 min read</span></span></p><span class="list__title">Catching anomalies in logistics: rules, a model and a person in one flow</span></a></li></ul></section>
+  <nav class="pager" aria-label="Previous / Next"><a class="pager__prev" href="../lojistik-anomali-ajan/"><span class="pager__dir">Previous</span><span class="pager__title">Catching anomalies in logistics: rules, a model and a person in one flow</span></a></nav>
+</article>
+</main>
+<footer class="foot">
+<div class="wrap">
+  <div class="foot__row">
+    <div>
+      <p class="foot__name">Kaan Özdemir</p>
+      <p class="foot__tag">On automation, document AI and agentic AI. Sourced, without hype.</p>
+    </div>
+    <ul class="foot__links">
+      <li><a href="../../feed.xml">RSS</a></li>
+      <li><a href="https://www.linkedin.com/in/servetkaanozdemir/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="../../../../index.html">Portfolio</a></li>
+      <li><a href="mailto:kaan.ozdemir@botteq.com.tr">Email</a></li>
+      <li><a href="../../about/">About</a></li>
+    </ul>
+  </div>
+  <p class="foot__legal">© 2026 S. Kaan Özdemir. Views are personal and are not those of BOTTEQ Consulting or its clients. Client details are anonymised.</p>
+</div>
+</footer>
+<dialog class="search" id="search" aria-label="Search" data-index="../../../search-en.json" data-base="../../../">
+  <div class="search__bar">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="search__input" type="search" placeholder="Search the writing" aria-label="Search the writing" autocomplete="off" spellcheck="false">
+    <button class="search__close" type="button" aria-label="Close"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <ul class="search__results"><li class="search__hint">Type a title, topic or tag.</li></ul>
+</dialog>
+<script src="../../../assets/blog.js?v=a078a93e2e" defer></script>
+</body>
+</html>

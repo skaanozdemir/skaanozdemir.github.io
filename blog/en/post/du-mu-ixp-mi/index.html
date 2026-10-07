@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Document Understanding or IXP? A decision table by document type — Kaan Özdemir</title>
+<meta name="description" content="A practical guide to choosing between UiPath’s two document-AI routes, starting from the document type, your generative-AI policy and where the system has to run. Grounded in UiPath’s own documentation.">
+<link rel="canonical" href="https://skaanozdemir.github.io/blog/en/post/du-mu-ixp-mi/">
+<link rel="alternate" hreflang="en" href="https://skaanozdemir.github.io/blog/en/post/du-mu-ixp-mi/"><link rel="alternate" hreflang="tr" href="https://skaanozdemir.github.io/blog/tr/yazi/du-mu-ixp-mi/"><link rel="alternate" hreflang="x-default" href="https://skaanozdemir.github.io/blog/tr/yazi/du-mu-ixp-mi/">
+<link rel="alternate" type="application/rss+xml" title="Kaan Özdemir (EN)" href="../../feed.xml">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kaan Özdemir">
+<meta property="og:title" content="Document Understanding or IXP? A decision table by document type — Kaan Özdemir">
+<meta property="og:description" content="A practical guide to choosing between UiPath’s two document-AI routes, starting from the document type, your generative-AI policy and where the system has to run. Grounded in UiPath’s own documentation.">
+<meta property="og:url" content="https://skaanozdemir.github.io/blog/en/post/du-mu-ixp-mi/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://skaanozdemir.github.io/blog/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="S. Kaan Özdemir">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-SxQF8VQ9/nXLc4QrFOgMX9luAq+Nk5Cdl6opXW7LR+Q='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<link rel="preload" href="../../../assets/fonts/fraunces-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../../../assets/fonts/plex-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/blog.css?v=a078a93e2e">
+<script>try{var t=localStorage.getItem('ko-blog-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Document Understanding or IXP? A decision table by document type","description":"A practical guide to choosing between UiPath’s two document-AI routes, starting from the document type, your generative-AI policy and where the system has to run. Grounded in UiPath’s own documentation.","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"en","mainEntityOfPage":"https://skaanozdemir.github.io/blog/en/post/du-mu-ixp-mi/","url":"https://skaanozdemir.github.io/blog/en/post/du-mu-ixp-mi/","author":{"@type":"Person","name":"S. Kaan Özdemir","alternateName":"Servet Kaan Özdemir","jobTitle":"Managing Partner & Director of Automation & AI","url":"https://www.linkedin.com/in/servetkaanozdemir/","sameAs":["https://www.linkedin.com/in/servetkaanozdemir/"],"worksFor":{"@type":"Organization","name":"BOTTEQ Consulting"}},"keywords":"ixp, document-understanding, uipath, idp, decision-guide","articleSection":"Document AI","citation":["https://docs.uipath.com/ixp/automation-cloud/latest/overview/faq-capabilities-and-vision","https://docs.uipath.com/ixp/automation-cloud/latest/overview/capability-types","https://docs.uipath.com/document-understanding/automation-cloud/latest/user-guide/choosing-the-project-type","https://docs.uipath.com/ixp/automation-cloud/latest/release-notes/ucd-july-2026"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Writing","item":"https://skaanozdemir.github.io/blog/en/writing/"},{"@type":"ListItem","position":2,"name":"Document AI","item":"https://skaanozdemir.github.io/blog/en/topic/document-ai/"},{"@type":"ListItem","position":3,"name":"Document Understanding or IXP? A decision table by document type","item":"https://skaanozdemir.github.io/blog/en/post/du-mu-ixp-mi/"}]}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+<div class="wrap">
+  <div class="mast__line">
+    <p class="mast__date">Last updated October 7, 2026 · Istanbul</p>
+    <div class="mast__tools">
+      <span class="lang"><a href="../../../tr/yazi/du-mu-ixp-mi/" hreflang="tr" lang="tr" data-lang-link="tr">TR</a><a href="../../" hreflang="en" lang="en" data-lang-link="en" aria-current="true">EN</a></span>
+      <button class="tool" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg class="icon tool__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon tool__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <button class="tool" type="button" data-search-open aria-label="Search"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+  </div>
+  <a class="mast__name" href="../../" aria-label="Kaan Özdemir">Kaan Özdemir</a>
+  <p class="mast__tag">Notes on automation, AI and operations</p>
+  <nav class="mast__nav" aria-label="Main navigation">
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mast-links"><span>Menu</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="mast__links" id="mast-links"><li><a href="../../writing/" aria-current="page">Writing</a></li><li><a href="../../radar/">Radar</a></li><li><a href="../../use-cases/">Use cases</a></li><li><a href="../../about/">About</a></li></ul>
+  </nav>
+  <hr class="rule-double" aria-hidden="true">
+</div>
+</header>
+<main id="main">
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+<article class="article" data-article>
+  <header class="article__head">
+    <p class="article__crumb"><a href="../../writing/">Writing</a> / <a href="../../topic/document-ai/">Document AI</a></p>
+    <h1 class="article__title">Document Understanding or IXP? A decision table by document type</h1>
+    <p class="article__lede">A practical guide to choosing between UiPath’s two document-AI routes, starting from the document type, your generative-AI policy and where the system has to run. Grounded in UiPath’s own documentation.</p>
+    <div class="article__meta"><p class="meta"><span class="meta__kind">Playbook</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Document AI</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">October 7, 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">4 min read</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><a href="../../../tr/yazi/du-mu-ixp-mi/" hreflang="tr" lang="tr" data-lang-link="tr">Türkçesini okuyun</a></span></p></div>
+  </header>
+  
+  <div class="article__grid">
+    <div class="prose"><p>UiPath now has two routes for documents, and the choice often starts in the wrong place: with “which one is newer?” A better starting point is the document itself. Two questions follow. How much generative AI does your organisation allow, and where will the system run?</p>
+<p>At BOTTEQ we build document-processing lines by combining Document Understanding with Base64.ai’s OCR/ICR engines. The table below doesn’t come from that work, though. It comes from UiPath’s own documentation, with the sources at the end. The commentary is mine.</p>
+<h2 id="the-two-routes-in-brief">The two routes in brief</h2>
+<p><strong>Document Understanding (DU)</strong> is for structured and semi-structured documents: forms, purchase orders, applications, invoices. It works with pre-trained machine-learning models on documents whose layout is the same or very close. Its generative features can be governed through the organisation’s AI Trust Layer policies. DU continues as a standalone service and remains available on Automation Suite and Standalone deployments.</p>
+<p><strong>IXP</strong> is the umbrella under which UiPath brought DU and Communications Mining together and added a new prompt-driven capability: generative extraction for unstructured and complex documents. UiPath describes it for annual reports, contracts and lease agreements. Complex tables, charts, checkboxes, signatures and handwriting, values that have to be inferred from context or stitched together across sections: that’s this route’s territory. Generative AI is mandatory here.</p>
+<h2 id="decision-table">Decision table</h2>
+<div class="tablewrap" tabindex="0" role="region" aria-label="table"><table><thead><tr><th scope="col">Situation</th><th scope="col">My recommendation</th><th scope="col">Basis</th></tr></thead><tbody><tr><td>Forms, orders, applications, invoices with a largely fixed layout</td><td>Document Understanding</td><td>UiPath describes these as DU’s territory</td></tr><tr><td>Contracts, leases, annual reports; values inferred from context</td><td>IXP, generative extraction</td><td>Complex structure, contextual inference and cross-section stitching are what this route is described for</td></tr><tr><td>Emails, workflow tickets, short messages</td><td>IXP, Communications Mining</td><td>Built for short, free-text communication</td></tr><tr><td>The organisation restricts generative AI</td><td>Document Understanding</td><td>Generative features can be governed here; they’re mandatory in IXP’s generative extraction</td></tr><tr><td>Documents can’t leave the organisation</td><td>Document Understanding</td><td>DU continues on Automation Suite and Standalone; confirm IXP availability for your own deployment</td></tr><tr><td>Long, multi-page files</td><td>Check page limits first</td><td>The documented limit for generative extraction is 50 pages, up to 150 in preview; up to 500 with DU activities</td></tr></tbody></table></div>
+<h2 id="three-questions-the-table-can-t-answer">Three questions the table can’t answer</h2>
+<p><strong>Mixed bundles.</strong> When ID, proof of address and bank statements arrive in a single file, as with a loan application, the real work starts before extraction: splitting the documents and identifying their types. Whichever route you pick, settle where and how that splitting happens during the pilot. The division of labour between rules, a model and a person here can matter more than the extraction itself.</p>
+<p><strong>Project type.</strong> DU has a choice inside it too. Modern projects give faster, guided model development. Classic projects allow exporting models and datasets and cross-tenant use, but run only on Automation Cloud. AI Center-based projects give the most control and also support Standalone deployments, but have no Cloud API support. If you must run on-premises, that alone can decide the matter.</p>
+<p><strong>The cost unit.</strong> Since July 2026, IXP extraction from unstructured and complex documents is metered per operation rather than at a flat rate per page, and IXP and DU licences can be used together without extra per-page cost. If you have an old business case built on page counts, re-run it on a real sample of documents.</p>
+<h2 id="two-traps-when-moving-to-ixp">Two traps when moving to IXP</h2>
+<p><strong>The label you confirm is what counts as right.</strong> IXP scores a model against the labels you confirmed. Confirm a wrong value while labelling and it becomes the reference, and the score goes up. A high score doesn’t prove the values are correct. Treat labelling as part of acceptance testing, not a chore to finish quickly.</p>
+<p><strong>Don’t mistake a format difference for an error.</strong> Built-in data types such as dates and monetary amounts come back normalised. If “21-JUN-22” on the page and the ISO date the model returns are the same value, that isn’t a mistake. What deserves your attention is a change in meaning, such as a misread decimal separator.</p>
+<h2 id="my-default">My default</h2>
+<p>If most of the document set is invoices, forms or orders with a known layout, I start with Document Understanding. I gather the documents that take the most validation time, the ones with scattered layouts or values that depend on context, into a separate queue, and I try IXP on that queue first. The two routes can run side by side in the same line. I think it’s healthier to treat the choice as a decision per document type than as a one-off platform decision.</p></div>
+    <aside class="rail"><nav class="toc" aria-label="In this piece"><p class="rail__title">In this piece</p><ol><li><a href="#the-two-routes-in-brief">The two routes in brief</a></li><li><a href="#decision-table">Decision table</a></li><li><a href="#three-questions-the-table-can-t-answer">Three questions the table can&#x27;t answer</a></li><li><a href="#two-traps-when-moving-to-ixp">Two traps when moving to IXP</a></li><li><a href="#my-default">My default</a></li></ol></nav><div class="share"><p class="rail__title">Share</p>
+<button type="button" data-copy-link="https://skaanozdemir.github.io/blog/en/post/du-mu-ixp-mi/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span data-label>Copy link</span></button>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Fdu-mu-ixp-mi%2F" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg><span>Share on LinkedIn</span></a>
+<a href="mailto:?subject=Document%20Understanding%20or%20IXP%3F%20A%20decision%20table%20by%20document%20type&amp;body=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Fdu-mu-ixp-mi%2F"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Send by email</span></a></div></aside>
+  </div>
+  <section class="sources" aria-labelledby="src-h"><h2 class="sources__title" id="src-h">Sources</h2><ol><li><div><a href="https://docs.uipath.com/ixp/automation-cloud/latest/overview/faq-capabilities-and-vision" target="_blank" rel="noopener noreferrer">IXP — Capabilities and vision</a><br><span class="sources__pub">UiPath Documentation · Accessed October 7, 2026</span></div></li><li><div><a href="https://docs.uipath.com/ixp/automation-cloud/latest/overview/capability-types" target="_blank" rel="noopener noreferrer">IXP — Capability types</a><br><span class="sources__pub">UiPath Documentation · Accessed October 7, 2026</span></div></li><li><div><a href="https://docs.uipath.com/document-understanding/automation-cloud/latest/user-guide/choosing-the-project-type" target="_blank" rel="noopener noreferrer">Document Understanding — Choosing the project type</a><br><span class="sources__pub">UiPath Documentation · Accessed October 7, 2026</span></div></li><li><div><a href="https://docs.uipath.com/ixp/automation-cloud/latest/release-notes/ucd-july-2026" target="_blank" rel="noopener noreferrer">IXP Release notes — Unstructured and Complex Documents, July 2026</a><br><span class="sources__pub">UiPath Documentation, July 8, 2026 · Accessed October 7, 2026</span></div></li></ol></section>
+  <p class="note">Research and the first draft are prepared with AI-assisted tools; I read the text before it goes out, check the sources and take responsibility for it. If you spot a mistake, write to me and I will fix it.</p>
+  <section class="related" aria-labelledby="rel-h"><h2 class="section__title" id="rel-h">More on this topic</h2><ul class="list"><li class="list__item"><a href="../havayolu-belge-isleme/"><p class="meta"><span class="meta__kind">Use case</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>Document AI</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-07">October 7, 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">5 min read</span></span></p><span class="list__title">Reading an invoice is not understanding it: on-prem document processing at an airline</span></a></li></ul></section>
+  <nav class="pager" aria-label="Previous / Next"><a class="pager__prev" href="../ajana-yetki-vermeden-once/"><span class="pager__dir">Previous</span><span class="pager__title">Seven questions before you give an agent decision rights</span></a><a class="pager__next" href="../havayolu-belge-isleme/"><span class="pager__dir">Next</span><span class="pager__title">Reading an invoice is not understanding it: on-prem document processing at an airline</span></a></nav>
+</article>
+</main>
+<footer class="foot">
+<div class="wrap">
+  <div class="foot__row">
+    <div>
+      <p class="foot__name">Kaan Özdemir</p>
+      <p class="foot__tag">On automation, document AI and agentic AI. Sourced, without hype.</p>
+    </div>
+    <ul class="foot__links">
+      <li><a href="../../feed.xml">RSS</a></li>
+      <li><a href="https://www.linkedin.com/in/servetkaanozdemir/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="../../../../index.html">Portfolio</a></li>
+      <li><a href="mailto:kaan.ozdemir@botteq.com.tr">Email</a></li>
+      <li><a href="../../about/">About</a></li>
+    </ul>
+  </div>
+  <p class="foot__legal">© 2026 S. Kaan Özdemir. Views are personal and are not those of BOTTEQ Consulting or its clients. Client details are anonymised.</p>
+</div>
+</footer>
+<dialog class="search" id="search" aria-label="Search" data-index="../../../search-en.json" data-base="../../../">
+  <div class="search__bar">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="search__input" type="search" placeholder="Search the writing" aria-label="Search the writing" autocomplete="off" spellcheck="false">
+    <button class="search__close" type="button" aria-label="Close"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <ul class="search__results"><li class="search__hint">Type a title, topic or tag.</li></ul>
+</dialog>
+<script src="../../../assets/blog.js?v=a078a93e2e" defer></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RPA Is Not Intelligent Automation — S. Kaan Özdemir</title>
+  <meta name="description" content="The difference between automating clicks and automating decisions — and why it determines whether your automation program delivers a cost saving or a transformation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2338e1c4'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='%2307121b' text-anchor='middle'>K</text></svg>" />
+</head>
+<body data-lang="en">
+
+  <nav class="nav scrolled" id="nav">
+    <div class="wrap nav__inner">
+      <a href="../index.html#top" class="brand"><span class="brand__mark">KÖ</span><span>S. Kaan Özdemir</span></a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      <div class="nav__links" id="navLinks">
+        <a href="../index.html#about"><span data-en>About</span><span data-tr>Hakkımda</span></a>
+        <a href="../index.html#experience"><span data-en>Experience</span><span data-tr>Deneyim</span></a>
+        <a href="../index.html#blog">Blog</a>
+        <a href="../index.html#contact" class="nav__cta"><span data-en>Get in touch</span><span data-tr>İletişim</span></a>
+        <span class="lang-switch"><button data-set-lang="en">EN</button><button data-set-lang="tr">TR</button></span>
+      </div>
+    </div>
+  </nav>
+
+  <article class="article">
+    <div class="article__wrap">
+      <a href="../index.html#blog" class="back-link"><span data-en>← Back to blog</span><span data-tr>← Blog'a dön</span></a>
+      <div class="article__meta"><span class="chip"><span data-en>Strategy</span><span data-tr>Strateji</span></span><span>12.05.2026</span><span>· 7 <span data-en>min read</span><span data-tr>dk okuma</span></span></div>
+      <h1><span data-en>RPA Is Not Intelligent Automation — And Why That Matters</span><span data-tr>RPA, Akıllı Otomasyon Değildir — Ve Bu Neden Önemli</span></h1>
+      <div class="article__cover cover-1">🤖</div>
+
+      <div class="article__body">
+        <p>
+          <span data-en>Every few months a new client tells me they "already do RPA," as if that settles the question of whether their organization is automated. It rarely does. RPA — Robotic Process Automation — is a powerful tool, but on its own it automates <strong>actions</strong>, not <strong>decisions</strong>. The gap between those two words is where most automation programs quietly underperform.</span>
+          <span data-tr>Birkaç ayda bir yeni bir müşteri bana "zaten RPA kullanıyoruz" diyor — sanki bu, organizasyonlarının otomatik olup olmadığı sorusunu çözüyormuş gibi. Genelde çözmez. RPA — Robotik Süreç Otomasyonu — güçlü bir araçtır, ancak tek başına <strong>eylemleri</strong> otomatikleştirir, <strong>kararları</strong> değil. Bu iki kelime arasındaki boşluk, çoğu otomasyon programının sessizce beklentinin altında kaldığı yerdir.</span>
+        </p>
+
+        <h2><span data-en>What RPA actually does well</span><span data-tr>RPA aslında neyi iyi yapar</span></h2>
+        <p>
+          <span data-en>Classic RPA is brilliant at deterministic, rule-based work: log into a system, read a structured field, copy a value, paste it somewhere else, click submit. If a process can be written as an unambiguous flowchart with no judgment calls, a bot will execute it faster, around the clock, and without the copy-paste errors a tired human makes at 4 p.m.</span>
+          <span data-tr>Klasik RPA, belirlenimci ve kural tabanlı işlerde harikadır: bir sisteme giriş yap, yapılandırılmış bir alanı oku, bir değeri kopyala, başka bir yere yapıştır, gönder'e tıkla. Bir süreç, yargı gerektirmeyen net bir akış şeması olarak yazılabiliyorsa, bir bot bunu daha hızlı, 7/24 ve yorgun bir insanın saat 16:00'da yaptığı kopyala-yapıştır hataları olmadan yürütür.</span>
+        </p>
+        <p>
+          <span data-en>This is real value. I've delivered bots that reclaimed thousands of hours a year in banking reconciliation and back-office finance. But notice the constraint hiding in that description: <em>structured input, fixed rules.</em> The moment the input becomes messy or the rule becomes a judgment, a pure RPA bot either throws an exception or — worse — confidently does the wrong thing.</span>
+          <span data-tr>Bu gerçek bir değerdir. Bankacılık mutabakatı ve back-office finansında yılda binlerce saati geri kazandıran botlar geliştirdim. Ancak bu tanımda gizlenen kısıtı fark edin: <em>yapılandırılmış girdi, sabit kurallar.</em> Girdi karmaşıklaştığı veya kural bir yargıya dönüştüğü anda, saf bir RPA botu ya bir istisna fırlatır ya da — daha kötüsü — kendinden emin bir şekilde yanlış olanı yapar.</span>
+        </p>
+
+        <blockquote>
+          <span data-en>RPA automates the parts of a process a human could do without thinking. Intelligent automation targets the parts that require thinking.</span>
+          <span data-tr>RPA, bir sürecin insanın düşünmeden yapabileceği kısımlarını otomatikleştirir. Akıllı otomasyon ise düşünmeyi gerektiren kısımları hedefler.</span>
+        </blockquote>
+
+        <h2><span data-en>Where intelligent automation begins</span><span data-tr>Akıllı otomasyon nerede başlar</span></h2>
+        <p>
+          <span data-en>Intelligent automation (IA) is RPA <strong>plus</strong> a layer of cognition: machine learning, natural language processing, optical character recognition with document understanding, and computer vision. Instead of asking "what cell is the invoice total in?", IA asks "what <em>is</em> this document, and where is the total likely to be?" — and improves its answer over time.</span>
+          <span data-tr>Akıllı otomasyon (IA), RPA <strong>artı</strong> bir biliş katmanıdır: makine öğrenmesi, doğal dil işleme, belge anlama ile optik karakter tanıma ve bilgisayarlı görü. "Fatura toplamı hangi hücrede?" diye sormak yerine, IA "bu belge <em>nedir</em> ve toplam muhtemelen nerede?" diye sorar — ve cevabını zamanla iyileştirir.</span>
+        </p>
+        <p><span data-en>In practice, the components I reach for most often are:</span><span data-tr>Pratikte en sık başvurduğum bileşenler şunlardır:</span></p>
+        <ul>
+          <li><span data-en><strong>Document understanding</strong> — extracting fields from invoices, contracts, and forms that never share the same layout.</span><span data-tr><strong>Belge anlama</strong> — hiçbir zaman aynı düzeni paylaşmayan faturalardan, sözleşmelerden ve formlardan alan çıkarma.</span></li>
+          <li><span data-en><strong>NLP / classification</strong> — routing an email or ticket to the right queue based on what it <em>means</em>, not which keyword it contains.</span><span data-tr><strong>NLP / sınıflandırma</strong> — bir e-postayı veya talebi, içerdiği anahtar kelimeye değil, ne <em>anlama geldiğine</em> göre doğru kuyruğa yönlendirme.</span></li>
+          <li><span data-en><strong>Computer vision</strong> — driving applications that expose no API and no stable DOM, by recognizing elements visually.</span><span data-tr><strong>Bilgisayarlı görü</strong> — API'si ve kararlı bir DOM'u olmayan uygulamaları, öğeleri görsel olarak tanıyarak yönetme.</span></li>
+          <li><span data-en><strong>ML decisioning</strong> — scoring a case so the bot knows when to act and when to escalate to a human.</span><span data-tr><strong>ML tabanlı karar verme</strong> — botun ne zaman harekete geçeceğini, ne zaman bir insana yönlendireceğini bilmesi için bir vakayı puanlama.</span></li>
+        </ul>
+
+        <h2><span data-en>Why the distinction matters commercially</span><span data-tr>Bu ayrım ticari olarak neden önemli</span></h2>
+        <p>
+          <span data-en>When a board approves an "RPA initiative," they often budget for the cost-saving version: take a known process, shave the manual effort, book the FTE savings. That's a fine business case, and it caps out exactly where the rule-based work ends — usually a surprisingly small slice of the enterprise.</span>
+          <span data-tr>Bir yönetim kurulu bir "RPA girişimini" onayladığında, genellikle maliyet tasarrufu sürümüne bütçe ayırır: bilinen bir süreci al, manuel eforu azalt, personel (FTE) tasarrufunu kayda geçir. Bu iyi bir iş gerekçesidir ve tam olarak kural tabanlı işin bittiği yerde sınırına ulaşır — ki bu genelde işletmenin şaşırtıcı derecede küçük bir dilimidir.</span>
+        </p>
+        <p>
+          <span data-en>The processes that actually move the needle — claims handling, KYC onboarding, exception-heavy supply chain work — are <strong>exception-heavy by nature.</strong> They are mostly judgment with a little data entry around the edges. Point pure RPA at them and you'll automate 60% of the volume while your team still owns 90% of the effort, because every exception lands back on a human desk.</span>
+          <span data-tr>Gerçekten fark yaratan süreçler — hasar yönetimi, KYC müşteri kabulü, istisna yoğun tedarik zinciri işleri — <strong>doğaları gereği istisna yoğundur.</strong> Bunlar, kenarlarda biraz veri girişi olan, çoğunlukla yargıdan oluşan süreçlerdir. Saf RPA'yı bunlara yönlendirirseniz, hacmin %60'ını otomatikleştirirsiniz ama ekibiniz eforun %90'ının sahibi olmaya devam eder; çünkü her istisna yeniden bir insanın masasına düşer.</span>
+        </p>
+        <p>
+          <span data-en>Fold in intelligent automation and the economics invert. The bot handles the ambiguous cases too, escalating only the genuinely hard ones. That's no longer a cost saving — it's a change in what the process is capable of.</span>
+          <span data-tr>Akıllı otomasyonu işin içine kattığınızda ekonomi tersine döner. Bot, belirsiz vakaları da ele alır ve yalnızca gerçekten zor olanları yönlendirir. Bu artık bir maliyet tasarrufu değildir — sürecin neler yapabileceğine dair bir değişimdir.</span>
+        </p>
+
+        <h2><span data-en>A practical sequencing</span><span data-tr>Pratik bir sıralama</span></h2>
+        <p><span data-en>I almost never recommend leading with AI. The sequence that works:</span><span data-tr>Yapay zekâ ile başlamayı neredeyse hiç önermem. İşe yarayan sıralama şudur:</span></p>
+        <ol>
+          <li><span data-en><strong>Automate the deterministic core first.</strong> Prove value, build trust, and establish governance with plain RPA.</span><span data-tr><strong>Önce belirlenimci çekirdeği otomatikleştirin.</strong> Değeri kanıtlayın, güven oluşturun ve sade RPA ile yönetişimi kurun.</span></li>
+          <li><span data-en><strong>Instrument the exceptions.</strong> Log <em>why</em> bots fail. That exception data is your roadmap — and your future training set.</span><span data-tr><strong>İstisnaları ölçümleyin.</strong> Botların <em>neden</em> başarısız olduğunu kaydedin. O istisna verisi yol haritanızdır — ve gelecekteki eğitim verinizdir.</span></li>
+          <li><span data-en><strong>Introduce cognition where exceptions cluster.</strong> Add document understanding or a classifier exactly where the manual effort is concentrated, not everywhere at once.</span><span data-tr><strong>Bilişi, istisnaların yoğunlaştığı yere ekleyin.</strong> Belge anlamayı veya bir sınıflandırıcıyı her yere birden değil, tam olarak manuel eforun yoğunlaştığı yere ekleyin.</span></li>
+          <li><span data-en><strong>Keep a human in the loop</strong> until confidence thresholds are earned, then let the model take more of the volume.</span><span data-tr><strong>Döngüde bir insan tutun</strong> — güven eşikleri kazanılana kadar; ardından modelin hacmin daha fazlasını üstlenmesine izin verin.</span></li>
+        </ol>
+
+        <h2><span data-en>The takeaway</span><span data-tr>Çıkarım</span></h2>
+        <p>
+          <span data-en>"We do RPA" and "we are an intelligently automated organization" are different sentences with different price tags and different outcomes. RPA buys you efficiency on the work that was already predictable. Intelligent automation buys you capacity on the work that wasn't. Knowing which one you're actually funding — before the project starts — is the most valuable hour your leadership team can spend.</span>
+          <span data-tr>"RPA kullanıyoruz" ile "akıllı şekilde otomatikleştirilmiş bir organizasyonuz" farklı fiyat etiketleri ve farklı sonuçları olan farklı cümlelerdir. RPA, zaten öngörülebilir olan işte size verimlilik kazandırır. Akıllı otomasyon ise öngörülebilir olmayan işte size kapasite kazandırır. Aslında hangisini finanse ettiğinizi — proje başlamadan önce — bilmek, liderlik ekibinizin harcayabileceği en değerli saattir.</span>
+        </p>
+      </div>
+
+      <div class="article__tags">
+        <span class="tag">RPA</span><span class="tag"><span data-en>Intelligent Automation</span><span data-tr>Akıllı Otomasyon</span></span><span class="tag"><span data-en>AI/ML</span><span data-tr>Yapay Zekâ</span></span><span class="tag"><span data-en>Strategy</span><span data-tr>Strateji</span></span>
+      </div>
+
+      <div class="article__author">
+        <div class="av">KÖ</div>
+        <div>
+          <h4>S. Kaan Özdemir</h4>
+          <p><span data-en>Managing Partner & Director of Automation & AI. 7+ years scaling RPA and intelligent automation across banking, finance, and technology.</span><span data-tr>Yönetici Ortak & Otomasyon ve YZ Direktörü. Bankacılık, finans ve teknolojide 7+ yıl RPA ve akıllı otomasyon ölçeklendirme deneyimi.</span></p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>© <span id="year"></span> S. Kaan Özdemir · Automation &amp; AI · İstanbul</p>
+      <a href="../index.html#blog" class="post-card__more"><span data-en>More articles →</span><span data-tr>Diğer yazılar →</span></a>
+    </div>
+  </footer>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>
