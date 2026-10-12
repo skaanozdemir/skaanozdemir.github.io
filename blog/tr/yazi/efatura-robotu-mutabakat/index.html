@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>e-Fatura robotunda asıl iş mutabakat: ERP ile e-Belge arasında bir akış — Kaan Özdemir</title>
+<meta name="description" content="Bir ERP’yi ulusal e-Fatura altyapısına bağlayan ve mutabakat raporu üreten robotun mantığı. 1 Ocak 2027’de basit usuldeki tedarikçilerin kâğıt faturası da bitiyor; borç hesapları hattında neyin değişmesi gerektiğine dair notlar.">
+<link rel="canonical" href="https://skaanozdemir.github.io/blog/tr/yazi/efatura-robotu-mutabakat/">
+<link rel="alternate" hreflang="tr" href="https://skaanozdemir.github.io/blog/tr/yazi/efatura-robotu-mutabakat/"><link rel="alternate" hreflang="en" href="https://skaanozdemir.github.io/blog/en/post/efatura-robotu-mutabakat/"><link rel="alternate" hreflang="x-default" href="https://skaanozdemir.github.io/blog/tr/yazi/efatura-robotu-mutabakat/">
+<link rel="alternate" type="application/rss+xml" title="Kaan Özdemir (TR)" href="../../feed.xml">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kaan Özdemir">
+<meta property="og:title" content="e-Fatura robotunda asıl iş mutabakat: ERP ile e-Belge arasında bir akış — Kaan Özdemir">
+<meta property="og:description" content="Bir ERP’yi ulusal e-Fatura altyapısına bağlayan ve mutabakat raporu üreten robotun mantığı. 1 Ocak 2027’de basit usuldeki tedarikçilerin kâğıt faturası da bitiyor; borç hesapları hattında neyin değişmesi gerektiğine dair notlar.">
+<meta property="og:url" content="https://skaanozdemir.github.io/blog/tr/yazi/efatura-robotu-mutabakat/">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:image" content="https://skaanozdemir.github.io/blog/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="S. Kaan Özdemir">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-SxQF8VQ9/nXLc4QrFOgMX9luAq+Nk5Cdl6opXW7LR+Q='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<link rel="preload" href="../../../assets/fonts/fraunces-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../../../assets/fonts/plex-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/blog.css?v=a078a93e2e">
+<script>try{var t=localStorage.getItem('ko-blog-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"e-Fatura robotunda asıl iş mutabakat: ERP ile e-Belge arasında bir akış","description":"Bir ERP’yi ulusal e-Fatura altyapısına bağlayan ve mutabakat raporu üreten robotun mantığı. 1 Ocak 2027’de basit usuldeki tedarikçilerin kâğıt faturası da bitiyor; borç hesapları hattında neyin değişmesi gerektiğine dair notlar.","datePublished":"2026-10-12","dateModified":"2026-10-12","inLanguage":"tr","mainEntityOfPage":"https://skaanozdemir.github.io/blog/tr/yazi/efatura-robotu-mutabakat/","url":"https://skaanozdemir.github.io/blog/tr/yazi/efatura-robotu-mutabakat/","author":{"@type":"Person","name":"S. Kaan Özdemir","alternateName":"Servet Kaan Özdemir","jobTitle":"Yönetici Ortak ve Otomasyon & Yapay Zekâ Çözümleri Direktörü","url":"https://www.linkedin.com/in/servetkaanozdemir/","sameAs":["https://www.linkedin.com/in/servetkaanozdemir/"],"worksFor":{"@type":"Organization","name":"BOTTEQ Consulting"}},"keywords":"e-fatura, e-arsiv, erp, mutabakat, rpa, gib","articleSection":"RPA ve orkestrasyon","citation":["https://www.turmob.org.tr/ekutuphane/Read/9208c1d3-f311-468d-9dd7-0d50a202bd6c","https://ebelge.gib.gov.tr/efaturahakkinda.html"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Yazılar","item":"https://skaanozdemir.github.io/blog/tr/yazilar/"},{"@type":"ListItem","position":2,"name":"RPA ve orkestrasyon","item":"https://skaanozdemir.github.io/blog/tr/konu/rpa/"},{"@type":"ListItem","position":3,"name":"e-Fatura robotunda asıl iş mutabakat: ERP ile e-Belge arasında bir akış","item":"https://skaanozdemir.github.io/blog/tr/yazi/efatura-robotu-mutabakat/"}]}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="mast">
+<div class="wrap">
+  <div class="mast__line">
+    <p class="mast__date">Son güncelleme 12 Ekim 2026 · İstanbul</p>
+    <div class="mast__tools">
+      <span class="lang"><a href="../../" hreflang="tr" lang="tr" data-lang-link="tr" aria-current="true">TR</a><a href="../../../en/post/efatura-robotu-mutabakat/" hreflang="en" lang="en" data-lang-link="en">EN</a></span>
+      <button class="tool" type="button" data-theme-toggle aria-label="Açık veya koyu temayı değiştir"><svg class="icon tool__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon tool__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <button class="tool" type="button" data-search-open aria-label="Ara"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+  </div>
+  <a class="mast__name" href="../../" aria-label="Kaan Özdemir">Kaan Özdemir</a>
+  <p class="mast__tag">Otomasyon, yapay zekâ ve operasyon üzerine notlar</p>
+  <nav class="mast__nav" aria-label="Ana gezinme">
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mast-links"><span>Menü</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="mast__links" id="mast-links"><li><a href="../../yazilar/">Yazılar</a></li><li><a href="../../radar/">Radar</a></li><li><a href="../../senaryolar/" aria-current="page">Senaryolar</a></li><li><a href="../../hakkinda/">Hakkında</a></li></ul>
+  </nav>
+  <hr class="rule-double" aria-hidden="true">
+</div>
+</header>
+<main id="main">
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+<article class="article" data-article>
+  <header class="article__head">
+    <p class="article__crumb"><a href="../../yazilar/">Yazılar</a> / <a href="../../konu/rpa/">RPA ve orkestrasyon</a></p>
+    <h1 class="article__title">e-Fatura robotunda asıl iş mutabakat: ERP ile e-Belge arasında bir akış</h1>
+    <p class="article__lede">Bir ERP’yi ulusal e-Fatura altyapısına bağlayan ve mutabakat raporu üreten robotun mantığı. 1 Ocak 2027’de basit usuldeki tedarikçilerin kâğıt faturası da bitiyor; borç hesapları hattında neyin değişmesi gerektiğine dair notlar.</p>
+    <div class="article__meta"><p class="meta"><span class="meta__kind">Kullanım senaryosu</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>RPA ve orkestrasyon</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-12">12 Ekim 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">5 dk okuma</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><a href="../../../en/post/efatura-robotu-mutabakat/" hreflang="en" lang="en" data-lang-link="en">Read in English</a></span></p></div>
+  </header>
+  
+  <div class="article__grid">
+    <div class="prose"><p>e-Fatura robotu denince çoğu kişinin aklına “XML’i al, ERP’ye yaz” geliyor. O kısım işin kolay yarısı. Zor yarısı, iki sistemin aynı gerçeği gösterip göstermediğini her gün kanıtlamak: e-Belge tarafında olan her fatura ERP’de var mı, ERP’deki her kayıt bir belgeye dayanıyor mu? Bu yazı, bir ERP’yi ulusal e-Fatura altyapısına bağlayan ve mutabakat raporu üreten bir robotun mantığını anlatıyor. Bir de 1 Ocak 2027’nin bu tür akışlara ne getirdiğini.</p>
+<h2 id="neden-simdi">Neden şimdi</h2>
+<p>31 Aralık 2025 tarihli Resmî Gazete’de yayımlanan 589 Sıra No.lu VUK Genel Tebliği, e-Fatura ve e-Arşiv uygulamasına dahil olmayan mükelleflerden basit usulde ve işletme hesabı esasında olanlara bir yıl ek süre verdi. TÜRMOB’un sirkülerine göre bu gruptakiler 31 Aralık 2026’ya kadar vergiler dahil 3 bin TL’yi aşmayan faturaları kâğıtta düzenleyebiliyor. 1 Ocak 2027’den itibaren ise tutarına bakılmaksızın bütün faturalarını GİB’in e-Belge portalından düzenlemek zorundalar. Diğer mükellefler için aynı kural 1 Ocak 2026’dan beri geçerli.</p>
+<p>Alıcı tarafından bakınca anlamı şu: esnaftan ve küçük tedarikçiden alım yapan bir şirketin borç hesaplarına giren kâğıt fatura kanalı 2027’de büyük ölçüde kapanıyor. Gelen faturaların neredeyse tamamı ya e-Fatura ya e-Arşiv olacak. Bunu ilk radarda <a href="../radar-2026-w41/">kısaca not etmiştim</a>. Buradaki soru daha pratik: elinizdeki robot bu değişikliğe hazır mı?</p>
+<section class="walk" data-walk data-steps="6" aria-labelledby="walk1-t">
+<p class="walk__title" id="walk1-t">Bir gelen faturanın ERP kaydına kadar yolu</p>
+<p class="walk__lead">ERP’yi e-Fatura altyapısına bağlayan entegrasyon ve mutabakat raporu, teslim ettiğimiz robotun omurgası. Kâğıt ve PDF için okuma yolu, insan inceleme adımı ve 2027’ye dönük ayarlar ise benim bu tür akışlar için önerdiğim tasarım.</p>
+<ol class="walk__steps"><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">01</span><span class="walk__label">Alım</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">02</span><span class="walk__label">Kimlik ve mükerrer kontrolü</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">03</span><span class="walk__label">Okuma (yalnızca istisna yolu)</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">04</span><span class="walk__label">ERP eşleştirme</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">05</span><span class="walk__label">Fark incelemesi</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">06</span><span class="walk__label">Kayıt ve mutabakat raporu</span></button></li></ol>
+<div class="walk__panel" id="walk1-panel" aria-live="polite"><div class="walk__detail"><p class="walk__kind" data-kind="system">Sistem</p><p class="walk__name">Alım</p><p class="walk__text">e-Fatura’lar entegrasyon kanalından, e-Arşiv ve kalan kâğıt faturalar ayrı kanallardan gelir. Hepsi tek bir giriş kuyruğuna, kaynağı etiketlenmiş olarak düşer.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="rule">Kural</p><p class="walk__name">Kimlik ve mükerrer kontrolü</p><p class="walk__text">Elektronik belgede ETTN, tedarikçi vergi numarası ve fatura numarası birlikte anahtar olur. Aynı belge ikinci kez gelirse burada durur; ERP’ye iki kez yazılan bir fatura geri almak için çok iş çıkarır.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="ai">Model</p><p class="walk__name">Okuma (yalnızca istisna yolu)</p><p class="walk__text">Yapısal verisi olmayan belge, yani kâğıt ya da yalnızca PDF olarak gelen fatura, OCR ile okunur. Bu yol ana akış değil; hacmi 2027’den sonra daralmalı ve ayrı ölçülmeli.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="rule">Kural</p><p class="walk__name">ERP eşleştirme</p><p class="walk__text">Fatura satırları sipariş ve mal kabul kayıtlarıyla karşılaştırılır. Tutar, miktar ve vergi tanımlı tolerans içindeyse kayıt hazırlanır; dışındaysa fark gerekçesiyle ayrılır.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="human">İnsan</p><p class="walk__name">Fark incelemesi</p><p class="walk__text">Eşleşmeyen faturayı borç hesapları uzmanı görür, kararı gerekçesiyle kaydeder. Robot bu kararı tahmin etmeye çalışmaz.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="system">Sistem</p><p class="walk__name">Kayıt ve mutabakat raporu</p><p class="walk__text">Onaylanan fatura ERP’ye yazılır. Gün sonunda e-Belge tarafında görünen belgelerle ERP’deki kayıtlar karşılaştırılır; iki tarafta da tek başına duran her belge raporda listelenir.</p></div></div>
+<div class="walk__controls">
+  <button type="button" class="walk__btn" data-walk-prev><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" x2="5" y1="19" y2="5"/></svg><span>Önceki</span></button>
+  <button type="button" class="walk__btn" data-walk-play aria-pressed="false"><span class="i-play"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"/></svg></span><span class="i-pause" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></svg></span><span data-label>Oynat</span></button>
+  <button type="button" class="walk__btn" data-walk-next><span>Sonraki</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" x2="19" y1="5" y2="19"/></svg></button>
+  <span class="walk__count num" aria-hidden="true">1 / 6</span>
+</div>
+</section>
+<h2 id="teslim-ettigimiz-sey">Teslim ettiğimiz şey</h2>
+<p>Kurduğumuz e-Fatura robotu, bir ERP platformunu ulusal e-fatura altyapısıyla uçtan uca bağlıyor ve mutabakat raporu üretiyor. Bu tür entegrasyonları Logo Tiger 3 ve başka ERP sistemleriyle kurduk. Müşteri adını, hacimleri ve iç detayları paylaşmıyorum. Aşağıdaki tasarım notlarının bir kısmı bu teslimatın omurgasından, bir kısmı bugün benzerini kursam ekleyeceğim şeylerden geliyor. Akıştaki etiket ikisini ayırıyor.</p>
+<p>GİB’in açıklaması temel kuralı net koyuyor: e-Fatura uygulamasına kayıtlı iki mükellef birbirine düzenlediği faturaları e-Fatura olarak göndermek ve almak zorunda. Kayıtlı olmayan alıcıya giden fatura ise kâğıt ya da e-Arşiv oluyor. Yani bir şirketin gelen fatura akışı en az iki ayrı biçimden besleniyor. Robotun ilk işi de bu ayrımı kaynağında etiketlemek.</p>
+<h2 id="mutabakat-neden-ayri-bir-is">Mutabakat neden ayrı bir iş</h2>
+<p>Entegrasyon “gelen belgeyi kaydet” der. Mutabakat ise “kaydettiğinin eksiksiz ve tek olduğunu göster” der. İkisi aynı kod içinde yaşayabilir ama farklı soruları cevaplar ve farklı kişiler okur.</p>
+<p>Mutabakat raporunda benim görmek istediğim üç liste var:</p>
+<ul><li>e-Belge tarafında görünen ama ERP’de karşılığı olmayan faturalar. Bunlar genellikle bekleyen, reddedilmiş ya da robotun bir hata yüzünden atladığı belgelerdir.</li><li>ERP’de kaydı olan ama bir elektronik belgeye bağlanamayan faturalar. Elle girilmiş kayıtlar ve kâğıt kanalın kalıntıları burada çıkar.</li><li>İki tarafta da olan ama tutarı ya da vergisi uyuşmayan faturalar.</li></ul>
+<p>İlk iki liste boşsa robot işini yapıyor demektir. Doluysa bunu ay sonu kapanışında değil, ertesi sabah görmek istersiniz. Bence mutabakat raporunun asıl değeri de bu: hatayı kapanış haftasından günlük işe taşıması.</p>
+<h2 id="kural-model-ve-insan-nerede">Kural, model ve insan nerede</h2>
+<p>Bu akışta kuralın payı yüksek ve öyle kalmalı. Elektronik faturanın yapısal verisi zaten var. Tutarı, vergiyi ve tedarikçiyi bir dil modeline okutmak için bir neden göremiyorum. Mükerrer kontrolü, sipariş ile mal kabul eşleştirmesi ve tolerans kuralları belirlenimci olmalı; denetçi sorduğunda tek cümleyle açıklanabilmeli.</p>
+<p>Model, yapısal verisi olmayan belgede devreye girer. 2027’ye kadar bu, küçük tedarikçiden gelen kâğıt fatura demek. Sonrasında da tamamen kaybolacağını sanmıyorum. Elektronik belgenin size hangi biçimde ulaştığı tedarikçinin seçimine bağlı olabiliyor ve bazı faturalar yine yalnızca PDF olarak gelecektir. Bu yüzden okuma yolunu kaldırmazdım; onu istisna yolunun parçası olarak kurardım.</p>
+<p>İnsan ise farkın gerekçesini bilen tek taraf. Fiyat farkı anlaşmadan mı geliyor, kısmi teslimattan mı, yanlış siparişten mi? Robottan beklediğim, soruyu doğru kişiye doğru bilgiyle götürmesi. Cevap uydurması değil.</p>
+<h2 id="2027-icin-ayarlanacak-dort-sey">2027 için ayarlanacak dört şey</h2>
+<ol><li><strong>Hacim tahminini yeniden yapın.</strong> Kâğıt fatura okuyan bir OCR akışınız varsa 2027 hacmi büyük olasılıkla düşecek. Lisans ve kapasite planını bu yılın rakamıyla yenilemeyin; tedarikçi listenizi basit usul ve işletme hesabındakiler açısından ayırıp tahmini oradan yapın.</li><li><strong>Kanal etiketini zorunlu tutun.</strong> Her faturanın hangi kanaldan geldiği kayıtta dursun. Yoksa kâğıt kanalın gerçekten kapanıp kapanmadığını ölçemezsiniz.</li><li><strong>e-Arşiv için ayrı bir alım yolu düşünün.</strong> e-Arşiv faturanın size hangi biçimde ulaştığı tedarikçiye göre değişebilir. Ocak ayından önce küçük tedarikçilerinizden örnek toplayıp gerçekte ne geldiğine bakın; varsayımla tasarlamayın.</li><li><strong>Mutabakat raporuna kanal kırılımı ekleyin.</strong> Eşleşmeyen faturaların hangi kanaldan geldiğini görmek, sorunun robotta mı yoksa tedarikçi tarafında mı olduğunu çoğu zaman tek bakışta gösterir.</li></ol>
+<h2 id="ne-zaman-robot-yanlis-secim">Ne zaman robot yanlış seçim</h2>
+<p>Dürüst olmak gerekirse bu iş her zaman robot gerektirmiyor. ERP’nizin kendi e-Fatura modülü ya da özel entegratörünüzün hazır bağlantısı ihtiyacınızı karşılıyorsa önce onu kullanın. GİB de e-Fatura’dan yararlanma yöntemi olarak portal, entegrasyon ve özel entegrasyon seçeneklerini ayrı ayrı tanımlıyor. Robot, bu bağlantının kapatmadığı boşlukta değer üretir: birden fazla ERP, eşleştirme kurallarının özel olduğu süreçler ya da kimsenin sahiplenmediği bir mutabakat işi.</p>
+<p>Bir de bakım maliyeti var. Ekran üzerinden çalışan bir robot, ERP’nin her sürüm değişikliğinde kontrol ister. Mümkün olan her adımda ekran yerine servis ya da veri tabanı arayüzünü tercih ederim. Ekranı yalnızca başka yol olmadığında kullanırım.</p>
+<h2 id="kopyalamadan-once">Kopyalamadan önce</h2>
+<p>Benzer bir akış kurmayı düşünüyorsanız pazartesi şu soruyu sorun: bugün e-Belge tarafında görünen bir faturanın ERP’de olmadığını kaç gün sonra fark ediyoruz? Cevap “ay sonu kapanışında” ise önceliğiniz entegrasyon değil, mutabakat. 2027 takvimi de bu işe başlamak için iyi bir tarih.</p></div>
+    <aside class="rail"><nav class="toc" aria-label="Bu yazıda"><p class="rail__title">Bu yazıda</p><ol><li><a href="#neden-simdi">Neden şimdi</a></li><li><a href="#teslim-ettigimiz-sey">Teslim ettiğimiz şey</a></li><li><a href="#mutabakat-neden-ayri-bir-is">Mutabakat neden ayrı bir iş</a></li><li><a href="#kural-model-ve-insan-nerede">Kural, model ve insan nerede</a></li><li><a href="#2027-icin-ayarlanacak-dort-sey">2027 için ayarlanacak dört şey</a></li><li><a href="#ne-zaman-robot-yanlis-secim">Ne zaman robot yanlış seçim</a></li><li><a href="#kopyalamadan-once">Kopyalamadan önce</a></li></ol></nav><div class="share"><p class="rail__title">Paylaş</p>
+<button type="button" data-copy-link="https://skaanozdemir.github.io/blog/tr/yazi/efatura-robotu-mutabakat/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span data-label>Bağlantıyı kopyala</span></button>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Ftr%2Fyazi%2Fefatura-robotu-mutabakat%2F" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg><span>LinkedIn&#x27;de paylaş</span></a>
+<a href="mailto:?subject=e-Fatura%20robotunda%20as%C4%B1l%20i%C5%9F%20mutabakat%3A%20ERP%20ile%20e-Belge%20aras%C4%B1nda%20bir%20ak%C4%B1%C5%9F&amp;body=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Ftr%2Fyazi%2Fefatura-robotu-mutabakat%2F"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>E-posta ile gönder</span></a></div></aside>
+  </div>
+  <section class="sources" aria-labelledby="src-h"><h2 class="sources__title" id="src-h">Kaynaklar</h2><ol><li><div><a href="https://www.turmob.org.tr/ekutuphane/Read/9208c1d3-f311-468d-9dd7-0d50a202bd6c" target="_blank" rel="noopener noreferrer">E-Fatura ve e-Arşiv fatura uygulamasına dahil olmayan mükelleflerin GİB portalden e-Arşiv fatura düzenleme zorunluluğu basit usul ve işletme hesabındaki mükellefler için yeniden düzenlendi (Mevzuat Sirküleri 02.01.2026/16)</a><br><span class="sources__pub">TÜRMOB, 2 Ocak 2026 · Erişim 12 Ekim 2026</span></div></li><li><div><a href="https://ebelge.gib.gov.tr/efaturahakkinda.html" target="_blank" rel="noopener noreferrer">e-Fatura Hakkında</a><br><span class="sources__pub">Gelir İdaresi Başkanlığı, e-Belge · Erişim 12 Ekim 2026</span></div></li></ol></section>
+  <p class="note">Bu yazı, benim belirlediğim yayın ilkeleri ve doğrulanmış deneyimlerim çerçevesinde, yapay zekâ destekli bir araştırma ve yazım hattıyla hazırlanır; kaynak ve rakam kontrollerinden geçerek otomatik olarak yayımlanır. Bir hata görürseniz yazın, düzelteyim.</p>
+  
+  <nav class="pager" aria-label="Önceki yazı / Sonraki yazı"><a class="pager__prev" href="../radar-2026-w41/"><span class="pager__dir">Önceki yazı</span><span class="pager__title">Maestro ikiye ayrıldı, MCP durumsuzlaştı, e-Arşiv için son çeyrek</span></a><a class="pager__next" href="../radar-2026-w42/"><span class="pager__dir">Sonraki yazı</span><span class="pager__title">KVKK e-posta denetimine sınır çizdi, ajanlara kendi guardrail’ınız geldi</span></a></nav>
+</article>
+</main>
+<footer class="foot">
+<div class="wrap">
+  <div class="foot__row">
+    <div>
+      <p class="foot__name">Kaan Özdemir</p>
+      <p class="foot__tag">Otomasyon, belge zekâsı ve ajan tabanlı yapay zekâ üzerine; kaynaklı, abartısız.</p>
+    </div>
+    <ul class="foot__links">
+      <li><a href="../../feed.xml">RSS</a></li>
+      <li><a href="https://www.linkedin.com/in/servetkaanozdemir/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="../../../../index.html">Portföy</a></li>
+      <li><a href="mailto:kaan.ozdemir@botteq.com.tr">E-posta</a></li>
+      <li><a href="../../hakkinda/">Hakkında</a></li>
+    </ul>
+  </div>
+  <p class="foot__legal">© 2026 S. Kaan Özdemir. Görüşler kişiseldir; BOTTEQ Consulting&#x27;in veya müşterilerinin resmî görüşü değildir. Müşteri bilgileri anonimleştirilir.</p>
+</div>
+</footer>
+<dialog class="search" id="search" aria-label="Ara" data-index="../../../search-tr.json" data-base="../../../">
+  <div class="search__bar">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="search__input" type="search" placeholder="Yazılarda ara" aria-label="Yazılarda ara" autocomplete="off" spellcheck="false">
+    <button class="search__close" type="button" aria-label="Kapat"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <ul class="search__results"><li class="search__hint">Başlık, konu veya etiket yazın.</li></ul>
+</dialog>
+<script src="../../../assets/blog.js?v=a078a93e2e" defer></script>
+</body>
+</html>

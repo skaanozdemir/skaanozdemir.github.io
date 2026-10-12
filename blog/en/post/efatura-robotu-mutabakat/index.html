@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>In an e-invoice robot, reconciliation is the real work — Kaan Özdemir</title>
+<meta name="description" content="A robot that connects an ERP to Türkiye’s e-invoice infrastructure and reconciles the two. From 1 January 2027 small suppliers stop issuing paper invoices; what that changes in accounts payable.">
+<link rel="canonical" href="https://skaanozdemir.github.io/blog/en/post/efatura-robotu-mutabakat/">
+<link rel="alternate" hreflang="en" href="https://skaanozdemir.github.io/blog/en/post/efatura-robotu-mutabakat/"><link rel="alternate" hreflang="tr" href="https://skaanozdemir.github.io/blog/tr/yazi/efatura-robotu-mutabakat/"><link rel="alternate" hreflang="x-default" href="https://skaanozdemir.github.io/blog/tr/yazi/efatura-robotu-mutabakat/">
+<link rel="alternate" type="application/rss+xml" title="Kaan Özdemir (EN)" href="../../feed.xml">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kaan Özdemir">
+<meta property="og:title" content="In an e-invoice robot, reconciliation is the real work — Kaan Özdemir">
+<meta property="og:description" content="A robot that connects an ERP to Türkiye’s e-invoice infrastructure and reconciles the two. From 1 January 2027 small suppliers stop issuing paper invoices; what that changes in accounts payable.">
+<meta property="og:url" content="https://skaanozdemir.github.io/blog/en/post/efatura-robotu-mutabakat/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://skaanozdemir.github.io/blog/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="S. Kaan Özdemir">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-SxQF8VQ9/nXLc4QrFOgMX9luAq+Nk5Cdl6opXW7LR+Q='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<link rel="preload" href="../../../assets/fonts/fraunces-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../../../assets/fonts/plex-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/blog.css?v=a078a93e2e">
+<script>try{var t=localStorage.getItem('ko-blog-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"In an e-invoice robot, reconciliation is the real work","description":"A robot that connects an ERP to Türkiye’s e-invoice infrastructure and reconciles the two. From 1 January 2027 small suppliers stop issuing paper invoices; what that changes in accounts payable.","datePublished":"2026-10-12","dateModified":"2026-10-12","inLanguage":"en","mainEntityOfPage":"https://skaanozdemir.github.io/blog/en/post/efatura-robotu-mutabakat/","url":"https://skaanozdemir.github.io/blog/en/post/efatura-robotu-mutabakat/","author":{"@type":"Person","name":"S. Kaan Özdemir","alternateName":"Servet Kaan Özdemir","jobTitle":"Managing Partner & Director of Automation & AI","url":"https://www.linkedin.com/in/servetkaanozdemir/","sameAs":["https://www.linkedin.com/in/servetkaanozdemir/"],"worksFor":{"@type":"Organization","name":"BOTTEQ Consulting"}},"keywords":"e-invoice, e-archive, erp, reconciliation, rpa, turkey","articleSection":"RPA & orchestration","citation":["https://www.turmob.org.tr/ekutuphane/Read/9208c1d3-f311-468d-9dd7-0d50a202bd6c","https://ebelge.gib.gov.tr/efaturahakkinda.html"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Writing","item":"https://skaanozdemir.github.io/blog/en/writing/"},{"@type":"ListItem","position":2,"name":"RPA & orchestration","item":"https://skaanozdemir.github.io/blog/en/topic/rpa/"},{"@type":"ListItem","position":3,"name":"In an e-invoice robot, reconciliation is the real work","item":"https://skaanozdemir.github.io/blog/en/post/efatura-robotu-mutabakat/"}]}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+<div class="wrap">
+  <div class="mast__line">
+    <p class="mast__date">Last updated October 12, 2026 · Istanbul</p>
+    <div class="mast__tools">
+      <span class="lang"><a href="../../../tr/yazi/efatura-robotu-mutabakat/" hreflang="tr" lang="tr" data-lang-link="tr">TR</a><a href="../../" hreflang="en" lang="en" data-lang-link="en" aria-current="true">EN</a></span>
+      <button class="tool" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg class="icon tool__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon tool__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <button class="tool" type="button" data-search-open aria-label="Search"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+  </div>
+  <a class="mast__name" href="../../" aria-label="Kaan Özdemir">Kaan Özdemir</a>
+  <p class="mast__tag">Notes on automation, AI and operations</p>
+  <nav class="mast__nav" aria-label="Main navigation">
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mast-links"><span>Menu</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="mast__links" id="mast-links"><li><a href="../../writing/">Writing</a></li><li><a href="../../radar/">Radar</a></li><li><a href="../../use-cases/" aria-current="page">Use cases</a></li><li><a href="../../about/">About</a></li></ul>
+  </nav>
+  <hr class="rule-double" aria-hidden="true">
+</div>
+</header>
+<main id="main">
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+<article class="article" data-article>
+  <header class="article__head">
+    <p class="article__crumb"><a href="../../writing/">Writing</a> / <a href="../../topic/rpa/">RPA &amp; orchestration</a></p>
+    <h1 class="article__title">In an e-invoice robot, reconciliation is the real work</h1>
+    <p class="article__lede">A robot that connects an ERP to Türkiye’s e-invoice infrastructure and reconciles the two. From 1 January 2027 small suppliers stop issuing paper invoices; what that changes in accounts payable.</p>
+    <div class="article__meta"><p class="meta"><span class="meta__kind">Use case</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>RPA &amp; orchestration</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-12">October 12, 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">6 min read</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><a href="../../../tr/yazi/efatura-robotu-mutabakat/" hreflang="tr" lang="tr" data-lang-link="tr">Türkçesini okuyun</a></span></p></div>
+  </header>
+  
+  <div class="article__grid">
+    <div class="prose"><p>When people hear “e-invoice robot” they usually picture “take the XML, write it to the ERP”. That is the easy half. The hard half is proving, every day, that two systems show the same truth: is every invoice on the e-invoice side also in the ERP, and does every ERP record rest on an actual document? This piece walks through a robot that connects an ERP to Türkiye’s national e-invoice infrastructure and produces a reconciliation report, and what 1 January 2027 means for flows like it.</p>
+<h2 id="why-now">Why now</h2>
+<p>General Communiqué No. 589 on the Tax Procedure Law, published in the Official Gazette on 31 December 2025, gave one more year to a specific group of taxpayers outside the e-Fatura and e-Arşiv systems: those on the simplified method or keeping business-account books. According to TÜRMOB’s circular, until 31 December 2026 they may still issue paper invoices up to 3,000 TL including taxes. From 1 January 2027 they must issue every invoice, whatever the amount, through the Revenue Administration’s e-Belge portal. For all other taxpayers the same rule has applied since 1 January 2026.</p>
+<p>Seen from the buyer’s side, the meaning is simple. For a company that buys from tradespeople and small suppliers, the paper channel into accounts payable largely closes in 2027. Almost every incoming invoice will be either e-Fatura or e-Arşiv. I <a href="../radar-2026-w41/">noted this briefly in the first radar</a>. The question here is more practical: is the robot you already run ready for it?</p>
+<section class="walk" data-walk data-steps="6" aria-labelledby="walk1-t">
+<p class="walk__title" id="walk1-t">How an incoming invoice reaches the ERP</p>
+<p class="walk__lead">The integration between the ERP and the e-invoice infrastructure, and the reconciliation report, are the backbone of the robot we delivered. The reading path for paper and PDF, the human review step and the adjustments for 2027 are the design I recommend for flows like this.</p>
+<ol class="walk__steps"><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">01</span><span class="walk__label">Intake</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">02</span><span class="walk__label">Identity and duplicate check</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">03</span><span class="walk__label">Reading (exception path only)</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">04</span><span class="walk__label">ERP matching</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">05</span><span class="walk__label">Exception review</span></button></li><li class="walk__step"><button type="button" class="walk__node" aria-controls="walk1-panel"><span class="walk__idx">06</span><span class="walk__label">Posting and reconciliation report</span></button></li></ol>
+<div class="walk__panel" id="walk1-panel" aria-live="polite"><div class="walk__detail"><p class="walk__kind" data-kind="system">System</p><p class="walk__name">Intake</p><p class="walk__text">e-Fatura documents arrive through the integration channel; e-Arşiv and the remaining paper invoices arrive through other channels. All of them land in one intake queue, tagged with their source.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="rule">Rule</p><p class="walk__name">Identity and duplicate check</p><p class="walk__text">For an electronic document the ETTN, the supplier’s tax number and the invoice number form the key together. If the same document arrives twice it stops here; an invoice posted twice to the ERP is a lot of work to undo.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="ai">Model</p><p class="walk__name">Reading (exception path only)</p><p class="walk__text">A document without structured data, a paper invoice or one that only arrives as a PDF, is read with OCR. This is not the main path; its volume should shrink after 2027 and it should be measured separately.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="rule">Rule</p><p class="walk__name">ERP matching</p><p class="walk__text">Invoice lines are compared with the purchase order and goods receipt. If amount, quantity and tax are within a defined tolerance the posting is prepared; if not, the invoice is set aside with the reason.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="human">Human</p><p class="walk__name">Exception review</p><p class="walk__text">An accounts payable specialist sees the unmatched invoice and records the decision with a reason. The robot does not try to guess that decision.</p></div><div class="walk__detail"><p class="walk__kind" data-kind="system">System</p><p class="walk__name">Posting and reconciliation report</p><p class="walk__text">The approved invoice is posted to the ERP. Each evening the documents visible on the e-invoice side are compared with the ERP records, and every document that stands alone on either side is listed in the report.</p></div></div>
+<div class="walk__controls">
+  <button type="button" class="walk__btn" data-walk-prev><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" x2="5" y1="19" y2="5"/></svg><span>Previous</span></button>
+  <button type="button" class="walk__btn" data-walk-play aria-pressed="false"><span class="i-play"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"/></svg></span><span class="i-pause" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></svg></span><span data-label>Play</span></button>
+  <button type="button" class="walk__btn" data-walk-next><span>Next</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" x2="19" y1="5" y2="19"/></svg></button>
+  <span class="walk__count num" aria-hidden="true">1 / 6</span>
+</div>
+</section>
+<h2 id="what-we-delivered">What we delivered</h2>
+<p>The e-invoice robot we built connects an ERP platform end to end with the national e-invoice infrastructure and produces a reconciliation report. We have built these integrations with Logo Tiger 3 and other ERP systems. I am not sharing the client’s name, volumes or internal detail. Some of the design notes below come from the backbone of that delivery and some from what I would add if I built a similar flow today; the labels in the walkthrough separate the two.</p>
+<p>The Revenue Administration states the basic rule plainly: two taxpayers registered in e-Fatura must send and receive the invoices they issue to each other as e-Fatura. An invoice to a buyer who is not registered is issued on paper or as e-Arşiv. So a company’s incoming invoice flow is not one format; it is fed by at least two. The robot’s first job is to tag that difference at the source.</p>
+<h2 id="why-reconciliation-is-a-separate-job">Why reconciliation is a separate job</h2>
+<p>Integration says “record the incoming document”. Reconciliation says “show that what you recorded is complete and unique”. The two can live in the same code, but they answer different questions and different people read them.</p>
+<p>In a reconciliation report I want to see three lists:</p>
+<ul><li>Invoices visible on the e-invoice side with no counterpart in the ERP. These are usually pending, rejected, or skipped by the robot because of an error.</li><li>Invoices recorded in the ERP that cannot be tied to an electronic document. Manual postings and leftovers from the paper channel show up here.</li><li>Invoices on both sides whose amount or tax doesn’t agree.</li></ul>
+<p>If the first two lists are empty, the robot is doing its job. If they’re not, you want to know the next morning, not at month-end close. I think that is the real value of the report: it moves errors out of closing week and into daily work.</p>
+<h2 id="where-the-rule-the-model-and-the-person-sit">Where the rule, the model and the person sit</h2>
+<p>Rules carry most of this flow, and they should. An electronic invoice already has structured data. I see no reason to have a language model read the amount, the tax or the supplier. Duplicate checks, matching against order and goods receipt, and tolerance rules should be deterministic and explainable to an auditor in one sentence.</p>
+<p>A model comes in for documents without structured data. Until 2027 that means paper invoices from small suppliers. I don’t expect it to disappear entirely afterwards. How an electronic document reaches you can depend on the supplier’s choices, and some invoices will still arrive only as a PDF. So I would keep the reading path, but build it as part of the exception path rather than the main flow.</p>
+<p>The person is the only party who knows why a difference exists. Does a price gap come from an agreement, a partial delivery or a wrong order? I don’t want the robot to invent an answer; I want it to take the question to the right person with the right information.</p>
+<h2 id="four-things-to-adjust-for-2027">Four things to adjust for 2027</h2>
+<ol><li><strong>Redo the volume forecast.</strong> If you run an OCR flow for paper invoices, 2027 volume will very likely fall. Don’t renew licences and capacity on this year’s figures; split your supplier list by who is on the simplified method or business-account books and forecast from there.</li><li><strong>Make the channel tag mandatory.</strong> Keep the source channel on every invoice record. Without it you cannot measure whether the paper channel has actually closed.</li><li><strong>Consider a separate intake path for e-Arşiv.</strong> The form in which an e-Arşiv invoice reaches you can vary by supplier. Before January, collect samples from your small suppliers and look at what actually arrives; don’t design on assumptions.</li><li><strong>Break the reconciliation report down by channel.</strong> Seeing which channel the unmatched invoices came from often shows at a glance whether the problem sits in the robot or with the supplier.</li></ol>
+<h2 id="when-a-robot-is-the-wrong-choice">When a robot is the wrong choice</h2>
+<p>To be honest, this job doesn’t always need a robot. If your ERP’s own e-invoice module or your private integrator’s standard connector covers the need, use that first. The Revenue Administration itself lists the portal, integration and private integration as separate ways to use e-Fatura. A robot earns its keep in the gap that connection leaves open: several ERPs, matching rules specific to your process, or a reconciliation task nobody owns.</p>
+<p>Then there is maintenance. A robot that works through the screen needs checking with every ERP version change. Wherever possible I’d use a service or database interface instead of the screen, and keep the screen for steps that have no other way in.</p>
+<h2 id="before-you-copy-it">Before you copy it</h2>
+<p>If you are thinking about a similar flow, ask one question on Monday: how many days does it take us to notice that an invoice visible on the e-invoice side is missing from the ERP? If the answer is “at month-end close”, your priority is reconciliation, not integration. And the 2027 calendar is not a good reason to postpone that work. It is a good date to start it.</p></div>
+    <aside class="rail"><nav class="toc" aria-label="In this piece"><p class="rail__title">In this piece</p><ol><li><a href="#why-now">Why now</a></li><li><a href="#what-we-delivered">What we delivered</a></li><li><a href="#why-reconciliation-is-a-separate-job">Why reconciliation is a separate job</a></li><li><a href="#where-the-rule-the-model-and-the-person-sit">Where the rule, the model and the person sit</a></li><li><a href="#four-things-to-adjust-for-2027">Four things to adjust for 2027</a></li><li><a href="#when-a-robot-is-the-wrong-choice">When a robot is the wrong choice</a></li><li><a href="#before-you-copy-it">Before you copy it</a></li></ol></nav><div class="share"><p class="rail__title">Share</p>
+<button type="button" data-copy-link="https://skaanozdemir.github.io/blog/en/post/efatura-robotu-mutabakat/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span data-label>Copy link</span></button>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Fefatura-robotu-mutabakat%2F" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg><span>Share on LinkedIn</span></a>
+<a href="mailto:?subject=In%20an%20e-invoice%20robot%2C%20reconciliation%20is%20the%20real%20work&amp;body=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Fefatura-robotu-mutabakat%2F"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Send by email</span></a></div></aside>
+  </div>
+  <section class="sources" aria-labelledby="src-h"><h2 class="sources__title" id="src-h">Sources</h2><ol><li><div><a href="https://www.turmob.org.tr/ekutuphane/Read/9208c1d3-f311-468d-9dd7-0d50a202bd6c" target="_blank" rel="noopener noreferrer">E-Fatura ve e-Arşiv fatura uygulamasına dahil olmayan mükelleflerin GİB portalden e-Arşiv fatura düzenleme zorunluluğu basit usul ve işletme hesabındaki mükellefler için yeniden düzenlendi (Mevzuat Sirküleri 02.01.2026/16)</a><br><span class="sources__pub">TÜRMOB, January 2, 2026 · Accessed October 12, 2026</span></div></li><li><div><a href="https://ebelge.gib.gov.tr/efaturahakkinda.html" target="_blank" rel="noopener noreferrer">e-Fatura Hakkında (About e-Fatura)</a><br><span class="sources__pub">Revenue Administration (GİB), e-Belge · Accessed October 12, 2026</span></div></li></ol></section>
+  <p class="note">This piece is prepared by an AI-assisted research and writing pipeline, within editorial rules I set and experience I have verified, and is published automatically after source and number checks. If you spot a mistake, write to me and I will fix it.</p>
+  
+  <nav class="pager" aria-label="Previous / Next"><a class="pager__prev" href="../radar-2026-w41/"><span class="pager__dir">Previous</span><span class="pager__title">Maestro splits in two, MCP goes stateless, and an e-invoice deadline lands</span></a><a class="pager__next" href="../radar-2026-w42/"><span class="pager__dir">Next</span><span class="pager__title">Türkiye limits workplace e-mail monitoring; agents get your own guardrails</span></a></nav>
+</article>
+</main>
+<footer class="foot">
+<div class="wrap">
+  <div class="foot__row">
+    <div>
+      <p class="foot__name">Kaan Özdemir</p>
+      <p class="foot__tag">On automation, document AI and agentic AI. Sourced, without hype.</p>
+    </div>
+    <ul class="foot__links">
+      <li><a href="../../feed.xml">RSS</a></li>
+      <li><a href="https://www.linkedin.com/in/servetkaanozdemir/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="../../../../index.html">Portfolio</a></li>
+      <li><a href="mailto:kaan.ozdemir@botteq.com.tr">Email</a></li>
+      <li><a href="../../about/">About</a></li>
+    </ul>
+  </div>
+  <p class="foot__legal">© 2026 S. Kaan Özdemir. Views are personal and are not those of BOTTEQ Consulting or its clients. Client details are anonymised.</p>
+</div>
+</footer>
+<dialog class="search" id="search" aria-label="Search" data-index="../../../search-en.json" data-base="../../../">
+  <div class="search__bar">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="search__input" type="search" placeholder="Search the writing" aria-label="Search the writing" autocomplete="off" spellcheck="false">
+    <button class="search__close" type="button" aria-label="Close"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <ul class="search__results"><li class="search__hint">Type a title, topic or tag.</li></ul>
+</dialog>
+<script src="../../../assets/blog.js?v=a078a93e2e" defer></script>
+</body>
+</html>
