@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Autopilot in production Orchestrator: seven steps for the approval mode — Kaan Özdemir</title>
+<meta name="description" content="Autopilot Chat returned to Orchestrator on 28 October and can now manage queues, assets and triggers. A decision table for which approval mode belongs in which tenant, and seven checks before production.">
+<link rel="canonical" href="https://skaanozdemir.github.io/blog/en/post/autopilot-orchestrator-onay-modu/">
+<link rel="alternate" hreflang="en" href="https://skaanozdemir.github.io/blog/en/post/autopilot-orchestrator-onay-modu/"><link rel="alternate" hreflang="tr" href="https://skaanozdemir.github.io/blog/tr/yazi/autopilot-orchestrator-onay-modu/"><link rel="alternate" hreflang="x-default" href="https://skaanozdemir.github.io/blog/tr/yazi/autopilot-orchestrator-onay-modu/">
+<link rel="alternate" type="application/rss+xml" title="Kaan Özdemir (EN)" href="../../feed.xml">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kaan Özdemir">
+<meta property="og:title" content="Autopilot in production Orchestrator: seven steps for the approval mode — Kaan Özdemir">
+<meta property="og:description" content="Autopilot Chat returned to Orchestrator on 28 October and can now manage queues, assets and triggers. A decision table for which approval mode belongs in which tenant, and seven checks before production.">
+<meta property="og:url" content="https://skaanozdemir.github.io/blog/en/post/autopilot-orchestrator-onay-modu/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://skaanozdemir.github.io/blog/assets/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="S. Kaan Özdemir">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-SxQF8VQ9/nXLc4QrFOgMX9luAq+Nk5Cdl6opXW7LR+Q='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<link rel="preload" href="../../../assets/fonts/fraunces-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="../../../assets/fonts/plex-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/blog.css?v=a078a93e2e">
+<script>try{var t=localStorage.getItem('ko-blog-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Autopilot in production Orchestrator: seven steps for the approval mode","description":"Autopilot Chat returned to Orchestrator on 28 October and can now manage queues, assets and triggers. A decision table for which approval mode belongs in which tenant, and seven checks before production.","datePublished":"2026-11-05","dateModified":"2026-11-05","inLanguage":"en","mainEntityOfPage":"https://skaanozdemir.github.io/blog/en/post/autopilot-orchestrator-onay-modu/","url":"https://skaanozdemir.github.io/blog/en/post/autopilot-orchestrator-onay-modu/","author":{"@type":"Person","name":"S. Kaan Özdemir","alternateName":"Servet Kaan Özdemir","jobTitle":"Managing Partner & Director of Automation & AI","url":"https://www.linkedin.com/in/servetkaanozdemir/","sameAs":["https://www.linkedin.com/in/servetkaanozdemir/"],"worksFor":{"@type":"Organization","name":"BOTTEQ Consulting"}},"keywords":"uipath, orchestrator, autopilot, mcp, approvals, decision-guide","articleSection":"RPA & orchestration","citation":["https://docs.uipath.com/orchestrator/automation-cloud/latest/release-notes/october-2026","https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/autopilot-chat-in-orchestrator","https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/orchestrator-feature-availability","https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/about-recording"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Writing","item":"https://skaanozdemir.github.io/blog/en/writing/"},{"@type":"ListItem","position":2,"name":"RPA & orchestration","item":"https://skaanozdemir.github.io/blog/en/topic/rpa/"},{"@type":"ListItem","position":3,"name":"Autopilot in production Orchestrator: seven steps for the approval mode","item":"https://skaanozdemir.github.io/blog/en/post/autopilot-orchestrator-onay-modu/"}]}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+<div class="wrap">
+  <div class="mast__line">
+    <p class="mast__date">Last updated November 5, 2026 · Istanbul</p>
+    <div class="mast__tools">
+      <span class="lang"><a href="../../../tr/yazi/autopilot-orchestrator-onay-modu/" hreflang="tr" lang="tr" data-lang-link="tr">TR</a><a href="../../" hreflang="en" lang="en" data-lang-link="en" aria-current="true">EN</a></span>
+      <button class="tool" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg class="icon tool__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon tool__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+      <button class="tool" type="button" data-search-open aria-label="Search"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+  </div>
+  <a class="mast__name" href="../../" aria-label="Kaan Özdemir">Kaan Özdemir</a>
+  <p class="mast__tag">Notes on automation, AI and operations</p>
+  <nav class="mast__nav" aria-label="Main navigation">
+    <button class="mast__menu" type="button" aria-expanded="false" aria-controls="mast-links"><span>Menu</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="mast__links" id="mast-links"><li><a href="../../writing/" aria-current="page">Writing</a></li><li><a href="../../radar/">Radar</a></li><li><a href="../../use-cases/">Use cases</a></li><li><a href="../../about/">About</a></li></ul>
+  </nav>
+  <hr class="rule-double" aria-hidden="true">
+</div>
+</header>
+<main id="main">
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+<article class="article" data-article>
+  <header class="article__head">
+    <p class="article__crumb"><a href="../../writing/">Writing</a> / <a href="../../topic/rpa/">RPA &amp; orchestration</a></p>
+    <h1 class="article__title">Autopilot in production Orchestrator: seven steps for the approval mode</h1>
+    <p class="article__lede">Autopilot Chat returned to Orchestrator on 28 October and can now manage queues, assets and triggers. A decision table for which approval mode belongs in which tenant, and seven checks before production.</p>
+    <div class="article__meta"><p class="meta"><span class="meta__kind">Playbook</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>RPA &amp; orchestration</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-11-05">November 5, 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">6 min read</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><a href="../../../tr/yazi/autopilot-orchestrator-onay-modu/" hreflang="tr" lang="tr" data-lang-link="tr">Türkçesini okuyun</a></span></p></div>
+  </header>
+  
+  <div class="article__grid">
+    <div class="prose"><p>The Autopilot Chat that came back to Orchestrator can manage processes, jobs, queues, assets, triggers, machines and folders in your tenant. That makes it an operator, and the decision that matters when you turn it on is which approval mode runs in which tenant. The documentation leaves two of the questions behind that decision open: what permissions Autopilot acts with, and what trail it leaves. The steps below are for closing those gaps before production.</p>
+<p>At BOTTEQ we work with clients on Orchestrator topology, tenant and environment design, asset and credential management and queue architecture. The product facts in this guide come from UiPath’s own pages, listed at the end. The recommendations and the decision table are my opinion.</p>
+<h2 id="what-changed">What changed</h2>
+<p>UiPath removed Autopilot Chat from Orchestrator on 14 October, saying it would return with improved features. According to the 28 October release notes, it is back. The capability list in the user guide is broad: operating processes, jobs, queues, assets, triggers, machines, folders and storage buckets; investigating failed jobs and access issues; inspecting audit events; and planning, building and deploying automations. Projects themselves are created in Studio Web.</p>
+<p>You pick the approval mode from a dropdown under the chat box, and there are three:</p>
+<ul><li><strong>Cautious</strong> asks before every operation. UiPath calls it the safest option.</li><li><strong>Adaptive</strong> auto-approves known safe operations and is the one UiPath recommends. Turn on <strong>Smart approvals</strong> and it also approves operations the model judges safe. The page states plainly that the model can misjudge.</li><li><strong>Full access</strong> shows no approval prompts. The page says to use it only in trusted environments.</li></ul>
+<p>Settings has five tabs: tools (such as web search and the web reader), built-in skills, MCP servers, personalisation (including a custom instruction added to every prompt), and a security tab that lists the sites Autopilot may use without asking and the ones it won’t open. The AI capabilities need an active AI Trust Layer policy deployed to the tenant. The feature availability table shows Autopilot Chat in Automation Cloud and Test Cloud, but not in the Public Sector or Dedicated offerings.</p>
+<p>Three things I could <strong>not</strong> find on the page: whether Autopilot acts with the signed-in user’s roles, who can connect an MCP server and whether that is scoped to a user or the tenant, and whether Autopilot’s own changes are logged separately. Their absence doesn’t mean anything is wrong. It means they aren’t written down, and a production decision needs them written down.</p>
+<h2 id="a-decision-table-for-the-approval-mode">A decision table for the approval mode</h2>
+<div class="tablewrap" tabindex="0" role="region" aria-label="table"><table><thead><tr><th scope="col">Tenant</th><th scope="col">Mode I’d use</th><th scope="col">Why</th><th scope="col">What it costs</th></tr></thead><tbody><tr><td>Development</td><td>Adaptive, Smart approvals may be on</td><td>Speed is worth having and mistakes are cheap</td><td>The model may call a bad operation safe; undoing it must be easy</td></tr><tr><td>Test / UAT</td><td>Adaptive, Smart approvals off</td><td>You want to measure behaviour, not be surprised by it</td><td>More approval prompts</td></tr><tr><td>Production</td><td>Cautious</td><td>Every write should be treated like a change record</td><td>Approval fatigue: people start approving without reading</td></tr><tr><td>Training or throwaway sandbox</td><td>Full access</td><td>Speeds up learning where nobody is affected</td><td>Unacceptable if real data or real credentials are present</td></tr></tbody></table></div>
+<p>The cost in the production row is real. A tool that asks before every operation can turn into a “yes” button within a week. My way round it is to use Autopilot in production for reading and investigation first, and to push any change through the change process you already have.</p>
+<h2 id="seven-steps-before-production">Seven steps before production</h2>
+<ol><li><strong>Write down the tenant list.</strong> Put on one page which tenants will have Autopilot switched on. Tie the AI Trust Layer policy deployment to that list so the decision lives in one place.</li><li><strong>Test the permission model yourself.</strong> In the test tenant, sign in as a user with limited rights. Ask Autopilot to change an asset in a folder that user cannot edit. Record what happens and the error text. The documentation doesn’t say, so this is the only way to know it stays inside the user’s roles.</li><li><strong>Fix the approval mode per tenant.</strong> Announce the split in the table to the team. If users pick the mode themselves, “no Full access in production” has to be a written rule. Try in the test tenant whether you can also enforce it technically.</li><li><strong>Keep Smart approvals off in production.</strong> It hands the approval decision back to the model. UiPath’s own warning is reason enough. Turn it on in the test tenant for a week and note which operations it approved on its own; make the production call from that list.</li><li><strong>Start with no MCP servers.</strong> Every MCP server you connect gives Autopilot new tools, which means a new area of authority. Connect none on day one in production. For each one you add later, record its owner, the tools it exposes and the identity it runs under. Since it isn’t documented who can connect one, check the list regularly in the first week.</li><li><strong>Open web access on purpose.</strong> Web search and the web reader are tools, and the security tab holds the sites Autopilot may use without asking. Keep that list short in production. Tenant data and text from outside sources meeting in the same session is a risk worth thinking through on its own.</li><li><strong>Build the trail independently of Autopilot.</strong> The page says chat history shows the last thirty days and can be downloaded as JSON. That isn’t a change record. In the test tenant, have Autopilot change an asset, then look in the Orchestrator audit log to see whose name the change appears under. The same release brought another change: you can now record failed jobs and failed queue transactions together for one process. Previously you had to choose one, so a job that failed during initialisation left no recording if you had chosen queue transactions. Turn it on for critical processes, so that when you ask Autopilot or a person why a job failed, there is evidence to look at.</li></ol>
+<p>Most of these steps aren’t new. We already write code review standards, release management, bot monitoring, incident response and hypercare rules into client organisations. Autopilot adds one more actor to those rules: a model making changes from a user’s session.</p>
+<h2 id="when-not-to-use-this-guide">When not to use this guide</h2>
+<ul><li><strong>It isn’t in your cloud offering.</strong> On Public Sector or Dedicated, the table doesn’t apply yet. If you run in your own data centre, check your version’s documentation separately.</li><li><strong>You have no test tenant.</strong> Three of the seven steps need one. For a small team on a single tenant, using Autopilot only to ask questions is the better choice.</li><li><strong>Production changes go through a change board.</strong> Then even Cautious isn’t enough: whatever Autopilot proposes has to go to the board. Its value stays on the investigation and diagnosis side, which is not a small value.</li></ul>
+<h2 id="the-question-for-monday">The question for Monday</h2>
+<p>Ask your team one thing: “If Autopilot switched off a trigger in production, which record would show it tomorrow morning, and under whose name?” If you can show the answer in the test tenant, switch it on. If you can’t, do step seven first.</p></div>
+    <aside class="rail"><nav class="toc" aria-label="In this piece"><p class="rail__title">In this piece</p><ol><li><a href="#what-changed">What changed</a></li><li><a href="#a-decision-table-for-the-approval-mode">A decision table for the approval mode</a></li><li><a href="#seven-steps-before-production">Seven steps before production</a></li><li><a href="#when-not-to-use-this-guide">When not to use this guide</a></li><li><a href="#the-question-for-monday">The question for Monday</a></li></ol></nav><div class="share"><p class="rail__title">Share</p>
+<button type="button" data-copy-link="https://skaanozdemir.github.io/blog/en/post/autopilot-orchestrator-onay-modu/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span data-label>Copy link</span></button>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Fautopilot-orchestrator-onay-modu%2F" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg><span>Share on LinkedIn</span></a>
+<a href="mailto:?subject=Autopilot%20in%20production%20Orchestrator%3A%20seven%20steps%20for%20the%20approval%20mode&amp;body=https%3A%2F%2Fskaanozdemir.github.io%2Fblog%2Fen%2Fpost%2Fautopilot-orchestrator-onay-modu%2F"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span>Send by email</span></a></div></aside>
+  </div>
+  <section class="sources" aria-labelledby="src-h"><h2 class="sources__title" id="src-h">Sources</h2><ol><li><div><a href="https://docs.uipath.com/orchestrator/automation-cloud/latest/release-notes/october-2026" target="_blank" rel="noopener noreferrer">Orchestrator release notes — October 2026</a><br><span class="sources__pub">UiPath Documentation, October 28, 2026 · Accessed November 5, 2026</span></div></li><li><div><a href="https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/autopilot-chat-in-orchestrator" target="_blank" rel="noopener noreferrer">Autopilot Chat in Orchestrator</a><br><span class="sources__pub">UiPath Documentation · Accessed November 5, 2026</span></div></li><li><div><a href="https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/orchestrator-feature-availability" target="_blank" rel="noopener noreferrer">Orchestrator feature availability</a><br><span class="sources__pub">UiPath Documentation · Accessed November 5, 2026</span></div></li><li><div><a href="https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/about-recording" target="_blank" rel="noopener noreferrer">Recording</a><br><span class="sources__pub">UiPath Documentation · Accessed November 5, 2026</span></div></li></ol></section>
+  <p class="note">This piece is prepared by an AI-assisted research and writing pipeline, within editorial rules I set and experience I have verified, and is published automatically after source and number checks. If you spot a mistake, write to me and I will fix it.</p>
+  <section class="related" aria-labelledby="rel-h"><h2 class="section__title" id="rel-h">More on this topic</h2><ul class="list"><li class="list__item"><a href="../efatura-robotu-mutabakat/"><p class="meta"><span class="meta__kind">Use case</span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span>RPA &amp; orchestration</span></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><time datetime="2026-10-12">October 12, 2026</time></span><span class="meta__part"><span class="meta__dot" aria-hidden="true">·</span><span class="num">6 min read</span></span></p><span class="list__title">In an e-invoice robot, reconciliation is the real work</span></a></li></ul></section>
+  <nav class="pager" aria-label="Previous / Next"><a class="pager__prev" href="../radar-2026-w45/"><span class="pager__dir">Previous</span><span class="pager__title">e-Müstahsil deadline moves to June 2027, UiPath merges agent governance on 2 December</span></a></nav>
+</article>
+</main>
+<footer class="foot">
+<div class="wrap">
+  <div class="foot__row">
+    <div>
+      <p class="foot__name">Kaan Özdemir</p>
+      <p class="foot__tag">On automation, document AI and agentic AI. Sourced, without hype.</p>
+    </div>
+    <ul class="foot__links">
+      <li><a href="../../feed.xml">RSS</a></li>
+      <li><a href="https://www.linkedin.com/in/servetkaanozdemir/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="../../../../index.html">Portfolio</a></li>
+      <li><a href="mailto:kaan.ozdemir@botteq.com.tr">Email</a></li>
+      <li><a href="../../about/">About</a></li>
+    </ul>
+  </div>
+  <p class="foot__legal">© 2026 S. Kaan Özdemir. Views are personal and are not those of BOTTEQ Consulting or its clients. Client details are anonymised.</p>
+</div>
+</footer>
+<dialog class="search" id="search" aria-label="Search" data-index="../../../search-en.json" data-base="../../../">
+  <div class="search__bar">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="search__input" type="search" placeholder="Search the writing" aria-label="Search the writing" autocomplete="off" spellcheck="false">
+    <button class="search__close" type="button" aria-label="Close"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <ul class="search__results"><li class="search__hint">Type a title, topic or tag.</li></ul>
+</dialog>
+<script src="../../../assets/blog.js?v=a078a93e2e" defer></script>
+</body>
+</html>
